@@ -9,6 +9,7 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path("/home/home/ap-physics")
+UNIT2 = ROOT / "unit2"
 S_PDF = Path("/home/home/Downloads/Unit 2 Topic Questions. Solutions.pdf")
 KEEP = {1, 2, 4, 5}
 REQUIRED_CSS = [".player {", ".stage {", ".problem-bar {", ".eq {", ".caption {", ".controls {"]
@@ -33,23 +34,23 @@ def main() -> None:
     issues = defaultdict(list)
     answers = sol_answers()
     master = (ROOT / "index.html").read_text()
-    if 'href="index_unit2.html"' not in master:
+    if 'href="unit2/index.html"' not in master:
         issues["master_toc"].append("missing Unit 2 link")
-    toc = (ROOT / "index_unit2.html").read_text()
-    toc_nums = [int(n) for n in re.findall(r'href="unit2-q(\d+)/index.html"', toc)]
+    toc = (UNIT2 / "index.html").read_text()
+    toc_nums = [int(n) for n in re.findall(r'href="q(\d+)/index.html"', toc)]
     if toc_nums != list(range(1, 91)):
         issues["toc"].append(toc_nums)
-    crop_report = json.loads((ROOT / "figures" / "crop-report.json").read_text())
+    crop_report = json.loads((UNIT2 / "figures" / "crop-report.json").read_text())
     bad_crops = crop_report.get("bad") or [r for r in crop_report["all"] if not r["ok"]]
     if bad_crops:
         issues["crops"].extend(bad_crops)
-    ans_report = json.loads((ROOT / "figures" / "answer-crop-report.json").read_text())
+    ans_report = json.loads((UNIT2 / "figures" / "answer-crop-report.json").read_text())
     bad_ans = ans_report.get("bad") or [r for r in ans_report["all"] if not r["ok"]]
     if bad_ans:
         issues["answer_crops"].extend(bad_ans)
 
     for i in range(1, 91):
-        d = ROOT / f"unit2-q{i}"
+        d = UNIT2 / f"q{i}"
         htmlp = d / "index.html"
         if not htmlp.exists():
             issues["missing_html"].append(i)
@@ -60,7 +61,7 @@ def main() -> None:
                 issues["css"].append((i, css))
         if "fleqn" not in html:
             issues["fleqn"].append(i)
-        if "../index_unit2.html" not in html:
+        if 'href="../index.html">Contents</a>' not in html:
             issues["contents"].append(i)
         fig = f"../figures/q{i:02d}.png"
         ans = f"../figures/a{i:02d}.png"
@@ -70,17 +71,17 @@ def main() -> None:
             issues["answer_img_link"].append(i)
         if ">The answer is</a>" not in html and "The answer is</a>" not in html:
             issues["answer_text_link"].append(i)
-        if not (ROOT / "figures" / f"a{i:02d}.png").exists():
+        if not (UNIT2 / "figures" / f"a{i:02d}.png").exists():
             issues["missing_answer_crop"].append(i)
         if i == 1:
             if 'class="off">Previous problem' not in html:
                 issues["nav_prev"].append(i)
-        elif f"unit2-q{i-1}" not in html:
+        elif f"../q{i-1}/index.html" not in html:
             issues["nav_prev"].append(i)
         if i == 90:
             if 'class="off">Next problem' not in html:
                 issues["nav_next"].append(i)
-        elif f"unit2-q{i+1}" not in html:
+        elif f"../q{i+1}/index.html" not in html:
             issues["nav_next"].append(i)
 
         extra = next((r.get("extra_questions") for r in crop_report["all"] if r["n"] == i), [])

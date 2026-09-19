@@ -43,7 +43,7 @@ def main() -> None:
     repeated_tex = []
     ok = []
     for n in range(1, 91):
-        html = (ROOT / f"unit2-q{n}" / "index.html").read_text()
+        html = (ROOT / "unit2" / f"q{n}" / "index.html").read_text()
         steps = load_steps(html)
         if isinstance(steps, dict) and steps.get("_unquoted"):
             raw = steps["_raw"]

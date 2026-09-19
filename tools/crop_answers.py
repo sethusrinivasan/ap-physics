@@ -24,7 +24,8 @@ from crop_questions import (
 
 ROOT = Path("/home/home/ap-physics")
 S_PDF = Path("/home/home/Downloads/Unit 2 Topic Questions. Solutions.pdf")
-FIG_DIR = ROOT / "figures"
+UNIT2 = ROOT / "unit2"
+FIG_DIR = UNIT2 / "figures"
 HIRES_DIR = FIG_DIR / "sol-hires"
 REPORT = FIG_DIR / "answer-crop-report.json"
 

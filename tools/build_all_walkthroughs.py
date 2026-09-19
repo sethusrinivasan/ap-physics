@@ -12,9 +12,10 @@ from pathlib import Path
 ROOT = Path("/home/home/ap-physics")
 Q_PDF = Path("/home/home/Downloads/Unit 2 Topic Questions.pdf")
 S_PDF = Path("/home/home/Downloads/Unit 2 Topic Questions. Solutions.pdf")
-FIG_DIR = ROOT / "figures"
-AUDIO_GEN = (ROOT / "unit2-q2" / "generate-audio.mjs").read_text()
-Q2 = (ROOT / "unit2-q2" / "index.html").read_text()
+UNIT2 = ROOT / "unit2"
+FIG_DIR = UNIT2 / "figures"
+AUDIO_GEN = (UNIT2 / "q2" / "generate-audio.mjs").read_text()
+Q2 = (UNIT2 / "q2" / "index.html").read_text()
 
 JUNK = re.compile(
     r"(AP PHYSICS C: MECHANICS|Scoring Guide|Test Booklet|"
@@ -275,8 +276,8 @@ CSS, JS_PRE, JS_MID, JS_REST = player_parts()
 
 
 def build_html(n: int, total: int, stem: str, choices: list[tuple[str, str]], answer: str, page: int, steps: list[dict]) -> str:
-    prev = f'<a href="../unit2-q{n-1}/index.html">Previous problem</a>' if n > 1 else '<span class="off">Previous problem</span>'
-    nxt = f'<a href="../unit2-q{n+1}/index.html">Next problem</a>' if n < total else '<span class="off">Next problem</span>'
+    prev = f'<a href="../q{n-1}/index.html">Previous problem</a>' if n > 1 else '<span class="off">Previous problem</span>'
+    nxt = f'<a href="../q{n+1}/index.html">Next problem</a>' if n < total else '<span class="off">Next problem</span>'
     fig = f"../figures/qpage-{page:02d}.png"
     ans = f"../figures/a{n:02d}.png"
     stem_html = escape(stem)
@@ -324,7 +325,7 @@ def build_html(n: int, total: int, stem: str, choices: list[tuple[str, str]], an
       <h1>Interactive walkthrough · Unit 2, Question {n}</h1>
       <nav class="problem-nav" aria-label="Problem navigation">
         {prev}
-        <a href="../index_unit2.html">Contents</a>
+        <a href="../index.html">Contents</a>
         {nxt}
       </nav>
     </header>
@@ -396,7 +397,7 @@ def toc_row(n: int, stem: str) -> str:
             <div class="topic">{escape(topic)}</div>
             <p class="blurb">{escape(blurb)}</p>
           </td>
-          <td><a class="open" href="unit2-q{n}/index.html">Open walkthrough</a></td>
+          <td><a class="open" href="q{n}/index.html">Open walkthrough</a></td>
         </tr>"""
 
 
@@ -453,34 +454,34 @@ def write_toc(rows: list[str]):
 {chr(10).join(rows)}
       </tbody>
     </table>
-    <p class="hint">To add another problem, follow <a href="PROMPT.md" style="color: var(--accent);">PROMPT.md</a>.</p>
+    <p class="hint">To add another problem, follow <a href="../tools/PROMPT.md" style="color: var(--accent);">PROMPT.md</a>.</p>
   </div>
 </body>
 </html>
 """
-    (ROOT / "index_unit2.html").write_text(html)
+    (UNIT2 / "index.html").write_text(html)
 
 
 def patch_nav(n: int, total: int):
-    path = ROOT / f"unit2-q{n}" / "index.html"
+    path = UNIT2 / f"q{n}" / "index.html"
     if not path.exists():
         return
     text = path.read_text()
     prev = (
         '<span class="off">Previous problem</span>'
         if n == 1
-        else f'<a href="../unit2-q{n-1}/index.html">Previous problem</a>'
+        else f'<a href="../q{n-1}/index.html">Previous problem</a>'
     )
     nxt = (
         '<span class="off">Next problem</span>'
         if n == total
-        else f'<a href="../unit2-q{n+1}/index.html">Next problem</a>'
+        else f'<a href="../q{n+1}/index.html">Next problem</a>'
     )
     text = re.sub(
         r'<nav class="problem-nav" aria-label="Problem navigation">.*?</nav>',
         '<nav class="problem-nav" aria-label="Problem navigation">\n        '
         + prev
-        + '\n        <a href="../index_unit2.html">Contents</a>\n        '
+        + '\n        <a href="../index.html">Contents</a>\n        '
         + nxt
         + "\n      </nav>",
         text,
@@ -512,7 +513,7 @@ def main():
         if n in (1, 2):
             continue
         steps = make_steps(n, stem, reason, answer)
-        dest = ROOT / f"unit2-q{n}"
+        dest = UNIT2 / f"q{n}"
         dest.mkdir(parents=True, exist_ok=True)
         (dest / "audio").mkdir(exist_ok=True)
         (dest / "generate-audio.mjs").write_text(AUDIO_GEN)
@@ -524,10 +525,9 @@ def main():
     write_toc(toc)
     for n in range(1, total + 1):
         patch_nav(n, total)
-    prompt = (ROOT / "PROMPT.md").read_text()
-    prompt = prompt.replace("currently `unit2-q2/`", "currently `unit2-q90/`")
-    prompt = prompt.replace("currently `unit2-q5/`", "currently `unit2-q90/`")
-    (ROOT / "PROMPT.md").write_text(prompt)
+    prompt = (ROOT / "tools" / "PROMPT.md").read_text()
+    prompt = prompt.replace("currently `unit2/q90/`", "currently `unit2/q90/`")
+    (ROOT / "tools" / "PROMPT.md").write_text(prompt)
     print("done", total)
 
 

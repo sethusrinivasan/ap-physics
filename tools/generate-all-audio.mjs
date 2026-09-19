@@ -6,7 +6,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONCURRENCY = Number(process.env.TTS_CONCURRENCY || 6);
 const FORCE = process.env.TTS_FORCE === "1";
 const ONLY_FIRST = process.env.TTS_ONLY_FIRST === "1";
-const KEEP = new Set([1, 2, 4, 5].map((n) => `unit2-q${n}`));
+const KEEP = new Set(["q1", "q2", "q4", "q5"]);
 
 function loadSteps(htmlPath) {
   const html = fs.readFileSync(htmlPath, "utf8");
@@ -103,10 +103,11 @@ async function googleTTS(text, attempt = 1) {
 }
 
 function problemDirs() {
-  return fs.readdirSync(ROOT)
-    .filter((name) => /^unit2-q\d+$/.test(name))
+  const unit2 = path.join(ROOT, "unit2");
+  return fs.readdirSync(unit2)
+    .filter((name) => /^q\d+$/.test(name))
     .sort((a, b) => Number(a.match(/\d+/)[0]) - Number(b.match(/\d+/)[0]))
-    .map((name) => path.join(ROOT, name));
+    .map((name) => path.join(unit2, name));
 }
 
 function complete(dir, stepCount) {

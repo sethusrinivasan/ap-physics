@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unit 2 Q25 · Walkthrough</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" />
+  <style>
+    :root {
+      --bg: #071018;
+      --stage: #0d1b2a;
+      --panel: #102033;
+      --ink: #e8eef6;
+      --muted: #9bb0c7;
+      --line: #27415c;
+      --accent: #5ec8ff;
+      --gold: #f0c75e;
+      --ok: #5bd08a;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Liberation Sans", "Ubuntu", "Segoe UI", sans-serif;
+    }
+    body {
+      display: grid;
+      place-items: start center;
+      padding: 16px 16px 32px;
+    }
+    .app {
+      width: min(1180px, 100%);
+      display: grid;
+      gap: 12px;
+    }
+    header h1 { margin: 0; font-size: 20px; font-weight: 700; }
+    header p { margin: 4px 0 8px; color: var(--muted); font-size: 13px; }
+    .problem-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 2px;
+    }
+    .problem-nav a, .problem-nav .off {
+      border: 1px solid var(--line);
+      background: #132536;
+      color: var(--ink);
+      border-radius: 7px;
+      padding: 8px 12px;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .problem-nav a:hover { border-color: var(--accent); }
+    .problem-nav .off { opacity: 0.4; color: var(--muted); }
+    .problem-nav .where { color: var(--muted); font-size: 13px; }
+    .problem-bar {
+      position: sticky;
+      top: 0;
+      z-index: 8;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 14px;
+      align-items: center;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .problem-bar h2 {
+      margin: 0 0 6px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .problem-bar h2 a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .problem-bar h2 a:hover {
+      color: var(--accent);
+    }
+    .problem-bar h2 .dot {
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      text-decoration: none;
+    }
+    .problem-tools {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+    }
+    .problem-tools h2 { margin: 0; }
+    .problem-toggle {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: #132536;
+      color: var(--ink);
+      border-radius: 7px;
+      padding: 6px 10px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .problem-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .problem-bar.collapsed {
+      grid-template-columns: 1fr;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .problem-bar.collapsed .exam-frame,
+    .problem-bar.collapsed .mini-bar,
+    .problem-bar.collapsed > svg,
+    .problem-bar.collapsed .choices,
+    .problem-bar.collapsed > div > p {
+      display: none !important;
+    }
+    .scene-title a, .cc a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .scene-title a:hover, .cc a:hover {
+      color: var(--accent);
+    }
+    .problem-bar p {
+      margin: 0 0 8px;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #d7e6f5;
+    }
+    .mini-bar { width: 100%; height: auto; display: block; }
+    .player {
+      display: grid;
+      grid-template-columns: 1fr 270px;
+      gap: 12px;
+      align-items: start;
+    }
+    .stage-wrap {
+      background: #000;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .stage {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: radial-gradient(1200px 400px at 50% -10%, #16324c 0%, var(--stage) 55%);
+      overflow: hidden;
+    }
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 16px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .scene-title {
+      position: absolute;
+      top: 28px;
+      left: 16px;
+      right: 16px;
+      margin: 0;
+      font-size: 19px;
+      font-weight: 700;
+    }
+    .viz {
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      top: 54px;
+      height: 104px;
+    }
+    .iso { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .cut, .cm, .cm-label { position: absolute; display: none; pointer-events: none; }
+    .cut.on, .cm.on, .cm-label.on { display: block; }
+    .cut {
+      top: 4px;
+      bottom: 34px;
+      width: 2px;
+      margin-left: -1px;
+      background: var(--gold);
+    }
+    .cut::after {
+      content: "cut";
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .cm {
+      top: 14px;
+      width: 12px;
+      height: 12px;
+      margin-left: -6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+    .cm-label {
+      top: -2px;
+      transform: translateX(-50%);
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .cm-label .katex, .cm-label .tex { font-size: 12px; color: var(--gold); }
+    .ruler {
+      position: absolute;
+      left: 5%;
+      width: 87.5%;
+      top: 92px;
+      height: 26px;
+      display: none;
+    }
+    .ruler.on { display: block; }
+    .tick {
+      position: absolute;
+      top: 0;
+      width: 1px;
+      height: 10px;
+      background: #7f97b0;
+    }
+    .tick span {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .eq {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      top: 168px;
+      bottom: 58px;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 8px;
+      color: #eef4fb;
+      text-align: left;
+    }
+    .eq-block {
+      background: rgba(7, 18, 30, 0.45);
+      border: 1px solid #1e364c;
+      border-radius: 8px;
+      padding: 7px 10px 8px;
+    }
+    .vars-label, .formula-label {
+      margin: 0 0 4px;
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .formula-label { color: var(--muted); margin-top: 6px; }
+    .why {
+      margin: 4px 0 0;
+      font-size: 13px;
+      line-height: 1.4;
+      color: #c5d6e8;
+    }
+    .vars {
+      list-style: none;
+      margin: 0 0 2px;
+      padding: 0;
+    }
+    .vars li {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 10px;
+      align-items: baseline;
+      margin: 0 0 3px;
+      font-size: 13px;
+      line-height: 1.35;
+      color: #c5d6e8;
+      text-align: left;
+    }
+    .vars .sym { color: var(--accent); }
+    .vars .sym .katex, .vars .sym .tex { font-size: 1.05em; color: var(--accent); }
+    .math-line { width: 100%; text-align: left; }
+    .math-line.ok .katex, .math-line.ok .tex { color: var(--ok); }
+    .katex { color: inherit; font-size: 1.16em; }
+    .katex-display {
+      margin: 0.08em 0;
+      text-align: left !important;
+    }
+    .katex-display > .katex { text-align: left; }
+    .tex {
+      font-family: "Liberation Serif", "Times New Roman", Times, serif;
+      font-style: italic;
+      font-size: 1.35em;
+      color: inherit;
+      line-height: 1.35;
+    }
+    .tex.display { display: block; text-align: left; margin: 2px 0; }
+    .tex .mathrm, .tex sub { font-style: normal; font-family: "Liberation Serif", "Times New Roman", Times, serif; }
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      vertical-align: middle;
+      margin: 0 0.18em;
+    }
+    .frac .num, .frac .den { padding: 1px 0.4em; line-height: 1.15; }
+    .frac .num { border-bottom: 1.6px solid currentColor; }
+    .choices { display: flex; flex-wrap: wrap; gap: 8px; }
+    .choice {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 13px;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0c1a28;
+    }
+    .choice .katex, .choice .tex { font-size: 1em; color: var(--ink); }
+    .choice.win, .problem-bar.answered #choiceD {
+      border-color: var(--ok);
+      color: var(--ok);
+      background: rgba(91, 208, 138, 0.08);
+    }
+    .caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 8px 16px 10px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.86));
+      text-align: left;
+      font-size: 14px;
+      min-height: 48px;
+    }
+    .cc {
+      display: inline-block;
+      max-width: 920px;
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 6px;
+      padding: 5px 12px;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: #08141f;
+      border-top: 1px solid var(--line);
+    }
+    button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: #132536;
+      color: var(--ink);
+      border-radius: 7px;
+      height: 36px;
+      padding: 0 12px;
+      font: inherit;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--accent); }
+    button.primary {
+      background: var(--accent);
+      color: #062033;
+      border-color: var(--accent);
+      font-weight: 700;
+      min-width: 84px;
+    }
+    .timeline {
+      flex: 1;
+      height: 8px;
+      background: #1c3348;
+      border-radius: 99px;
+      position: relative;
+      cursor: pointer;
+    }
+    .fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 0%;
+      background: var(--accent);
+      border-radius: 99px;
+    }
+    .marks { position: absolute; inset: 0; }
+    .marks i {
+      position: absolute;
+      top: -3px;
+      width: 2px;
+      height: 14px;
+      background: #8fb4d2;
+      opacity: 0.55;
+    }
+    .time {
+      font-variant-numeric: tabular-nums;
+      font-size: 12px;
+      color: var(--muted);
+      min-width: 84px;
+      text-align: right;
+    }
+    .chapters {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      max-height: min(640px, 72vh);
+      overflow: auto;
+    }
+    .chapters h2 {
+      margin: 2px 8px 8px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .chapters button {
+      width: 100%;
+      height: auto;
+      text-align: left;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+    }
+    .chapters button.active { border-color: var(--accent); background: #16344c; }
+    .chapters button.done .num { color: var(--ok); }
+    .num { font-weight: 700; color: var(--accent); font-size: 12px; }
+    .ch-title { font-weight: 600; font-size: 13px; }
+    .ch-sub { color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .hint { color: var(--muted); font-size: 12px; }
+    select {
+      background: #132536;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      height: 28px;
+      margin-left: 4px;
+    }
+    @media (max-width: 900px) {
+      .problem-bar, .player { grid-template-columns: 1fr; }
+      .chapters { max-height: none; }
+    }
+
+    .problem-bar.exam {
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 8px;
+    }
+    .exam-frame {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      max-height: min(42vh, 440px);
+      overflow: auto;
+    }
+    .exam-frame img.exam-cut {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #ffffff;
+    }
+    .exam-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 12px;
+    }
+    .exam-meta h2 { margin: 0; }
+    .exam-meta p { display: none; }
+    .viz.pagefig {
+      display: none;
+      height: 0;
+    }
+    .eq.page-eq {
+      top: 56px;
+      bottom: 54px;
+    }
+    .eq.page-eq .eq-block {
+      padding: 12px 14px 14px;
+    }
+    .eq.page-eq .why {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .eq.page-eq .katex { font-size: 1.28em; }
+    .eq.page-eq .vars li {
+      grid-template-columns: 140px 1fr;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Interactive walkthrough · Unit 2, Question 25</h1>
+      <nav class="problem-nav" aria-label="Problem navigation">
+        <a href="../q24/index.html">Previous problem</a>
+        <a href="../index.html">Contents</a>
+        <a href="../q26/index.html">Next problem</a>
+      </nav>
+    </header>
+    <section class="problem-bar exam" id="problemBar" aria-label="Problem statement">
+      <div class="exam-frame">
+        <img class="exam-cut" src="../figures/q25.png" alt="Question 25 exact exam item, including figure and choices" />
+      </div>
+      <div class="exam-meta">
+        <div class="problem-tools">
+        <h2><a href="../figures/q25.png" target="_blank" rel="noopener noreferrer">The problem</a><span class="dot"> · </span><a href="../figures/a25.png" target="_blank" rel="noopener noreferrer">The answer is</a></h2>
+        <button type="button" class="problem-toggle" id="problemToggle" aria-expanded="true" aria-controls="problemBar">Hide question</button>
+      </div>
+        <p>Exact exam cut from the source PDF: wording, figure, and choices A–D. The walkthrough names each symbol before the formula.</p>
+        <div class="choices" id="problemChoices"></div>
+      </div>
+    </section>
+    <div class="player">
+      <div class="stage-wrap">
+        <div class="stage" id="stage" role="region" aria-label="Physics walkthrough video">
+          <h2 class="scene-title" id="sceneTitle">Read the problem</h2>
+          <div class="viz pagefig" id="viz" hidden></div>
+          <div class="eq page-eq" id="eq"></div>
+          <div class="caption"><span class="cc" id="caption">Press Play. The problem remains visible at the top.</span></div>
+        </div>
+        <div class="controls">
+          <button id="prevBtn" type="button" aria-label="Previous step">Prev</button>
+          <button id="playBtn" class="primary" type="button">Play</button>
+          <button id="nextBtn" type="button" aria-label="Next step">Next</button>
+          <div class="timeline" id="timeline" role="slider" aria-label="Video progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="fill" id="fill"></div>
+            <div class="marks" id="marks"></div>
+          </div>
+          <div class="time" id="time">0:00 / 0:00</div>
+          <button id="muteBtn" type="button">Mute</button>
+          <label class="hint">Speed
+            <select id="rate" aria-label="Playback speed">
+              <option value="0.85">0.85x</option>
+              <option value="1" selected>1x</option>
+              <option value="1.15">1.15x</option>
+            </select>
+          </label>
+        </div>
+        <audio id="narration" preload="auto"></audio>
+      </div>
+      <aside class="chapters" aria-label="Steps">
+        <h2>Steps</h2>
+        <div id="chapterList"></div>
+      </aside>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+  <script>
+    const STEPS = [
+      {
+        title: "F a and F b are the A-B contact pair",
+        blurb: "They stay equal if F h grows",
+        caption: "Raising F h can speed the pair up. It cannot make |F a| differ from |F b|.",
+        lead: "Look at Question 25. Blocks A and B are pushed at constant speed across a rough floor by a horizontal force F h on A. The force A exerts on B is F a, and the force B exerts on A is F b. Then the magnitude of F h is increased. The question is what happens to those two contact magnitudes.",
+        blocks: [{
+          vars: [
+            { tex: "F_h", say: "F h", meaning: "the applied push on block A, originally just large enough for constant speed" },
+            { tex: "F_a", say: "F a", meaning: "the force exerted on B by A" },
+            { tex: "F_b", say: "F b", meaning: "the force exerted on A by B" }
+          ],
+          explain: "F a and F b are one interaction. Newton's third law will keep their magnitudes equal before and after F h changes. The second-law question is whether that shared magnitude goes up."
+        }]
+      },
+      {
+        title: "Name the original constant-speed condition",
+        blurb: "Rough surface, two kinetic frictions",
+        caption: "Originally a = 0. Each block has kinetic friction from the floor.",
+        lead: "Copy the setup. The surface is rough, so each block has a kinetic friction force opposing the motion. Originally the pair moves at constant speed, so the acceleration is zero.",
+        blocks: [{
+          vars: [
+            { tex: "f_a", say: "f a", meaning: "kinetic friction on A, backward" },
+            { tex: "f_b", say: "f b", meaning: "kinetic friction on B, backward" },
+            { tex: "a", say: "a", meaning: "the acceleration of the two-block system; originally 0" }
+          ],
+          explain: "When F h later increases, kinetic friction on a given block does not have to match the new F h. The leftover net force accelerates both blocks.",
+          tex: "a = 0\quad\text{(originally)}",
+          speakFormula: "Originally a equals 0."
+        }]
+      },
+      {
+        title: "Write Newton's third law for the contact",
+        blurb: "Equal magnitudes at every instant",
+        caption: "F a and F b remain a pair even after F h changes.",
+        lead: "Here is the law. Each symbol is named before it appears in the formula.",
+        blocks: [{
+          vars: [
+            { tex: "\vec{F}_a", say: "F a", meaning: "A on B" },
+            { tex: "\vec{F}_b", say: "F b", meaning: "B on A, the other member of the same contact" }
+          ],
+          explain: "This already kills choices A, B, and C, which all let |F a| differ from |F b|. Next, show that the common magnitude must increase.",
+          tex: "\vec{F}_a = -\vec{F}_b",
+          speakFormula: "F a equals the negative of F b."
+        }]
+      },
+      {
+        title: "Substitute into Newton's second law on B",
+        blurb: "Larger F h means B starts to accelerate",
+        caption: "On B, F a has to beat friction by m b a. When a rises, F a rises.",
+        lead: "Apply the laws to these blocks. First the whole pair, then block B alone. After F h is increased, the net force on A plus B is no longer zero, so both blocks accelerate.",
+        blocks: [
+          {
+            vars: [
+              { tex: "m_a", say: "m a", meaning: "the mass of block A" },
+              { tex: "m_b", say: "m b", meaning: "the mass of block B" }
+            ],
+            explain: "Originally F h canceled f a plus f b. A larger F h leaves a leftover that equals (m a plus m b) times a, with a now greater than 0. Block B therefore begins accelerating, as the official solution says.",
+            tex: "F_h - f_a - f_b = (m_a + m_b)a",
+            speakFormula: "F h minus f a minus f b equals m a plus m b, times a."
+          },
+          {
+            vars: [
+              { tex: "|F_a|", say: "the magnitude of F a", meaning: "the push A gives B, which equals |F b|" }
+            ],
+            explain: "On B the only forward force is F a. After a becomes positive, F a must exceed f b, so |F a| is larger than it was at constant speed. |F b| rises with it.",
+            tex: "|F_a| - f_b = m_b a \quad\Rightarrow\quad |F_a| = f_b + m_b a",
+            speakFormula: "F a minus f b equals m b a, so F a equals f b plus m b a."
+          }
+        ]
+      },
+      {
+        title: "Both magnitudes increase and stay equal",
+        blurb: "Third law plus a greater than 0",
+        caption: "Originally |F a| = f b. After the increase, |F a| = f b plus m b a.",
+        lead: "Compare the two values of the shared contact magnitude.",
+        blocks: [{
+          vars: [
+            { tex: "|F_a|_{a=0}", say: "F a at constant speed", meaning: "the original contact magnitude, equal to friction on B" },
+            { tex: "|F_a|_{a>0}", say: "F a after F h increases", meaning: "the new, larger contact magnitude" }
+          ],
+          explain: "The new value is larger, and |F b| equals |F a| both before and after. That is choice D.",
+          tex: "|F_a|_{a>0} = f_b + m_b a > f_b = |F_a|_{a=0}",
+          speakFormula: "After the increase, F a is f b plus m b a, which is greater than the original F a, which was just f b."
+        }]
+      },
+      {
+        title: "Why A, B, and C fail",
+        blurb: "They split the pair or rank F a above F b",
+        caption: "A and B send the two magnitudes in opposite directions. C keeps them unequal.",
+        lead: "Choices A, B, and C all violate Newton's third law for this contact.",
+        blocks: [{
+          vars: [
+            { tex: "\text{A}", say: "choice A", meaning: "|F a| decreases and |F b| increases" },
+            { tex: "\text{B}", say: "choice B", meaning: "|F a| increases and |F b| decreases" },
+            { tex: "\text{C}", say: "choice C", meaning: "|F a| greater than |F b|, though both increase" }
+          ],
+          explain: "A and B would require the two members of one pair to move opposite ways. C admits they both increase but still ranks |F a| above |F b|, which the third law forbids.",
+          tex: "\text{reject A, B, and C}"
+        }]
+      },
+      {
+        title: "The answer is D",
+        blurb: "Equal pair, both increase",
+        caption: "|F a| and |F b| both increase and remain equal to each other.",
+        lead: "The correct choice is D. The contact pair stays equal, and both members grow once B accelerates.",
+        blocks: [{
+          vars: [
+            { tex: "F_a", say: "F a", meaning: "A on B" },
+            { tex: "F_b", say: "F b", meaning: "B on A" }
+          ],
+          explain: "F a and F b are an action-reaction pair, so they are equal in magnitude at all times. Both increase because block B begins accelerating after F h is raised.",
+          tex: "|F_a| = |F_b|\quad\text{and both increase}",
+          speakFormula: "The correct choice is D. The magnitude of F a equals the magnitude of F b, and both increase."
+        }],
+        highlight: true
+      }
+    ];
+    const $ = (id) => document.getElementById(id);
+    const playBtn = $("playBtn");
+    const captionEl = $("caption");
+    const eqEl = $("eq");
+    const titleEl = $("sceneTitle");
+    const fillEl = $("fill");
+    const timeEl = $("time");
+    const chapterList = $("chapterList");
+    const muteBtn = $("muteBtn");
+    const rateSel = $("rate");
+    const problemBar = $("problemBar");
+    const problemToggle = $("problemToggle");
+    function setQuestionOpen(open) {
+      problemBar.classList.toggle("collapsed", !open);
+      if (problemToggle) {
+        problemToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        problemToggle.textContent = open ? "Hide question" : "Show question";
+      }
+      try { sessionStorage.setItem("ap-hide-question", open ? "0" : "1"); } catch (err) {}
+    }
+    if (problemToggle) {
+      setQuestionOpen(sessionStorage.getItem("ap-hide-question") !== "1");
+      problemToggle.addEventListener("click", () => {
+        setQuestionOpen(problemBar.classList.contains("collapsed"));
+      });
+    }
+    const ANSWER_IMG = document.querySelector('.problem-bar h2 a[href*="figures/a"]')?.getAttribute("href") || "";
+    function linkAnswerText(text) {
+      const esc = String(text || "").replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+      return esc.replace(
+        /(The answer is(?:\s+[A-D])?)/g,
+        (s) => `<a class="answer-img-link" href="${ANSWER_IMG}" target="_blank" rel="noopener noreferrer">${s}</a>`
+      );
+    }
+
+    let index = 0;
+    let playing = false;
+    let muted = false;
+    let rate = 1;
+    let sceneTimer = null;
+    let startedAt = 0;
+    let sceneDur = 1;
+    let raf = null;
+    let runId = 0;
+    const narration = $("narration");
+    const audioDurations = new Array(STEPS.length).fill(0);
+    let endSpeak = null;
+
+    function audioSrc(i) {
+      return `audio/step-${String(i + 1).padStart(2, "0")}.mp3`;
+    }
+    function preloadAudio() {
+      STEPS.forEach((_, i) => {
+        const probe = new Audio(audioSrc(i));
+        probe.preload = "metadata";
+        probe.addEventListener("loadedmetadata", () => {
+          audioDurations[i] = probe.duration * 1000;
+          buildChapters();
+          updateTimeline(0);
+        });
+      });
+    }
+
+    function fallbackTex(src, display) {
+      let s = String(src);
+      const repl = [
+        [/\\mathrm\{([^}]*)\}/g, '<span class="mathrm">$1</span>'],
+        [/\\text\{([^}]*)\}/g, '<span class="mathrm">$1</span>'],
+        [/\\,/g, '<span class="mathrm">&nbsp;</span>'],
+        [/\\qquad/g, '&emsp;&emsp;'],
+        [/\\quad/g, '&emsp;'],
+        [/\\Rightarrow/g, '<span class="mathrm">⇒</span>'],
+        [/\\cdot/g, '·'],
+        [/\\times/g, '×'],
+        [/\\left\(/g, '('],
+        [/\\right\)/g, ')'],
+        [/\\rho/g, 'ρ'],
+        [/\\dfrac/g, '\\frac'],
+        [/\\tfrac/g, '\\frac']
+      ];
+      repl.forEach(([re, to]) => { s = s.replace(re, to); });
+      let guard = 0;
+      while (s.includes('\\frac') && guard < 8) {
+        s = s.replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/,
+          '<span class="frac"><span class="num">$1</span><span class="den">$2</span></span>');
+        guard += 1;
+      }
+      s = s.replace(/_\{([^}]+)\}/g, '<sub>$1</sub>').replace(/_([A-Za-z0-9])/g, '<sub>$1</sub>');
+      return `<span class="tex${display ? ' display' : ''}">${s}</span>`;
+    }
+
+    function renderTex(src, display) {
+      if (window.katex) {
+        try {
+          return katex.renderToString(src, {
+            displayMode: !!display,
+            fleqn: true,
+            throwOnError: false,
+            output: "html",
+            strict: "ignore"
+          });
+        } catch (err) {
+          return fallbackTex(src, display);
+        }
+      }
+      return fallbackTex(src, display);
+    }
+
+
+
+    const ANSWER = "D";
+    function choiceRow(winner) {
+      return ["A", "B", "C", "D"].map((letter) =>
+        `<span class="choice${winner && letter === ANSWER ? " win" : ""}" id="choice${letter}">(${letter})</span>`
+      ).join("");
+    }
+    function words(text) { return text.trim().split(/\s+/).length; }
+    function stepSpeech(step) {
+      const parts = [];
+      if (step.lead) parts.push(step.lead);
+      (step.blocks || []).forEach((block) => {
+        if (block.vars && block.vars.length) {
+          parts.push("Here is what each symbol means.");
+          block.vars.forEach((item) => {
+            parts.push(`${item.say} means ${item.meaning}.`);
+          });
+        }
+        if (block.explain) parts.push(block.explain);
+        if (block.speakFormula) parts.push(block.speakFormula);
+      });
+      return parts.join(" ");
+    }
+    function varsHTML(vars) {
+      if (!vars || !vars.length) return "";
+      const rows = vars.map((item) =>
+        `<li><span class="sym">${renderTex(item.tex, false)}</span><span class="mean">${item.meaning}</span></li>`
+      ).join("");
+      return `<p class="vars-label">What each symbol means</p><ul class="vars">${rows}</ul>`;
+    }
+    function durationMs(step) {
+      const idx = STEPS.indexOf(step);
+      if (idx >= 0 && audioDurations[idx] > 0) return audioDurations[idx] / rate;
+      return Math.max(5600, Math.round((words(stepSpeech(step)) * 430) / rate) + 800);
+    }
+    function totalMs() { return STEPS.reduce((sum, step) => sum + durationMs(step), 0); }
+    function elapsedBefore(i) {
+      return STEPS.slice(0, i).reduce((sum, step) => sum + durationMs(step), 0);
+    }
+    function fmt(ms) {
+      const s = Math.max(0, Math.round(ms / 1000));
+      return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+    }
+    function stopSpeech() {
+      if (endSpeak) endSpeak();
+      endSpeak = null;
+      narration.pause();
+      narration.removeAttribute("src");
+      try { narration.load(); } catch (err) { /* ignore */ }
+      clearTimeout(sceneTimer);
+      sceneTimer = null;
+      if (raf) cancelAnimationFrame(raf);
+    }
+    function speak(stepIndex, token) {
+      return new Promise((resolve) => {
+        let done = false;
+        const finish = () => {
+          if (done) return;
+          done = true;
+          endSpeak = null;
+          narration.onended = null;
+          narration.onerror = null;
+          clearTimeout(sceneTimer);
+          resolve();
+        };
+        if (token !== runId) return finish();
+        endSpeak = finish;
+        narration.onended = finish;
+        narration.onerror = finish;
+        narration.muted = muted;
+        narration.playbackRate = rate;
+        narration.src = audioSrc(stepIndex);
+        const fallback = durationMs(STEPS[stepIndex]) + 8000;
+        sceneTimer = setTimeout(finish, fallback);
+        const start = narration.play();
+        if (start && start.catch) {
+          start.catch(() => {
+            /* keep waiting on fallback so the step still advances */
+          });
+        }
+      });
+    }
+
+
+    function renderVisual(step) {
+      /* Exam cut lives only in the sticky bar. Do not repeat it on the stage. */
+    }
+    function paintStep(i) {
+      const step = STEPS[i];
+      titleEl.innerHTML = linkAnswerText(step.title);
+      captionEl.innerHTML = linkAnswerText(step.caption);
+      problemBar.classList.toggle("answered", !!step.highlight);
+      eqEl.innerHTML = (step.blocks || []).map((block, n) => {
+        const ok = step.highlight && n === step.blocks.length - 1;
+        const meaning = varsHTML(block.vars);
+        const why = block.explain ? `<p class="why">${block.explain}</p>` : "";
+        const formula = block.tex
+          ? `<p class="formula-label">Formula</p><div class="math-line${ok ? " ok" : ""}">${renderTex(block.tex, true)}</div>`
+          : "";
+        return `<div class="eq-block">${meaning}${why}${formula}</div>`;
+      }).join("");
+      renderVisual(step);
+      [...chapterList.children].forEach((btn, n) => {
+        btn.classList.toggle("active", n === i);
+        btn.classList.toggle("done", n < i);
+      });
+    }
+
+    function updateTimeline(extra) {
+      const elapsed = elapsedBefore(index) + extra;
+      const tot = totalMs();
+      const pct = tot ? Math.min(100, (100 * elapsed) / tot) : 0;
+      fillEl.style.width = pct + "%";
+      $("timeline").setAttribute("aria-valuenow", String(Math.round(pct)));
+      timeEl.textContent = `${fmt(elapsed)} / ${fmt(tot)}`;
+    }
+    function tick() {
+      if (!playing) return;
+      updateTimeline(Math.min(sceneDur, performance.now() - startedAt));
+      raf = requestAnimationFrame(tick);
+    }
+    async function runFrom(i) {
+      const token = ++runId;
+      index = i;
+      while (playing && index < STEPS.length && token === runId) {
+        const step = STEPS[index];
+        sceneDur = durationMs(step);
+        startedAt = performance.now();
+        paintStep(index);
+        updateTimeline(0);
+        tick();
+        await speak(index, token);
+        if (!playing || token !== runId) return;
+        index += 1;
+      }
+      if (token !== runId) return;
+      playing = false;
+      playBtn.textContent = index >= STEPS.length ? "Replay" : "Play";
+      if (index >= STEPS.length) {
+        index = STEPS.length - 1;
+        paintStep(index);
+        updateTimeline(durationMs(STEPS[index]));
+      }
+    }
+    function play() {
+      playing = true;
+      playBtn.textContent = "Pause";
+      if (index >= STEPS.length) index = 0;
+      runFrom(index);
+    }
+    function pause() {
+      playing = false;
+      playBtn.textContent = "Play";
+      stopSpeech();
+      updateTimeline(Math.min(sceneDur, Math.max(0, performance.now() - startedAt)));
+    }
+    function jump(i) {
+      stopSpeech();
+      index = Math.max(0, Math.min(STEPS.length - 1, i));
+      paintStep(index);
+      updateTimeline(0);
+      if (playing) runFrom(index);
+    }
+    function buildChapters() {
+      chapterList.innerHTML = "";
+      STEPS.forEach((step, i) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.innerHTML = `<span class="num">${String(i + 1).padStart(2, "0")}</span><span><div class="ch-title">${step.title}</div><div class="ch-sub">${step.blurb}</div></span>`;
+        btn.addEventListener("click", () => {
+          playing = true;
+          playBtn.textContent = "Pause";
+          jump(i);
+        });
+        chapterList.appendChild(btn);
+      });
+      $("marks").innerHTML = STEPS.map((_, i) => {
+        const p = (100 * elapsedBefore(i)) / totalMs();
+        return `<i style="left:${p}%"></i>`;
+      }).join("");
+    }
+
+    playBtn.addEventListener("click", () => playing ? pause() : play());
+    $("prevBtn").addEventListener("click", () => jump(index - 1));
+    $("nextBtn").addEventListener("click", () => jump(index + 1));
+    muteBtn.addEventListener("click", () => {
+      muted = !muted;
+      muteBtn.textContent = muted ? "Unmute" : "Mute";
+      narration.muted = muted;
+    });
+    rateSel.addEventListener("change", () => {
+      rate = Number(rateSel.value);
+      narration.playbackRate = rate;
+      buildChapters();
+      updateTimeline(0);
+    });
+    $("timeline").addEventListener("click", (e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const t = ((e.clientX - rect.left) / rect.width) * totalMs();
+      let acc = 0;
+      let target = STEPS.length - 1;
+      for (let i = 0; i < STEPS.length; i += 1) {
+        acc += durationMs(STEPS[i]);
+        if (t <= acc) { target = i; break; }
+      }
+      playing = true;
+      playBtn.textContent = "Pause";
+      jump(target);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space") { e.preventDefault(); playBtn.click(); }
+      else if (e.code === "ArrowRight") jump(index + 1);
+      else if (e.code === "ArrowLeft") jump(index - 1);
+    });
+    preloadAudio();
+    $("problemChoices").innerHTML = choiceRow(false);
+    buildChapters();
+    paintStep(0);
+    updateTimeline(0);
+  </script>
+</body>
+</html>

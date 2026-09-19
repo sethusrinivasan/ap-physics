@@ -1,2 +1,6 @@
 _v_*.png
 _build_*.py
+node_modules/
+.venv/
+__pycache__/
+*.pyc

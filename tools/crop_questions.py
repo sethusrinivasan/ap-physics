@@ -12,7 +12,8 @@ from PIL import Image
 
 ROOT = Path("/home/home/ap-physics")
 Q_PDF = Path("/home/home/Downloads/Unit 2 Topic Questions.pdf")
-FIG_DIR = ROOT / "figures"
+UNIT2 = ROOT / "unit2"
+FIG_DIR = UNIT2 / "figures"
 HIRES_DIR = FIG_DIR / "hires"
 REPORT = FIG_DIR / "crop-report.json"
 

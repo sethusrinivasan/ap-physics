@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unit 2 Q36 · Walkthrough</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" />
+  <style>
+    :root {
+      --bg: #071018;
+      --stage: #0d1b2a;
+      --panel: #102033;
+      --ink: #e8eef6;
+      --muted: #9bb0c7;
+      --line: #27415c;
+      --accent: #5ec8ff;
+      --gold: #f0c75e;
+      --ok: #5bd08a;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Liberation Sans", "Ubuntu", "Segoe UI", sans-serif;
+    }
+    body {
+      display: grid;
+      place-items: start center;
+      padding: 16px 16px 32px;
+    }
+    .app {
+      width: min(1180px, 100%);
+      display: grid;
+      gap: 12px;
+    }
+    header h1 { margin: 0; font-size: 20px; font-weight: 700; }
+    header p { margin: 4px 0 8px; color: var(--muted); font-size: 13px; }
+    .problem-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 2px;
+    }
+    .problem-nav a, .problem-nav .off {
+      border: 1px solid var(--line);
+      background: #132536;
+      color: var(--ink);
+      border-radius: 7px;
+      padding: 8px 12px;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .problem-nav a:hover { border-color: var(--accent); }
+    .problem-nav .off { opacity: 0.4; color: var(--muted); }
+    .problem-nav .where { color: var(--muted); font-size: 13px; }
+    .problem-bar {
+      position: sticky;
+      top: 0;
+      z-index: 8;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 14px;
+      align-items: center;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .problem-bar h2 {
+      margin: 0 0 6px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .problem-bar h2 a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .problem-bar h2 a:hover {
+      color: var(--accent);
+    }
+    .problem-bar h2 .dot {
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      text-decoration: none;
+    }
+    .problem-tools {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+    }
+    .problem-tools h2 { margin: 0; }
+    .problem-toggle {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: #132536;
+      color: var(--ink);
+      border-radius: 7px;
+      padding: 6px 10px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .problem-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .problem-bar.collapsed {
+      grid-template-columns: 1fr;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .problem-bar.collapsed .exam-frame,
+    .problem-bar.collapsed .mini-bar,
+    .problem-bar.collapsed > svg,
+    .problem-bar.collapsed .choices,
+    .problem-bar.collapsed > div > p {
+      display: none !important;
+    }
+    .scene-title a, .cc a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .scene-title a:hover, .cc a:hover {
+      color: var(--accent);
+    }
+    .problem-bar p {
+      margin: 0 0 8px;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #d7e6f5;
+    }
+    .mini-bar { width: 100%; height: auto; display: block; }
+    .player {
+      display: grid;
+      grid-template-columns: 1fr 270px;
+      gap: 12px;
+      align-items: start;
+    }
+    .stage-wrap {
+      background: #000;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .stage {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: radial-gradient(1200px 400px at 50% -10%, #16324c 0%, var(--stage) 55%);
+      overflow: hidden;
+    }
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 16px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .scene-title {
+      position: absolute;
+      top: 28px;
+      left: 16px;
+      right: 16px;
+      margin: 0;
+      font-size: 19px;
+      font-weight: 700;
+    }
+    .viz {
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      top: 54px;
+      height: 104px;
+    }
+    .iso { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .cut, .cm, .cm-label { position: absolute; display: none; pointer-events: none; }
+    .cut.on, .cm.on, .cm-label.on { display: block; }
+    .cut {
+      top: 4px;
+      bottom: 34px;
+      width: 2px;
+      margin-left: -1px;
+      background: var(--gold);
+    }
+    .cut::after {
+      content: "cut";
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .cm {
+      top: 14px;
+      width: 12px;
+      height: 12px;
+      margin-left: -6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+    .cm-label {
+      top: -2px;
+      transform: translateX(-50%);
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .cm-label .katex, .cm-label .tex { font-size: 12px; color: var(--gold); }
+    .ruler {
+      position: absolute;
+      left: 5%;
+      width: 87.5%;
+      top: 92px;
+      height: 26px;
+      display: none;
+    }
+    .ruler.on { display: block; }
+    .tick {
+      position: absolute;
+      top: 0;
+      width: 1px;
+      height: 10px;
+      background: #7f97b0;
+    }
+    .tick span {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .eq {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      top: 168px;
+      bottom: 58px;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      gap: 8px;
+      color: #eef4fb;
+      text-align: left;
+    }
+    .eq-block {
+      background: rgba(7, 18, 30, 0.45);
+      border: 1px solid #1e364c;
+      border-radius: 8px;
+      padding: 7px 10px 8px;
+    }
+    .vars-label, .formula-label {
+      margin: 0 0 4px;
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .formula-label { color: var(--muted); margin-top: 6px; }
+    .why {
+      margin: 4px 0 0;
+      font-size: 13px;
+      line-height: 1.4;
+      color: #c5d6e8;
+    }
+    .vars {
+      list-style: none;
+      margin: 0 0 2px;
+      padding: 0;
+    }
+    .vars li {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 10px;
+      align-items: baseline;
+      margin: 0 0 3px;
+      font-size: 13px;
+      line-height: 1.35;
+      color: #c5d6e8;
+      text-align: left;
+    }
+    .vars .sym { color: var(--accent); }
+    .vars .sym .katex, .vars .sym .tex { font-size: 1.05em; color: var(--accent); }
+    .math-line { width: 100%; text-align: left; }
+    .math-line.ok .katex, .math-line.ok .tex { color: var(--ok); }
+    .katex { color: inherit; font-size: 1.16em; }
+    .katex-display {
+      margin: 0.08em 0;
+      text-align: left !important;
+    }
+    .katex-display > .katex { text-align: left; }
+    .tex {
+      font-family: "Liberation Serif", "Times New Roman", Times, serif;
+      font-style: italic;
+      font-size: 1.35em;
+      color: inherit;
+      line-height: 1.35;
+    }
+    .tex.display { display: block; text-align: left; margin: 2px 0; }
+    .tex .mathrm, .tex sub { font-style: normal; font-family: "Liberation Serif", "Times New Roman", Times, serif; }
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      vertical-align: middle;
+      margin: 0 0.18em;
+    }
+    .frac .num, .frac .den { padding: 1px 0.4em; line-height: 1.15; }
+    .frac .num { border-bottom: 1.6px solid currentColor; }
+    .choices { display: flex; flex-wrap: wrap; gap: 8px; }
+    .choice {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 13px;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0c1a28;
+    }
+    .choice .katex, .choice .tex { font-size: 1em; color: var(--ink); }
+    .choice.win, .problem-bar.answered #choiceB {
+      border-color: var(--ok);
+      color: var(--ok);
+      background: rgba(91, 208, 138, 0.08);
+    }
+    .caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 8px 16px 10px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.86));
+      text-align: left;
+      font-size: 14px;
+      min-height: 48px;
+    }
+    .cc {
+      display: inline-block;
+      max-width: 920px;
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 6px;
+      padding: 5px 12px;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: #08141f;
+      border-top: 1px solid var(--line);
+    }
+    button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: #132536;
+      color: var(--ink);
+      border-radius: 7px;
+      height: 36px;
+      padding: 0 12px;
+      font: inherit;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--accent); }
+    button.primary {
+      background: var(--accent);
+      color: #062033;
+      border-color: var(--accent);
+      font-weight: 700;
+      min-width: 84px;
+    }
+    .timeline {
+      flex: 1;
+      height: 8px;
+      background: #1c3348;
+      border-radius: 99px;
+      position: relative;
+      cursor: pointer;
+    }
+    .fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 0%;
+      background: var(--accent);
+      border-radius: 99px;
+    }
+    .marks { position: absolute; inset: 0; }
+    .marks i {
+      position: absolute;
+      top: -3px;
+      width: 2px;
+      height: 14px;
+      background: #8fb4d2;
+      opacity: 0.55;
+    }
+    .time {
+      font-variant-numeric: tabular-nums;
+      font-size: 12px;
+      color: var(--muted);
+      min-width: 84px;
+      text-align: right;
+    }
+    .chapters {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      max-height: min(640px, 72vh);
+      overflow: auto;
+    }
+    .chapters h2 {
+      margin: 2px 8px 8px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .chapters button {
+      width: 100%;
+      height: auto;
+      text-align: left;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+    }
+    .chapters button.active { border-color: var(--accent); background: #16344c; }
+    .chapters button.done .num { color: var(--ok); }
+    .num { font-weight: 700; color: var(--accent); font-size: 12px; }
+    .ch-title { font-weight: 600; font-size: 13px; }
+    .ch-sub { color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .hint { color: var(--muted); font-size: 12px; }
+    select {
+      background: #132536;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      height: 28px;
+      margin-left: 4px;
+    }
+    @media (max-width: 900px) {
+      .problem-bar, .player { grid-template-columns: 1fr; }
+      .chapters { max-height: none; }
+    }
+
+    .problem-bar.exam {
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 8px;
+    }
+    .exam-frame {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      max-height: min(42vh, 440px);
+      overflow: auto;
+    }
+    .exam-frame img.exam-cut {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #ffffff;
+    }
+    .exam-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px 12px;
+    }
+    .exam-meta h2 { margin: 0; }
+    .exam-meta p { display: none; }
+    .viz.pagefig {
+      display: none;
+      height: 0;
+    }
+    .eq.page-eq {
+      top: 56px;
+      bottom: 54px;
+    }
+    .eq.page-eq .eq-block {
+      padding: 12px 14px 14px;
+    }
+    .eq.page-eq .why {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .eq.page-eq .katex { font-size: 1.28em; }
+    .eq.page-eq .vars li {
+      grid-template-columns: 140px 1fr;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Interactive walkthrough · Unit 2, Question 36</h1>
+      <nav class="problem-nav" aria-label="Problem navigation">
+        <a href="../q35/index.html">Previous problem</a>
+        <a href="../index.html">Contents</a>
+        <a href="../q37/index.html">Next problem</a>
+      </nav>
+    </header>
+    <section class="problem-bar exam" id="problemBar" aria-label="Problem statement">
+      <div class="exam-frame">
+        <img class="exam-cut" src="../figures/q36.png" alt="Question 36 exact exam item, including figure and choices" />
+      </div>
+      <div class="exam-meta">
+        <div class="problem-tools">
+        <h2><a href="../figures/q36.png" target="_blank" rel="noopener noreferrer">The problem</a><span class="dot"> · </span><a href="../figures/a36.png" target="_blank" rel="noopener noreferrer">The answer is</a></h2>
+        <button type="button" class="problem-toggle" id="problemToggle" aria-expanded="true" aria-controls="problemBar">Hide question</button>
+      </div>
+        <p>Exact exam cut from the source PDF: wording, figure, and choices A–D. The walkthrough names each symbol before the formula.</p>
+        <div class="choices" id="problemChoices"></div>
+      </div>
+    </section>
+    <div class="player">
+      <div class="stage-wrap">
+        <div class="stage" id="stage" role="region" aria-label="Physics walkthrough video">
+          <h2 class="scene-title" id="sceneTitle">Read the problem</h2>
+          <div class="viz pagefig" id="viz" hidden></div>
+          <div class="eq page-eq" id="eq"></div>
+          <div class="caption"><span class="cc" id="caption">Press Play. The problem remains visible at the top.</span></div>
+        </div>
+        <div class="controls">
+          <button id="prevBtn" type="button" aria-label="Previous step">Prev</button>
+          <button id="playBtn" class="primary" type="button">Play</button>
+          <button id="nextBtn" type="button" aria-label="Next step">Next</button>
+          <div class="timeline" id="timeline" role="slider" aria-label="Video progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="fill" id="fill"></div>
+            <div class="marks" id="marks"></div>
+          </div>
+          <div class="time" id="time">0:00 / 0:00</div>
+          <button id="muteBtn" type="button">Mute</button>
+          <label class="hint">Speed
+            <select id="rate" aria-label="Playback speed">
+              <option value="0.85">0.85x</option>
+              <option value="1" selected>1x</option>
+              <option value="1.15">1.15x</option>
+            </select>
+          </label>
+        </div>
+        <audio id="narration" preload="auto"></audio>
+      </div>
+      <aside class="chapters" aria-label="Steps">
+        <h2>Steps</h2>
+        <div id="chapterList"></div>
+      </aside>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+  <script>
+    const STEPS = [
+      {
+        title: "Force on, then force off",
+        blurb: "Two time intervals, two accelerations",
+        caption: "A constant rightward force acts from t = 0 to t = t_f. At t_f that force drops to zero and stays zero.",
+        lead: "Look at Question 36. A glider on a frictionless air track feels a constant rightward force only until time t f. After t f the force is zero. The graph we want is velocity versus time, so the slope of v of t is the acceleration in each interval.",
+        blocks: [{
+          vars: [
+            { tex: "t_f", say: "t f", meaning: "the instant the rightward force is switched off" },
+            { tex: "v(t)", say: "v of t", meaning: "the glider's velocity as a function of time, the graph we must choose" }
+          ],
+          explain: "Friction is negligible, so after t f there is no remaining force to slow the glider down. The letter we want has to change character at the dashed line t f, not stay on the same curve.",
+          tex: "0 \\le t < t_f:\\ F_{\\mathrm{net}} = \\text{constant} > 0;\\quad t > t_f:\\ F_{\\mathrm{net}} = 0",
+          speakFormula: "So from time 0 to t f the net force is a positive constant, and after t f the net force is zero."
+        }]
+      },
+      {
+        title: "Newton's second law for each interval",
+        blurb: "Slope of v is F net over m",
+        caption: "Mass is constant. Acceleration equals net force over mass, and that acceleration is the slope of the v versus t graph.",
+        lead: "Name the symbols, then write the law. The glider's mass does not change. Whatever F net is, a equals that force over m, and a is the slope of v of t.",
+        blocks: [{
+          vars: [
+            { tex: "F_{\\mathrm{net}}", say: "F net", meaning: "the net horizontal force on the glider" },
+            { tex: "m", say: "m", meaning: "the glider's mass, constant" },
+            { tex: "a", say: "a", meaning: "the acceleration, equal to the slope of v versus t" }
+          ],
+          explain: "A constant force gives a constant slope. A zero force gives a zero slope, which is a horizontal line on a velocity graph. Next we write those two slopes with the two values of F net from the problem.",
+          tex: "a = \\dfrac{F_{\\mathrm{net}}}{m} = \\dfrac{dv}{dt}",
+          speakFormula: "So a equals F net over m, which is the slope of v versus t."
+        }]
+      },
+      {
+        title: "Before tf the slope is a positive constant",
+        blurb: "Constant force means a straight line up",
+        caption: "From t = 0 to t = t_f, F net is a positive constant, so v(t) is a straight line with positive slope, starting at rest.",
+        lead: "Substitute the first interval. The force is constant and rightward, so acceleration is a positive constant. Starting from rest at t = 0, velocity grows linearly until t f.",
+        blocks: [{
+          vars: [
+            { tex: "a_{<}", say: "a before", meaning: "the acceleration while the force is on" }
+          ],
+          explain: "Choice C and choice D both curve before t f. A curve would mean the acceleration was changing, so the force was not constant. Those are already gone for the first interval.",
+          tex: "a_{<} = \\dfrac{F}{m} = \\text{constant} > 0 \\quad\\Rightarrow\\quad v(t) = \\left(\\dfrac{F}{m}\\right)t",
+          speakFormula: "So before t f, v of t equals F over m, times t, a straight line through the origin."
+        }]
+      },
+      {
+        title: "After tf the slope is zero",
+        blurb: "Zero force means constant velocity",
+        caption: "At t_f the force becomes zero, so a = 0 and v holds the value it had at t_f.",
+        lead: "Now substitute the second interval. F net drops to zero and stays zero. Then a is zero, so the velocity does not change. On the graph that is a horizontal line after the dashed t f mark.",
+        blocks: [{
+          vars: [
+            { tex: "a_{>}", say: "a after", meaning: "the acceleration after the force is switched off" },
+            { tex: "v(t_f)", say: "v of t f", meaning: "the speed reached at the instant the force turns off; it stays at that value" }
+          ],
+          explain: "Newton's first law: with no net force, the glider continues at constant velocity. It does not reverse, and it does not keep speeding up.",
+          tex: "a_{>} = \\dfrac{0}{m} = 0 \\quad\\Rightarrow\\quad v(t) = v(t_f)\\ \\ (t > t_f)",
+          speakFormula: "So after t f, a equals 0, and v of t equals the constant v of t f."
+        }]
+      },
+      {
+        title: "Match that shape to the four graphs",
+        blurb: "Straight up, then flat",
+        caption: "Only graph B is linear with positive slope until t_f and then horizontal.",
+        lead: "Put the two pieces together. The graph must be a straight ramp from the origin to t f, then a flat line. That is graph B.",
+        blocks: [{
+          vars: [
+            { tex: "v(t)", say: "v of t", meaning: "the piecewise graph: ramp, then hold" }
+          ],
+          explain: "Graph B is the only figure with a corner at t f where the slope falls from a positive constant to zero.",
+          tex: "v(t)=\\begin{cases}(F/m)\\,t & 0\\le t\\le t_f\\\\ v(t_f) & t>t_f\\end{cases}",
+          speakFormula: "So v of t is F over m times t until t f, and then it stays at v of t f."
+        }]
+      },
+      {
+        title: "Why the other choices fail",
+        blurb: "A decelerates. C and D keep accelerating.",
+        caption: "A has negative slope after t_f. C and D never become constant, and they are curved even before t_f.",
+        lead: "Graph A would require a leftward force after t f, but the force becomes zero, not reversed, and friction is negligible. Graphs C and D keep a changing, nonzero slope after t f, as if the force were still on, and their curves before t f already contradict a constant force.",
+        blocks: [{
+          vars: [
+            { tex: "\\text{A}", say: "choice A", meaning: "v falls after t f; that needs a leftward net force that the problem does not give" },
+            { tex: "\\text{C}", say: "choice C", meaning: "v keeps rising after t f, and the first part is curved, not constant a" },
+            { tex: "\\text{D}", say: "choice D", meaning: "the slope never becomes zero; the force would still be acting" }
+          ],
+          explain: "A is the graph you would draw if the track had friction and the force shut off. The air track is frictionless. C and D are graphs of continuing acceleration, which would mean the rightward force was never removed.",
+          tex: "\\text{reject A, C, and D}"
+        }]
+      },
+      {
+        title: "The answer is B",
+        blurb: "Ramp, then constant v",
+        caption: "Constant force until t_f, then F_net = 0, so v is linear then flat.",
+        lead: "The correct choice is B. It is the only graph whose slope is a positive constant until t f and zero afterward.",
+        blocks: [{
+          vars: [
+            { tex: "v(t)", say: "v of t", meaning: "linear increase to t f, then constant" }
+          ],
+          explain: "When the net force on the glider is zero, the velocity is constant. That is the second half of graph B.",
+          tex: "a = \\dfrac{F}{m}\\ (t<t_f),\\qquad a = 0\\ (t>t_f)",
+          speakFormula: "The correct choice is B: constant acceleration until t f, then constant velocity."
+        }],
+        highlight: true
+      }
+    ];
+    const $ = (id) => document.getElementById(id);
+    const playBtn = $("playBtn");
+    const captionEl = $("caption");
+    const eqEl = $("eq");
+    const titleEl = $("sceneTitle");
+    const fillEl = $("fill");
+    const timeEl = $("time");
+    const chapterList = $("chapterList");
+    const muteBtn = $("muteBtn");
+    const rateSel = $("rate");
+    const problemBar = $("problemBar");
+    const problemToggle = $("problemToggle");
+    function setQuestionOpen(open) {
+      problemBar.classList.toggle("collapsed", !open);
+      if (problemToggle) {
+        problemToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        problemToggle.textContent = open ? "Hide question" : "Show question";
+      }
+      try { sessionStorage.setItem("ap-hide-question", open ? "0" : "1"); } catch (err) {}
+    }
+    if (problemToggle) {
+      setQuestionOpen(sessionStorage.getItem("ap-hide-question") !== "1");
+      problemToggle.addEventListener("click", () => {
+        setQuestionOpen(problemBar.classList.contains("collapsed"));
+      });
+    }
+    const ANSWER_IMG = document.querySelector('.problem-bar h2 a[href*="figures/a"]')?.getAttribute("href") || "";
+    function linkAnswerText(text) {
+      const esc = String(text || "").replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+      return esc.replace(
+        /(The answer is(?:\s+[A-D])?)/g,
+        (s) => `<a class="answer-img-link" href="${ANSWER_IMG}" target="_blank" rel="noopener noreferrer">${s}</a>`
+      );
+    }
+
+    let index = 0;
+    let playing = false;
+    let muted = false;
+    let rate = 1;
+    let sceneTimer = null;
+    let startedAt = 0;
+    let sceneDur = 1;
+    let raf = null;
+    let runId = 0;
+    const narration = $("narration");
+    const audioDurations = new Array(STEPS.length).fill(0);
+    let endSpeak = null;
+
+    function audioSrc(i) {
+      return `audio/step-${String(i + 1).padStart(2, "0")}.mp3`;
+    }
+    function preloadAudio() {
+      STEPS.forEach((_, i) => {
+        const probe = new Audio(audioSrc(i));
+        probe.preload = "metadata";
+        probe.addEventListener("loadedmetadata", () => {
+          audioDurations[i] = probe.duration * 1000;
+          buildChapters();
+          updateTimeline(0);
+        });
+      });
+    }
+
+    function fallbackTex(src, display) {
+      let s = String(src);
+      const repl = [
+        [/\\mathrm\{([^}]*)\}/g, '<span class="mathrm">$1</span>'],
+        [/\\text\{([^}]*)\}/g, '<span class="mathrm">$1</span>'],
+        [/\\,/g, '<span class="mathrm">&nbsp;</span>'],
+        [/\\qquad/g, '&emsp;&emsp;'],
+        [/\\quad/g, '&emsp;'],
+        [/\\Rightarrow/g, '<span class="mathrm">⇒</span>'],
+        [/\\cdot/g, '·'],
+        [/\\times/g, '×'],
+        [/\\left\(/g, '('],
+        [/\\right\)/g, ')'],
+        [/\\rho/g, 'ρ'],
+        [/\\dfrac/g, '\\frac'],
+        [/\\tfrac/g, '\\frac']
+      ];
+      repl.forEach(([re, to]) => { s = s.replace(re, to); });
+      let guard = 0;
+      while (s.includes('\\frac') && guard < 8) {
+        s = s.replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/,
+          '<span class="frac"><span class="num">$1</span><span class="den">$2</span></span>');
+        guard += 1;
+      }
+      s = s.replace(/_\{([^}]+)\}/g, '<sub>$1</sub>').replace(/_([A-Za-z0-9])/g, '<sub>$1</sub>');
+      return `<span class="tex${display ? ' display' : ''}">${s}</span>`;
+    }
+
+    function renderTex(src, display) {
+      if (window.katex) {
+        try {
+          return katex.renderToString(src, {
+            displayMode: !!display,
+            fleqn: true,
+            throwOnError: false,
+            output: "html",
+            strict: "ignore"
+          });
+        } catch (err) {
+          return fallbackTex(src, display);
+        }
+      }
+      return fallbackTex(src, display);
+    }
+
+
+
+    const ANSWER = "B";
+    function choiceRow(winner) {
+      return ["A", "B", "C", "D"].map((letter) =>
+        `<span class="choice${winner && letter === ANSWER ? " win" : ""}" id="choice${letter}">(${letter})</span>`
+      ).join("");
+    }
+    function words(text) { return text.trim().split(/\s+/).length; }
+    function stepSpeech(step) {
+      const parts = [];
+      if (step.lead) parts.push(step.lead);
+      (step.blocks || []).forEach((block) => {
+        if (block.vars && block.vars.length) {
+          parts.push("Here is what each symbol means.");
+          block.vars.forEach((item) => {
+            parts.push(`${item.say} means ${item.meaning}.`);
+          });
+        }
+        if (block.explain) parts.push(block.explain);
+        if (block.speakFormula) parts.push(block.speakFormula);
+      });
+      return parts.join(" ");
+    }
+    function varsHTML(vars) {
+      if (!vars || !vars.length) return "";
+      const rows = vars.map((item) =>
+        `<li><span class="sym">${renderTex(item.tex, false)}</span><span class="mean">${item.meaning}</span></li>`
+      ).join("");
+      return `<p class="vars-label">What each symbol means</p><ul class="vars">${rows}</ul>`;
+    }
+    function durationMs(step) {
+      const idx = STEPS.indexOf(step);
+      if (idx >= 0 && audioDurations[idx] > 0) return audioDurations[idx] / rate;
+      return Math.max(5600, Math.round((words(stepSpeech(step)) * 430) / rate) + 800);
+    }
+    function totalMs() { return STEPS.reduce((sum, step) => sum + durationMs(step), 0); }
+    function elapsedBefore(i) {
+      return STEPS.slice(0, i).reduce((sum, step) => sum + durationMs(step), 0);
+    }
+    function fmt(ms) {
+      const s = Math.max(0, Math.round(ms / 1000));
+      return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+    }
+    function stopSpeech() {
+      if (endSpeak) endSpeak();
+      endSpeak = null;
+      narration.pause();
+      narration.removeAttribute("src");
+      try { narration.load(); } catch (err) { /* ignore */ }
+      clearTimeout(sceneTimer);
+      sceneTimer = null;
+      if (raf) cancelAnimationFrame(raf);
+    }
+    function speak(stepIndex, token) {
+      return new Promise((resolve) => {
+        let done = false;
+        const finish = () => {
+          if (done) return;
+          done = true;
+          endSpeak = null;
+          narration.onended = null;
+          narration.onerror = null;
+          clearTimeout(sceneTimer);
+          resolve();
+        };
+        if (token !== runId) return finish();
+        endSpeak = finish;
+        narration.onended = finish;
+        narration.onerror = finish;
+        narration.muted = muted;
+        narration.playbackRate = rate;
+        narration.src = audioSrc(stepIndex);
+        const fallback = durationMs(STEPS[stepIndex]) + 8000;
+        sceneTimer = setTimeout(finish, fallback);
+        const start = narration.play();
+        if (start && start.catch) {
+          start.catch(() => {
+            /* keep waiting on fallback so the step still advances */
+          });
+        }
+      });
+    }
+
+
+    function renderVisual(step) {
+      /* Exam cut lives only in the sticky bar. Do not repeat it on the stage. */
+    }
+    function paintStep(i) {
+      const step = STEPS[i];
+      titleEl.innerHTML = linkAnswerText(step.title);
+      captionEl.innerHTML = linkAnswerText(step.caption);
+      problemBar.classList.toggle("answered", !!step.highlight);
+      eqEl.innerHTML = (step.blocks || []).map((block, n) => {
+        const ok = step.highlight && n === step.blocks.length - 1;
+        const meaning = varsHTML(block.vars);
+        const why = block.explain ? `<p class="why">${block.explain}</p>` : "";
+        const formula = block.tex
+          ? `<p class="formula-label">Formula</p><div class="math-line${ok ? " ok" : ""}">${renderTex(block.tex, true)}</div>`
+          : "";
+        return `<div class="eq-block">${meaning}${why}${formula}</div>`;
+      }).join("");
+      renderVisual(step);
+      [...chapterList.children].forEach((btn, n) => {
+        btn.classList.toggle("active", n === i);
+        btn.classList.toggle("done", n < i);
+      });
+    }
+
+    function updateTimeline(extra) {
+      const elapsed = elapsedBefore(index) + extra;
+      const tot = totalMs();
+      const pct = tot ? Math.min(100, (100 * elapsed) / tot) : 0;
+      fillEl.style.width = pct + "%";
+      $("timeline").setAttribute("aria-valuenow", String(Math.round(pct)));
+      timeEl.textContent = `${fmt(elapsed)} / ${fmt(tot)}`;
+    }
+    function tick() {
+      if (!playing) return;
+      updateTimeline(Math.min(sceneDur, performance.now() - startedAt));
+      raf = requestAnimationFrame(tick);
+    }
+    async function runFrom(i) {
+      const token = ++runId;
+      index = i;
+      while (playing && index < STEPS.length && token === runId) {
+        const step = STEPS[index];
+        sceneDur = durationMs(step);
+        startedAt = performance.now();
+        paintStep(index);
+        updateTimeline(0);
+        tick();
+        await speak(index, token);
+        if (!playing || token !== runId) return;
+        index += 1;
+      }
+      if (token !== runId) return;
+      playing = false;
+      playBtn.textContent = index >= STEPS.length ? "Replay" : "Play";
+      if (index >= STEPS.length) {
+        index = STEPS.length - 1;
+        paintStep(index);
+        updateTimeline(durationMs(STEPS[index]));
+      }
+    }
+    function play() {
+      playing = true;
+      playBtn.textContent = "Pause";
+      if (index >= STEPS.length) index = 0;
+      runFrom(index);
+    }
+    function pause() {
+      playing = false;
+      playBtn.textContent = "Play";
+      stopSpeech();
+      updateTimeline(Math.min(sceneDur, Math.max(0, performance.now() - startedAt)));
+    }
+    function jump(i) {
+      stopSpeech();
+      index = Math.max(0, Math.min(STEPS.length - 1, i));
+      paintStep(index);
+      updateTimeline(0);
+      if (playing) runFrom(index);
+    }
+    function buildChapters() {
+      chapterList.innerHTML = "";
+      STEPS.forEach((step, i) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.innerHTML = `<span class="num">${String(i + 1).padStart(2, "0")}</span><span><div class="ch-title">${step.title}</div><div class="ch-sub">${step.blurb}</div></span>`;
+        btn.addEventListener("click", () => {
+          playing = true;
+          playBtn.textContent = "Pause";
+          jump(i);
+        });
+        chapterList.appendChild(btn);
+      });
+      $("marks").innerHTML = STEPS.map((_, i) => {
+        const p = (100 * elapsedBefore(i)) / totalMs();
+        return `<i style="left:${p}%"></i>`;
+      }).join("");
+    }
+
+    playBtn.addEventListener("click", () => playing ? pause() : play());
+    $("prevBtn").addEventListener("click", () => jump(index - 1));
+    $("nextBtn").addEventListener("click", () => jump(index + 1));
+    muteBtn.addEventListener("click", () => {
+      muted = !muted;
+      muteBtn.textContent = muted ? "Unmute" : "Mute";
+      narration.muted = muted;
+    });
+    rateSel.addEventListener("change", () => {
+      rate = Number(rateSel.value);
+      narration.playbackRate = rate;
+      buildChapters();
+      updateTimeline(0);
+    });
+    $("timeline").addEventListener("click", (e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const t = ((e.clientX - rect.left) / rect.width) * totalMs();
+      let acc = 0;
+      let target = STEPS.length - 1;
+      for (let i = 0; i < STEPS.length; i += 1) {
+        acc += durationMs(STEPS[i]);
+        if (t <= acc) { target = i; break; }
+      }
+      playing = true;
+      playBtn.textContent = "Pause";
+      jump(target);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space") { e.preventDefault(); playBtn.click(); }
+      else if (e.code === "ArrowRight") jump(index + 1);
+      else if (e.code === "ArrowLeft") jump(index - 1);
+    });
+    preloadAudio();
+    $("problemChoices").innerHTML = choiceRow(false);
+    buildChapters();
+    paintStep(0);
+    updateTimeline(0);
+  </script>
+</body>
+</html>
