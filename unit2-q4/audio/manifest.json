@@ -1,0 +1,42 @@
+[
+  {
+    "file": "step-01.mp3",
+    "title": "Read the problem",
+    "words": 141
+  },
+  {
+    "file": "step-02.mp3",
+    "title": "The center of mass follows a projectile",
+    "words": 77
+  },
+  {
+    "file": "step-03.mp3",
+    "title": "Write d using the two overhangs",
+    "words": 87
+  },
+  {
+    "file": "step-04.mp3",
+    "title": "Maximizing d means minimizing overhangs",
+    "words": 64
+  },
+  {
+    "file": "step-05.mp3",
+    "title": "At launch, put x_cm near the right end",
+    "words": 64
+  },
+  {
+    "file": "step-06.mp3",
+    "title": "At landing, put x_cm near the left end",
+    "words": 59
+  },
+  {
+    "file": "step-07.mp3",
+    "title": "That pair is choice C",
+    "words": 58
+  },
+  {
+    "file": "step-08.mp3",
+    "title": "The answer is C",
+    "words": 59
+  }
+]

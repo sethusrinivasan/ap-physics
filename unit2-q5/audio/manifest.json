@@ -1,0 +1,42 @@
+[
+  {
+    "file": "step-01.mp3",
+    "title": "Read the problem",
+    "words": 110
+  },
+  {
+    "file": "step-02.mp3",
+    "title": "Balance keeps the system CM at P",
+    "words": 50
+  },
+  {
+    "file": "step-03.mp3",
+    "title": "The platform mass cancels",
+    "words": 66
+  },
+  {
+    "file": "step-04.mp3",
+    "title": "Write the x center-of-mass equation",
+    "words": 79
+  },
+  {
+    "file": "step-05.mp3",
+    "title": "Solve for x_3",
+    "words": 32
+  },
+  {
+    "file": "step-06.mp3",
+    "title": "Write the y center-of-mass equation",
+    "words": 74
+  },
+  {
+    "file": "step-07.mp3",
+    "title": "Solve for y_3",
+    "words": 47
+  },
+  {
+    "file": "step-08.mp3",
+    "title": "The answer is A",
+    "words": 36
+  }
+]

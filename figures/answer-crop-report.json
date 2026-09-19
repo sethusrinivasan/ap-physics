@@ -1,0 +1,2100 @@
+{
+  "dpi": 200,
+  "bad": [],
+  "all": [
+    {
+      "n": 1,
+      "pages": [
+        1
+      ],
+      "slices": [
+        [
+          1,
+          471.0,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a01.png",
+      "px": [
+        1532,
+        422
+      ],
+      "bytes": 93197
+    },
+    {
+      "n": 2,
+      "pages": [
+        2
+      ],
+      "slices": [
+        [
+          2,
+          447.4,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a02.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 35888
+    },
+    {
+      "n": 3,
+      "pages": [
+        3
+      ],
+      "slices": [
+        [
+          3,
+          565.4,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a03.png",
+      "px": [
+        1532,
+        355
+      ],
+      "bytes": 61360
+    },
+    {
+      "n": 4,
+      "pages": [
+        4,
+        5
+      ],
+      "slices": [
+        [
+          4,
+          679.1,
+          760.0
+        ],
+        [
+          5,
+          68.0,
+          182.3
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a04.png",
+      "px": [
+        1532,
+        480
+      ],
+      "bytes": 69212
+    },
+    {
+      "n": 5,
+      "pages": [
+        5,
+        6
+      ],
+      "slices": [
+        [
+          5,
+          689.4,
+          760.0
+        ],
+        [
+          6,
+          68.0,
+          221.6
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a05.png",
+      "px": [
+        1532,
+        548
+      ],
+      "bytes": 68043
+    },
+    {
+      "n": 6,
+      "pages": [
+        6,
+        7
+      ],
+      "slices": [
+        [
+          6,
+          375.6,
+          760.0
+        ],
+        [
+          7,
+          68.0,
+          94.6
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a06.png",
+      "px": [
+        1532,
+        478
+      ],
+      "bytes": 80279
+    },
+    {
+      "n": 7,
+      "pages": [
+        7
+      ],
+      "slices": [
+        [
+          7,
+          477.4,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a07.png",
+      "px": [
+        1532,
+        580
+      ],
+      "bytes": 98428
+    },
+    {
+      "n": 8,
+      "pages": [
+        9
+      ],
+      "slices": [
+        [
+          9,
+          596.9,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a08.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 34051
+    },
+    {
+      "n": 9,
+      "pages": [
+        10
+      ],
+      "slices": [
+        [
+          10,
+          469.4,
+          586.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a09.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 57065
+    },
+    {
+      "n": 10,
+      "pages": [
+        11
+      ],
+      "slices": [
+        [
+          11,
+          85.4,
+          184.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a10.png",
+      "px": [
+        1532,
+        256
+      ],
+      "bytes": 34174
+    },
+    {
+      "n": 11,
+      "pages": [
+        11
+      ],
+      "slices": [
+        [
+          11,
+          323.2,
+          421.9
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a11.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 25126
+    },
+    {
+      "n": 12,
+      "pages": [
+        12
+      ],
+      "slices": [
+        [
+          12,
+          559.4,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a12.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 37390
+    },
+    {
+      "n": 13,
+      "pages": [
+        13
+      ],
+      "slices": [
+        [
+          13,
+          481.5,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a13.png",
+      "px": [
+        1532,
+        205
+      ],
+      "bytes": 22387
+    },
+    {
+      "n": 14,
+      "pages": [
+        14
+      ],
+      "slices": [
+        [
+          14,
+          511.0,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a14.png",
+      "px": [
+        1532,
+        256
+      ],
+      "bytes": 30287
+    },
+    {
+      "n": 15,
+      "pages": [
+        16
+      ],
+      "slices": [
+        [
+          16,
+          557.9,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a15.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 47702
+    },
+    {
+      "n": 16,
+      "pages": [
+        18
+      ],
+      "slices": [
+        [
+          18,
+          593.9,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a16.png",
+      "px": [
+        1532,
+        405
+      ],
+      "bytes": 82137
+    },
+    {
+      "n": 17,
+      "pages": [
+        19
+      ],
+      "slices": [
+        [
+          19,
+          511.0,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a17.png",
+      "px": [
+        1532,
+        256
+      ],
+      "bytes": 26812
+    },
+    {
+      "n": 18,
+      "pages": [
+        20
+      ],
+      "slices": [
+        [
+          20,
+          474.7,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a18.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 30834
+    },
+    {
+      "n": 19,
+      "pages": [
+        21
+      ],
+      "slices": [
+        [
+          21,
+          484.0,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a19.png",
+      "px": [
+        1532,
+        256
+      ],
+      "bytes": 39055
+    },
+    {
+      "n": 20,
+      "pages": [
+        22
+      ],
+      "slices": [
+        [
+          22,
+          462.6,
+          561.3
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a20.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 35441
+    },
+    {
+      "n": 21,
+      "pages": [
+        23
+      ],
+      "slices": [
+        [
+          23,
+          85.4,
+          184.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a21.png",
+      "px": [
+        1532,
+        256
+      ],
+      "bytes": 31199
+    },
+    {
+      "n": 22,
+      "pages": [
+        23
+      ],
+      "slices": [
+        [
+          23,
+          555.1,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a22.png",
+      "px": [
+        1532,
+        205
+      ],
+      "bytes": 22109
+    },
+    {
+      "n": 23,
+      "pages": [
+        24
+      ],
+      "slices": [
+        [
+          24,
+          498.0,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a23.png",
+      "px": [
+        1532,
+        256
+      ],
+      "bytes": 35449
+    },
+    {
+      "n": 24,
+      "pages": [
+        25
+      ],
+      "slices": [
+        [
+          25,
+          434.3,
+          514.9
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a24.png",
+      "px": [
+        1532,
+        206
+      ],
+      "bytes": 21835
+    },
+    {
+      "n": 25,
+      "pages": [
+        26
+      ],
+      "slices": [
+        [
+          26,
+          85.4,
+          184.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a25.png",
+      "px": [
+        1532,
+        256
+      ],
+      "bytes": 40361
+    },
+    {
+      "n": 26,
+      "pages": [
+        26
+      ],
+      "slices": [
+        [
+          26,
+          566.4,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a26.png",
+      "px": [
+        1532,
+        256
+      ],
+      "bytes": 32154
+    },
+    {
+      "n": 27,
+      "pages": [
+        27
+      ],
+      "slices": [
+        [
+          27,
+          615.8,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a27.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 53151
+    },
+    {
+      "n": 28,
+      "pages": [
+        29
+      ],
+      "slices": [
+        [
+          29,
+          85.4,
+          202.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a28.png",
+      "px": [
+        1532,
+        306
+      ],
+      "bytes": 48137
+    },
+    {
+      "n": 29,
+      "pages": [
+        29
+      ],
+      "slices": [
+        [
+          29,
+          560.2,
+          640.9
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a29.png",
+      "px": [
+        1532,
+        206
+      ],
+      "bytes": 24695
+    },
+    {
+      "n": 30,
+      "pages": [
+        30
+      ],
+      "slices": [
+        [
+          30,
+          184.1,
+          282.8
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a30.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 38982
+    },
+    {
+      "n": 31,
+      "pages": [
+        30
+      ],
+      "slices": [
+        [
+          30,
+          487.7,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a31.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 37015
+    },
+    {
+      "n": 32,
+      "pages": [
+        31
+      ],
+      "slices": [
+        [
+          31,
+          487.5,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a32.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 56058
+    },
+    {
+      "n": 33,
+      "pages": [
+        32
+      ],
+      "slices": [
+        [
+          32,
+          457.7,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a33.png",
+      "px": [
+        1532,
+        456
+      ],
+      "bytes": 113032
+    },
+    {
+      "n": 34,
+      "pages": [
+        33
+      ],
+      "slices": [
+        [
+          33,
+          489.6,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a34.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 54727
+    },
+    {
+      "n": 35,
+      "pages": [
+        34
+      ],
+      "slices": [
+        [
+          34,
+          472.2,
+          624.9
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a35.png",
+      "px": [
+        1532,
+        405
+      ],
+      "bytes": 88398
+    },
+    {
+      "n": 36,
+      "pages": [
+        35
+      ],
+      "slices": [
+        [
+          35,
+          629.9,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a36.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 26549
+    },
+    {
+      "n": 37,
+      "pages": [
+        36
+      ],
+      "slices": [
+        [
+          36,
+          441.3,
+          557.9
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a37.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 60722
+    },
+    {
+      "n": 38,
+      "pages": [
+        37
+      ],
+      "slices": [
+        [
+          37,
+          85.4,
+          220.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a38.png",
+      "px": [
+        1532,
+        356
+      ],
+      "bytes": 60224
+    },
+    {
+      "n": 39,
+      "pages": [
+        37
+      ],
+      "slices": [
+        [
+          37,
+          599.0,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a39.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 41710
+    },
+    {
+      "n": 40,
+      "pages": [
+        38
+      ],
+      "slices": [
+        [
+          38,
+          478.7,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a40.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 48211
+    },
+    {
+      "n": 41,
+      "pages": [
+        39
+      ],
+      "slices": [
+        [
+          39,
+          457.3,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a41.png",
+      "px": [
+        1532,
+        306
+      ],
+      "bytes": 45718
+    },
+    {
+      "n": 42,
+      "pages": [
+        40
+      ],
+      "slices": [
+        [
+          40,
+          460.1,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a42.png",
+      "px": [
+        1532,
+        371
+      ],
+      "bytes": 80344
+    },
+    {
+      "n": 43,
+      "pages": [
+        41
+      ],
+      "slices": [
+        [
+          41,
+          505.7,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a43.png",
+      "px": [
+        1532,
+        355
+      ],
+      "bytes": 71684
+    },
+    {
+      "n": 44,
+      "pages": [
+        42
+      ],
+      "slices": [
+        [
+          42,
+          523.1,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a44.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 39399
+    },
+    {
+      "n": 45,
+      "pages": [
+        43
+      ],
+      "slices": [
+        [
+          43,
+          460.5,
+          595.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a45.png",
+      "px": [
+        1532,
+        355
+      ],
+      "bytes": 62870
+    },
+    {
+      "n": 46,
+      "pages": [
+        44
+      ],
+      "slices": [
+        [
+          44,
+          85.4,
+          202.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a46.png",
+      "px": [
+        1532,
+        306
+      ],
+      "bytes": 56040
+    },
+    {
+      "n": 47,
+      "pages": [
+        44
+      ],
+      "slices": [
+        [
+          44,
+          572.3,
+          689.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a47.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 53541
+    },
+    {
+      "n": 48,
+      "pages": [
+        45
+      ],
+      "slices": [
+        [
+          45,
+          187.7,
+          304.8
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a48.png",
+      "px": [
+        1532,
+        307
+      ],
+      "bytes": 55667
+    },
+    {
+      "n": 49,
+      "pages": [
+        46
+      ],
+      "slices": [
+        [
+          46,
+          85.4,
+          202.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a49.png",
+      "px": [
+        1532,
+        306
+      ],
+      "bytes": 47507
+    },
+    {
+      "n": 50,
+      "pages": [
+        46
+      ],
+      "slices": [
+        [
+          46,
+          376.6,
+          493.3
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a50.png",
+      "px": [
+        1532,
+        306
+      ],
+      "bytes": 48924
+    },
+    {
+      "n": 51,
+      "pages": [
+        47
+      ],
+      "slices": [
+        [
+          47,
+          184.1,
+          300.8
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a51.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 44663
+    },
+    {
+      "n": 52,
+      "pages": [
+        47
+      ],
+      "slices": [
+        [
+          47,
+          466.8,
+          626.7
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a52.png",
+      "px": [
+        1532,
+        425
+      ],
+      "bytes": 95515
+    },
+    {
+      "n": 53,
+      "pages": [
+        48
+      ],
+      "slices": [
+        [
+          48,
+          214.4,
+          361.6
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a53.png",
+      "px": [
+        1532,
+        391
+      ],
+      "bytes": 79392
+    },
+    {
+      "n": 54,
+      "pages": [
+        48
+      ],
+      "slices": [
+        [
+          48,
+          512.8,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a54.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 35334
+    },
+    {
+      "n": 55,
+      "pages": [
+        49
+      ],
+      "slices": [
+        [
+          49,
+          469.9,
+          640.5
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a55.png",
+      "px": [
+        1532,
+        456
+      ],
+      "bytes": 104233
+    },
+    {
+      "n": 56,
+      "pages": [
+        50
+      ],
+      "slices": [
+        [
+          50,
+          184.1,
+          318.8
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a56.png",
+      "px": [
+        1532,
+        355
+      ],
+      "bytes": 72322
+    },
+    {
+      "n": 57,
+      "pages": [
+        50
+      ],
+      "slices": [
+        [
+          50,
+          482.1,
+          616.8
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a57.png",
+      "px": [
+        1532,
+        356
+      ],
+      "bytes": 66317
+    },
+    {
+      "n": 58,
+      "pages": [
+        51
+      ],
+      "slices": [
+        [
+          51,
+          85.4,
+          202.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a58.png",
+      "px": [
+        1532,
+        306
+      ],
+      "bytes": 42192
+    },
+    {
+      "n": 59,
+      "pages": [
+        51
+      ],
+      "slices": [
+        [
+          51,
+          353.3,
+          488.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a59.png",
+      "px": [
+        1532,
+        356
+      ],
+      "bytes": 68987
+    },
+    {
+      "n": 60,
+      "pages": [
+        51
+      ],
+      "slices": [
+        [
+          51,
+          640.5,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a60.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 41234
+    },
+    {
+      "n": 61,
+      "pages": [
+        52
+      ],
+      "slices": [
+        [
+          52,
+          470.8,
+          605.5
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a61.png",
+      "px": [
+        1532,
+        355
+      ],
+      "bytes": 62342
+    },
+    {
+      "n": 62,
+      "pages": [
+        53
+      ],
+      "slices": [
+        [
+          53,
+          85.4,
+          202.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a62.png",
+      "px": [
+        1532,
+        306
+      ],
+      "bytes": 52876
+    },
+    {
+      "n": 63,
+      "pages": [
+        53
+      ],
+      "slices": [
+        [
+          53,
+          601.5,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a63.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 49574
+    },
+    {
+      "n": 64,
+      "pages": [
+        54
+      ],
+      "slices": [
+        [
+          54,
+          283.6,
+          403.8
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a64.png",
+      "px": [
+        1532,
+        315
+      ],
+      "bytes": 38500
+    },
+    {
+      "n": 65,
+      "pages": [
+        54
+      ],
+      "slices": [
+        [
+          54,
+          570.1,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a65.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 60787
+    },
+    {
+      "n": 66,
+      "pages": [
+        55
+      ],
+      "slices": [
+        [
+          55,
+          262.5,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a66.png",
+      "px": [
+        1532,
+        406
+      ],
+      "bytes": 90600
+    },
+    {
+      "n": 67,
+      "pages": [
+        56
+      ],
+      "slices": [
+        [
+          56,
+          542.5,
+          642.3
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a67.png",
+      "px": [
+        1532,
+        259
+      ],
+      "bytes": 32992
+    },
+    {
+      "n": 68,
+      "pages": [
+        57
+      ],
+      "slices": [
+        [
+          57,
+          186.5,
+          341.6
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a68.png",
+      "px": [
+        1532,
+        412
+      ],
+      "bytes": 99423
+    },
+    {
+      "n": 69,
+      "pages": [
+        58
+      ],
+      "slices": [
+        [
+          58,
+          85.4,
+          202.1
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a69.png",
+      "px": [
+        1532,
+        306
+      ],
+      "bytes": 52615
+    },
+    {
+      "n": 70,
+      "pages": [
+        58
+      ],
+      "slices": [
+        [
+          58,
+          431.2,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a70.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 30539
+    },
+    {
+      "n": 71,
+      "pages": [
+        59
+      ],
+      "slices": [
+        [
+          59,
+          574.6,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a71.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 48775
+    },
+    {
+      "n": 72,
+      "pages": [
+        60
+      ],
+      "slices": [
+        [
+          60,
+          525.6,
+          624.3
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a72.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 41448
+    },
+    {
+      "n": 73,
+      "pages": [
+        61
+      ],
+      "slices": [
+        [
+          61,
+          190.3,
+          331.4
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a73.png",
+      "px": [
+        1532,
+        374
+      ],
+      "bytes": 66854
+    },
+    {
+      "n": 74,
+      "pages": [
+        61
+      ],
+      "slices": [
+        [
+          61,
+          617.6,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a74.png",
+      "px": [
+        1532,
+        355
+      ],
+      "bytes": 73766
+    },
+    {
+      "n": 75,
+      "pages": [
+        62
+      ],
+      "slices": [
+        [
+          62,
+          579.5,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a75.png",
+      "px": [
+        1532,
+        355
+      ],
+      "bytes": 75348
+    },
+    {
+      "n": 76,
+      "pages": [
+        63
+      ],
+      "slices": [
+        [
+          63,
+          268.3,
+          477.8
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a76.png",
+      "px": [
+        1532,
+        564
+      ],
+      "bytes": 87716
+    },
+    {
+      "n": 77,
+      "pages": [
+        63,
+        64
+      ],
+      "slices": [
+        [
+          63,
+          658.8,
+          760.0
+        ],
+        [
+          64,
+          68.0,
+          181.9
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a77.png",
+      "px": [
+        1532,
+        579
+      ],
+      "bytes": 63735
+    },
+    {
+      "n": 78,
+      "pages": [
+        64
+      ],
+      "slices": [
+        [
+          64,
+          388.5,
+          541.2
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a78.png",
+      "px": [
+        1532,
+        406
+      ],
+      "bytes": 87169
+    },
+    {
+      "n": 79,
+      "pages": [
+        65
+      ],
+      "slices": [
+        [
+          65,
+          184.1,
+          301.5
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a79.png",
+      "px": [
+        1532,
+        307
+      ],
+      "bytes": 62118
+    },
+    {
+      "n": 80,
+      "pages": [
+        65
+      ],
+      "slices": [
+        [
+          65,
+          458.3,
+          574.9
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a80.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 54873
+    },
+    {
+      "n": 81,
+      "pages": [
+        66
+      ],
+      "slices": [
+        [
+          66,
+          249.9,
+          402.6
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a81.png",
+      "px": [
+        1532,
+        406
+      ],
+      "bytes": 90709
+    },
+    {
+      "n": 82,
+      "pages": [
+        66
+      ],
+      "slices": [
+        [
+          66,
+          568.1,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a82.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 51551
+    },
+    {
+      "n": 83,
+      "pages": [
+        67
+      ],
+      "slices": [
+        [
+          67,
+          486.9,
+          567.5
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a83.png",
+      "px": [
+        1532,
+        206
+      ],
+      "bytes": 20604
+    },
+    {
+      "n": 84,
+      "pages": [
+        68
+      ],
+      "slices": [
+        [
+          68,
+          85.4,
+          267.2
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a84.png",
+      "px": [
+        1532,
+        487
+      ],
+      "bytes": 99718
+    },
+    {
+      "n": 85,
+      "pages": [
+        68
+      ],
+      "slices": [
+        [
+          68,
+          446.4,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "D",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a85.png",
+      "px": [
+        1532,
+        255
+      ],
+      "bytes": 38025
+    },
+    {
+      "n": 86,
+      "pages": [
+        69
+      ],
+      "slices": [
+        [
+          69,
+          463.6,
+          760.0
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a86.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 53832
+    },
+    {
+      "n": 87,
+      "pages": [
+        70
+      ],
+      "slices": [
+        [
+          70,
+          489.7,
+          684.9
+        ]
+      ],
+      "has_answer": true,
+      "letters": "A",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a87.png",
+      "px": [
+        1532,
+        524
+      ],
+      "bytes": 107673
+    },
+    {
+      "n": 88,
+      "pages": [
+        71
+      ],
+      "slices": [
+        [
+          71,
+          184.1,
+          300.8
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a88.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 53405
+    },
+    {
+      "n": 89,
+      "pages": [
+        71
+      ],
+      "slices": [
+        [
+          71,
+          452.0,
+          568.7
+        ]
+      ],
+      "has_answer": true,
+      "letters": "B",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a89.png",
+      "px": [
+        1532,
+        305
+      ],
+      "bytes": 50712
+    },
+    {
+      "n": 90,
+      "pages": [
+        72
+      ],
+      "slices": [
+        [
+          72,
+          85.4,
+          159.4
+        ]
+      ],
+      "has_answer": true,
+      "letters": "C",
+      "extra_questions": [],
+      "ok": true,
+      "file": "a90.png",
+      "px": [
+        1532,
+        206
+      ],
+      "bytes": 34220
+    }
+  ]
+}
