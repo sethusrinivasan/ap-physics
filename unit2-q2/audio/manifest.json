@@ -1,0 +1,42 @@
+[
+  {
+    "file": "step-01.mp3",
+    "title": "Read the problem",
+    "words": 97
+  },
+  {
+    "file": "step-02.mp3",
+    "title": "Identical spheres mean equal mass",
+    "words": 45
+  },
+  {
+    "file": "step-03.mp3",
+    "title": "Read the y-levels from the figure",
+    "words": 74
+  },
+  {
+    "file": "step-04.mp3",
+    "title": "Write the y center-of-mass formula",
+    "words": 73
+  },
+  {
+    "file": "step-05.mp3",
+    "title": "Apply the formula to arrangement A",
+    "words": 78
+  },
+  {
+    "file": "step-06.mp3",
+    "title": "Apply the formula to arrangement B",
+    "words": 96
+  },
+  {
+    "file": "step-07.mp3",
+    "title": "Compare the two y-coordinates",
+    "words": 57
+  },
+  {
+    "file": "step-08.mp3",
+    "title": "The answer is B",
+    "words": 49
+  }
+]

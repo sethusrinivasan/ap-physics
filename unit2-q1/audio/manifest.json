@@ -1,0 +1,42 @@
+[
+  {
+    "file": "step-01.mp3",
+    "title": "Read the problem",
+    "words": 90
+  },
+  {
+    "file": "step-02.mp3",
+    "title": "Name the given quantities",
+    "words": 121
+  },
+  {
+    "file": "step-03.mp3",
+    "title": "Turn density into mass",
+    "words": 97
+  },
+  {
+    "file": "step-04.mp3",
+    "title": "Locate each piece’s center",
+    "words": 114
+  },
+  {
+    "file": "step-05.mp3",
+    "title": "Find the system’s center of mass",
+    "words": 153
+  },
+  {
+    "file": "step-06.mp3",
+    "title": "Cut through that point",
+    "words": 105
+  },
+  {
+    "file": "step-07.mp3",
+    "title": "Mass of each piece after the cut",
+    "words": 135
+  },
+  {
+    "file": "step-08.mp3",
+    "title": "Form the ratio — answer B",
+    "words": 66
+  }
+]

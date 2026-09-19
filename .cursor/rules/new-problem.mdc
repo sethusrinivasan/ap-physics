@@ -1,0 +1,6 @@
+---
+description: How to add the next AP Physics interactive walkthrough
+alwaysApply: true
+---
+
+When the user asks to add another problem, follow the next problem, or continue from a PDF, read and follow `/home/home/ap-physics/PROMPT.md` exactly. Keep the existing walkthrough pattern, **add the new problem to `index_unitN.html` in the same change** (and add the unit to the root `index.html` if it is new), and wire Previous / Contents / Next. Copy the full layout CSS from a working walkthrough; never drop `.player`, `.stage`, `.problem-bar`, `.eq`, `.caption`, or `.controls`. Make **The problem** a `target="_blank"` link to the exam-cut image and **The answer is** a `target="_blank"` link to the official solution crop.
