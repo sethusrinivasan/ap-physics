@@ -595,13 +595,13 @@
         blocks: [{
           vars: [
             { tex: "m", say: "m", meaning: "the mass of the box" },
-            { tex: "F_{24}", say: "the 24 newton force", meaning: "the smaller student push" },
-            { tex: "F_{60}", say: "the 60 newton force", meaning: "the larger student push, opposite the 24 newton force" },
+            { tex: "F_a", say: "F a", meaning: "the 24 newton student push, the smaller one" },
+            { tex: "F_b", say: "F b", meaning: "the 60 newton student push, opposite F a" },
             { tex: "v", say: "v", meaning: "3 meters per second, constant, so a is 0" }
           ],
-          explain: "The leftover of the student pushes is 36 newtons. Friction must supply that 36 newtons opposite the 60 newton force, which is the same direction as the 24 newton force.",
-          tex: "m = 10\,\mathrm{kg},\quad F_{24} = 24\,\mathrm{N},\quad F_{60} = 60\,\mathrm{N},\quad v = 3\,\mathrm{m/s}",
-          speakFormula: "m is 10 kilograms, the forces are 24 newtons and 60 newtons, and v is 3 meters per second."
+          explain: "The leftover of the two student pushes is 36 newtons. Friction must supply that 36 newtons opposite F b, which is the same direction as F a.",
+          tex: "F_a = 24\\,\\mathrm{N},\\quad F_b = 60\\,\\mathrm{N},\\quad m = 10\\,\\mathrm{kg},\\quad v = 3\\,\\mathrm{m/s}",
+          speakFormula: "F a is 24 newtons, F b is 60 newtons, m is 10 kilograms, and v is 3 meters per second."
         }]
       },
       {
@@ -611,11 +611,11 @@
         lead: "Here is the law. Each symbol is named before it appears in the formula.",
         blocks: [{
           vars: [
-            { tex: "F_{\mathrm{net},x}", say: "F net x", meaning: "the sum of the two student forces and friction" },
+            { tex: "F_{\\mathrm{net},x}", say: "F net x", meaning: "the sum of the two student forces and friction" },
             { tex: "a_x", say: "a x", meaning: "the horizontal acceleration, zero at constant velocity" }
           ],
-          explain: "Next, choose a sign convention and put 60, 24, and f into that sum.",
-          tex: "F_{\mathrm{net},x} = m a_x = 0",
+          explain: "Next, choose a sign convention and put F b, F a, and f into that sum.",
+          tex: "F_{\\mathrm{net},x} = m a_x = 0",
           speakFormula: "F net x equals m a x, which equals 0."
         }]
       },
@@ -623,43 +623,43 @@
         title: "Substitute 60 N, 24 N, and friction",
         blurb: "Take the 60 N direction as positive",
         caption: "Friction must point with the 24 N force so the three can cancel.",
-        lead: "Call the 60 newton direction plus x. Then the 24 newton force is minus 24 newtons. Friction f is unknown, but it has to cancel the leftover 36 newtons, so it also points in the minus x direction.",
+        lead: "Call the F b direction plus x. Then F a is minus 24 newtons. Friction f is unknown, but it has to cancel the leftover 36 newtons, so it also points in the minus x direction.",
         blocks: [{
           vars: [
-            { tex: "f", say: "f", meaning: "friction's magnitude, pointing with the 24 newton force" }
+            { tex: "f", say: "f", meaning: "friction's magnitude, pointing with F a" }
           ],
-          explain: "If friction pointed with the 60 newton force, the net would be even larger, and the box would accelerate. Constant v forbids that.",
-          tex: "60\,\mathrm{N} - 24\,\mathrm{N} - f = 0",
-          speakFormula: "60 newtons minus 24 newtons minus f equals 0."
+          explain: "If friction pointed with F b, the net would be even larger, and the box would accelerate. Constant v forbids that.",
+          tex: "F_b - F_a - f = 0",
+          speakFormula: "F b minus F a minus f equals 0."
         }]
       },
       {
         title: "Solve for the friction magnitude",
         blurb: "36 N with the 24 N push",
         caption: "60 minus 24 is 36, so f is 36 N.",
-        lead: "Finish the arithmetic. The official solution is 36 newtons in the same direction as the 24 newton force, balancing the 60 newton force.",
+        lead: "Finish the arithmetic. The official solution is 36 newtons in the same direction as F a, balancing F b.",
         blocks: [{
           vars: [
             { tex: "f", say: "f", meaning: "the friction magnitude asked for" }
           ],
           explain: "The 10 kilogram mass would matter if you needed the weight or mu, but the question only asks for the friction force, which Newton's first law already fixed.",
-          tex: "f = 60\,\mathrm{N} - 24\,\mathrm{N} = 36\,\mathrm{N}",
-          speakFormula: "f equals 60 newtons minus 24 newtons, which is 36 newtons."
+          tex: "f = F_b - F_a = 60\\,\\mathrm{N} - 24\\,\\mathrm{N} = 36\\,\\mathrm{N}",
+          speakFormula: "f equals F b minus F a, which is 60 newtons minus 24 newtons, or 36 newtons."
         }]
       },
       {
         title: "Why A, C, and D fail",
         blurb: "6 N, adding the pushes, or using the weight",
         caption: "C is 60 plus 24. D is m g. A is far too small.",
-        lead: "Choices A, C, and D each skip the 60 minus 24 minus f equals 0 substitution.",
+        lead: "Choices A, C, and D each skip the F b minus F a minus f equals 0 substitution.",
         blocks: [{
           vars: [
-            { tex: "\text{A: }6\,\mathrm{N}", say: "choice A", meaning: "much smaller than the 36 newton leftover of the two pushes" },
-            { tex: "\text{C: }84\,\mathrm{N}", say: "choice C", meaning: "60 plus 24, as if friction added to both student forces" },
-            { tex: "\text{D: }100\,\mathrm{N}", say: "choice D", meaning: "the weight, 10 kilograms times 10 newtons per kilogram" }
+            { tex: "\\text{A: }6\\,\\mathrm{N}", say: "choice A", meaning: "much smaller than the 36 newton leftover of the two pushes" },
+            { tex: "\\text{C: }84\\,\\mathrm{N}", say: "choice C", meaning: "60 plus 24, as if friction added to both student forces" },
+            { tex: "\\text{D: }100\\,\\mathrm{N}", say: "choice D", meaning: "the weight, 10 kilograms times 10 newtons per kilogram" }
           ],
           explain: "C would be the net if both students pushed the same way and there were no friction. D is m g, a vertical force, not the horizontal friction. A does not cancel 60 newtons against 24 newtons.",
-          tex: "\text{reject A, C, and D}"
+          tex: "\\text{reject A, C, and D}"
         }]
       },
       {
@@ -672,7 +672,7 @@
             { tex: "f", say: "f", meaning: "the frictional force exerted on the box by the surface" }
           ],
           explain: "The net force is zero. Friction is 36 newtons in the same direction as the 24 newton force in order to balance the 60 newton force.",
-          tex: "f = 36\,\mathrm{N}",
+          tex: "f = 36\\,\\mathrm{N}",
           speakFormula: "The correct choice is B, 36 newtons."
         }],
         highlight: true

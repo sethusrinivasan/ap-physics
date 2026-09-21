@@ -611,12 +611,12 @@
         lead: "Here is the law. Each symbol is named before it appears in the formula.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_{\mathrm{ext}}", say: "F ext", meaning: "the vector sum of forces exerted on the system by objects that are not in the system" },
+            { tex: "\\vec{F}_{\\mathrm{ext}}", say: "F ext", meaning: "the vector sum of forces exerted on the system by objects that are not in the system" },
             { tex: "m", say: "m", meaning: "the mass of that chosen system" },
-            { tex: "\vec{a}", say: "a", meaning: "the acceleration of the system's center of mass" }
+            { tex: "\\vec{a}", say: "a", meaning: "the acceleration of the system's center of mass" }
           ],
           explain: "Internal forces cancel in pairs and do not belong on the diagram. Next, write the actual external list for A, for B, and for A plus B.",
-          tex: "\vec{F}_{\mathrm{ext}} = m\vec{a}",
+          tex: "\\vec{F}_{\\mathrm{ext}} = m\\vec{a}",
           speakFormula: "So F ext equals m a."
         }]
       },
@@ -631,7 +631,7 @@
               { tex: "A+B", say: "A plus B", meaning: "both blocks treated as one system" }
             ],
             explain: "The push between A and B is internal, so it is omitted. The student's three arrows are then exactly the external set. That is choice A: no change is needed.",
-            tex: "\vec{F}_{\mathrm{ext},a+b} = \vec{F}_p + \vec{F}_n + \vec{F}_g",
+            tex: "\\vec{F}_{\\mathrm{ext},a+b} = \\vec{F}_p + \\vec{F}_n + \\vec{F}_g",
             speakFormula: "For A plus B, F ext is F p plus F n plus F g."
           },
           {
@@ -639,7 +639,7 @@
               { tex: "B", say: "block B alone", meaning: "the upper block as the system" }
             ],
             explain: "F p does not act on B. The up-the-ramp arrow on B is the contact force from A, so the student's F p label should be changed to F a b. That is choice B.",
-            tex: "\vec{F}_{\mathrm{ext},b} = \vec{F}_{ab} + \vec{F}_n + \vec{F}_g",
+            tex: "\\vec{F}_{\\mathrm{ext},b} = \\vec{F}_{ab} + \\vec{F}_n + \\vec{F}_g",
             speakFormula: "For B alone, F ext is F a b plus F n plus F g. There is no F p."
           },
           {
@@ -647,7 +647,7 @@
               { tex: "A", say: "block A alone", meaning: "the lower block as the system" }
             ],
             explain: "A feels F p from the pusher and also F b a from B, pointing down the incline. The student's sketch is missing that extra arrow. That is choice C.",
-            tex: "\vec{F}_{\mathrm{ext},a} = \vec{F}_p + \vec{F}_{ba} + \vec{F}_n + \vec{F}_g",
+            tex: "\\vec{F}_{\\mathrm{ext},a} = \\vec{F}_p + \\vec{F}_{ba} + \\vec{F}_n + \\vec{F}_g",
             speakFormula: "For A alone, F ext is F p plus F b a plus F n plus F g."
           }
         ]
@@ -659,12 +659,12 @@
         lead: "Choices A, B, and C each freeze one system in place. The problem never named the system, so none of those three can be the unique correction.",
         blocks: [{
           vars: [
-            { tex: "\text{A}", say: "choice A", meaning: "no change; true only if the dot is A plus B" },
-            { tex: "\text{B}", say: "choice B", meaning: "relabel F p as F a b; true only if the dot is B" },
-            { tex: "\text{C}", say: "choice C", meaning: "add F b a down the ramp; true only if the dot is A" }
+            { tex: "\\text{A}", say: "choice A", meaning: "no change; true only if the dot is A plus B" },
+            { tex: "\\text{B}", say: "choice B", meaning: "relabel F p as F a b; true only if the dot is B" },
+            { tex: "\\text{C}", say: "choice C", meaning: "add F b a down the ramp; true only if the dot is A" }
           ],
           explain: "If you assume the sketch is A plus B, A looks right and B and C look like extras. If you assume it is B, B looks right. If you assume it is A, C looks right. The exam item does not tell you which assumption to make.",
-          tex: "\text{reject A, B, and C as the unique fix}"
+          tex: "\\text{reject A, B, and C as the unique fix}"
         }]
       },
       {
@@ -674,10 +674,10 @@
         lead: "The correct choice is D. Any external force list is decided only after the system is defined.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_{\mathrm{ext}}", say: "F ext", meaning: "the external set, which changes with the system" }
+            { tex: "\\vec{F}_{\\mathrm{ext}}", say: "F ext", meaning: "the external set, which changes with the system" }
           ],
           explain: "Free-body diagrams show external forces. Define the system first, then decide whether the student's F p, F n, F g sketch already matches, needs a relabel, or needs F b a added.",
-          tex: "\vec{F}_{\mathrm{ext}}\text{ depends on whether the system is }A,\; B,\text{ or }A+B",
+          tex: "\\vec{F}_{\\mathrm{ext}}\\text{ depends on whether the system is }A,\\; B,\\text{ or }A+B",
           speakFormula: "The correct choice is D. F ext depends on whether the system is A, B, or A plus B."
         }],
         highlight: true

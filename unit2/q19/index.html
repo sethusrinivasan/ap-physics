@@ -582,7 +582,7 @@
         lead: "Look at Question 19. An astronaut on the left holds a cord attached to a large rock on the right. They are at rest relative to a nearby spaceship, in deep space. When the astronaut pulls on the cord, that pull is a force between pieces of the astronaut-cord-rock system. It cannot shove the system's center of mass relative to the spaceship.",
         blocks: [{
           vars: [
-            { tex: "x_{\mathrm{cm}}", say: "x cm", meaning: "the center of mass of the astronaut, cord, and rock, measured from the spaceship" }
+            { tex: "x_{\\mathrm{cm}}", say: "x cm", meaning: "the center of mass of the astronaut, cord, and rock, measured from the spaceship" }
           ],
           explain: "The spaceship is only a reference. Nothing outside the three-piece system is pulling on it, so the center of mass should stay put while the astronaut and rock move toward each other."
         }]
@@ -596,11 +596,11 @@
           vars: [
             { tex: "m_r", say: "m r", meaning: "the mass of the rock" },
             { tex: "m_a", say: "m a", meaning: "the mass of the astronaut; the stem says m r is greater than m a" },
-            { tex: "m_{\mathrm{cord}}", say: "m cord", meaning: "the cord mass, given as negligible" }
+            { tex: "m_c", say: "m c", meaning: "the cord mass, given as negligible" }
           ],
           explain: "Because m r is larger, the rock will not travel as far as the astronaut for the same size impulse. That distance difference is how the center of mass can stay still.",
-          tex: "m_r > m_a,\qquad m_{\mathrm{cord}} \approx 0",
-          speakFormula: "So m r is greater than m a, and m cord is about 0."
+          tex: "m_r > m_a,\\quad m_c \\approx 0",
+          speakFormula: "So m r is greater than m a, and m c is about 0."
         }]
       },
       {
@@ -610,13 +610,13 @@
         lead: "Here is the law. Each symbol is named before it appears in the formula.",
         blocks: [{
           vars: [
-            { tex: "F_{\mathrm{ext}}", say: "F ext", meaning: "the net force on the astronaut-cord-rock system from outside that system" },
-            { tex: "a_{\mathrm{cm}}", say: "a cm", meaning: "the acceleration of the system's center of mass" },
-            { tex: "v_{\mathrm{cm}}", say: "v cm", meaning: "the velocity of that center of mass relative to the spaceship" }
+            { tex: "F_e", say: "F e", meaning: "the net force on the astronaut-cord-rock system from outside that system" },
+            { tex: "a_{\\mathrm{cm}}", say: "a cm", meaning: "the acceleration of the system's center of mass" },
+            { tex: "v_{\\mathrm{cm}}", say: "v cm", meaning: "the velocity of that center of mass relative to the spaceship" }
           ],
-          explain: "Deep space gives F ext = 0, so a cm = 0. They started at rest, so v cm stays 0 and x cm never moves. Next, put the two masses into that statement.",
-          tex: "F_{\mathrm{ext}} = (m_a + m_r)a_{\mathrm{cm}} = 0",
-          speakFormula: "So F ext equals m a plus m r, times a cm, and that is 0."
+          explain: "Deep space gives F e = 0, so a cm = 0. They started at rest, so v cm stays 0 and x cm never moves. Next, put the two masses into that statement.",
+          tex: "F_e = (m_a + m_r)a_{\\mathrm{cm}} = 0",
+          speakFormula: "So F e equals m a plus m r, times a cm, and that is 0."
         }]
       },
       {
@@ -627,11 +627,11 @@
         blocks: [
           {
             vars: [
-              { tex: "F_{a\leftarrow r}", say: "F on the astronaut", meaning: "the cord force on the astronaut, to the right" },
-              { tex: "F_{r\leftarrow a}", say: "F on the rock", meaning: "the cord force on the rock, to the left" }
+              { tex: "F_{a\\leftarrow r}", say: "F on the astronaut", meaning: "the cord force on the astronaut, to the right" },
+              { tex: "F_{r\\leftarrow a}", say: "F on the rock", meaning: "the cord force on the rock, to the left" }
             ],
             explain: "Choice B says the force on the astronaut is greater because the masses differ. That contradicts Newton's third law. The forces are equal; the accelerations are not.",
-            tex: "F_{a\leftarrow r} = F_{r\leftarrow a}",
+            tex: "F_{a\\leftarrow r} = F_{r\\leftarrow a}",
             speakFormula: "The force on the astronaut equals the force on the rock."
           },
           {
@@ -640,7 +640,7 @@
               { tex: "a_r", say: "a r", meaning: "the rock's acceleration, to the left" }
             ],
             explain: "Because m a is smaller, a a is larger. In the same time the astronaut covers a larger distance to the right than the rock covers to the left.",
-            tex: "a_a = \dfrac{F_{a\leftarrow r}}{m_a} > \dfrac{F_{r\leftarrow a}}{m_r} = a_r",
+            tex: "a_a = \\dfrac{F_{a\\leftarrow r}}{m_a} > \\dfrac{F_{r\\leftarrow a}}{m_r} = a_r",
             speakFormula: "So a a equals that common force over m a, which is greater than the same force over m r, which is a r."
           }
         ]
@@ -656,7 +656,7 @@
             { tex: "d_r", say: "d r", meaning: "how far the rock moves left; smaller because m r is larger" }
           ],
           explain: "The two mass-displacement products cancel, so x cm remains 0. Choice C is the same idea with the wrong distances: the astronaut and rock do not move equal amounts.",
-          tex: "m_a d_a - m_r d_r = 0 \quad\Rightarrow\quad d_a > d_r",
+          tex: "m_a d_a - m_r d_r = 0 \\quad\\Rightarrow\\quad d_a > d_r",
           speakFormula: "m a times d a minus m r times d r equals 0, so d a is greater than d r."
         }]
       },
@@ -667,12 +667,12 @@
         lead: "Choices A, B, and C each contradict either isolation or the mass inequality in the stem.",
         blocks: [{
           vars: [
-            { tex: "\text{A}", say: "choice A", meaning: "claims x cm shifts right and the rock stays put" },
-            { tex: "\text{B}", say: "choice B", meaning: "claims the force on the astronaut is larger" },
-            { tex: "\text{C}", say: "choice C", meaning: "claims equal distances toward the original x cm" }
+            { tex: "\\text{A}", say: "choice A", meaning: "claims x cm shifts right and the rock stays put" },
+            { tex: "\\text{B}", say: "choice B", meaning: "claims the force on the astronaut is larger" },
+            { tex: "\\text{C}", say: "choice C", meaning: "claims equal distances toward the original x cm" }
           ],
           explain: "A would require an external force on the system, and the rock is not glued in place. B ignores the equal-and-opposite cord pair. C would be true only if m a equaled m r, but the stem says the rock is heavier.",
-          tex: "\text{reject A, B, and C}"
+          tex: "\\text{reject A, B, and C}"
         }]
       },
       {
@@ -682,10 +682,10 @@
         lead: "The correct choice is D. Internal pulls leave x cm where it started, and the lighter astronaut covers the larger distance.",
         blocks: [{
           vars: [
-            { tex: "x_{\mathrm{cm}}", say: "x cm", meaning: "the astronaut-cord-rock center of mass relative to the spaceship" }
+            { tex: "x_{\\mathrm{cm}}", say: "x cm", meaning: "the astronaut-cord-rock center of mass relative to the spaceship" }
           ],
           explain: "Interactions inside the system do not move the center of mass. Because m r is greater than m a, the astronaut's rightward trip is larger than the rock's leftward trip, which is exactly D.",
-          tex: "x_{\mathrm{cm}}\text{ stays put, with }d_a > d_r",
+          tex: "x_{\\mathrm{cm}}\\text{ stays put, with }d_a > d_r",
           speakFormula: "The correct choice is D. x cm stays put, and d a is greater than d r."
         }],
         highlight: true

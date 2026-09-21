@@ -578,110 +578,110 @@
       {
         title: "The rope itself has weight",
         blurb: "Tension cannot be one number",
-        caption: "A cut near the hook holds more hanging weight than a cut near the block.",
-        lead: "Look at Question 20. A 50 newton block hangs from a uniform rope, and that rope itself weighs 5 newtons. If the rope were massless, tension would be 50 newtons everywhere. Because the rope has weight, each slice of rope has to support a different amount of hanging load.",
+        caption: "A slice near the hook holds more hanging weight than a slice near the block.",
+        lead: "Look at Question 20. A 50 newton block hangs from a uniform rope, and that rope itself weighs 5 newtons. If the rope weighed nothing, tension would be 50 newtons at every height. Because the rope has weight, a slice near the hook has to hold more hanging load than a slice near the block.",
         blocks: [{
           vars: [
-            { tex: "T", say: "T", meaning: "the tension at a chosen height along the rope" }
+            { tex: "T", say: "T", meaning: "the tension at a chosen height along the rope; it is not the same at every height" }
           ],
-          explain: "Choices A and B treat T as constant. The 5 newton rope weight is why those two letters fail."
+          explain: "Choices A and B say T is one number everywhere. That would be true only for a massless rope. The extra 5 newtons is why T must change along the rope."
         }]
       },
       {
         title: "Name the two weights",
         blurb: "Block 50 N, rope 5 N",
         caption: "Uniform density means the rope's 5 N is spread evenly along its length.",
-        lead: "Copy the numbers from the stem. The block's weight is 50 newtons. The rope's weight is 5 newtons, and the rope has uniform density.",
+        lead: "Copy the two weights from the stem. Use short suffixes: b for the hanging block, r for the entire rope.",
         blocks: [{
           vars: [
-            { tex: "W_{\mathrm{block}}", say: "W block", meaning: "the weight of the hanging block" },
-            { tex: "W_{\mathrm{rope}}", say: "W rope", meaning: "the weight of the entire rope" }
+            { tex: "W_b", say: "W b", meaning: "the weight of the hanging block" },
+            { tex: "W_r", say: "W r", meaning: "the weight of the entire rope" }
           ],
-          explain: "Those are the only two loads. At the top you must hold both. At the bottom you hold only the block.",
-          tex: "W_{\mathrm{block}} = 50\,\mathrm{N},\qquad W_{\mathrm{rope}} = 5\,\mathrm{N}",
-          speakFormula: "W block is 50 newtons, and W rope is 5 newtons."
+          explain: "Those are the only two downward loads. Higher on the rope you hold more of W r. Right at the block you hold none of W r.",
+          tex: "W_b = 50\\,\\mathrm{N},\\quad W_r = 5\\,\\mathrm{N}",
+          speakFormula: "W b is 50 newtons, and W r is 5 newtons."
         }]
       },
       {
-        title: "Write the cut-rope law",
-        blurb: "Tension equals the weight hanging below the cut",
-        caption: "The rope is at rest, so the net force on everything below a cut is zero.",
-        lead: "Here is the law. Slice the rope at a height, and treat everything below that slice as a system in equilibrium.",
+        title: "Tension equals the hanging weight below",
+        blurb: "The hanging piece is at rest",
+        caption: "Cut the rope. Upward T must cancel the weight of everything hanging below that cut.",
+        lead: "The block and rope hang still, so they are not accelerating. Cut the rope at some height and look only at the hanging piece below that cut. That piece is also at rest, so its net force is zero.",
         blocks: [{
           vars: [
-            { tex: "T(y)", say: "T of y", meaning: "the tension at a height y along the rope" },
-            { tex: "W_{\mathrm{below}}", say: "W below", meaning: "the weight of the block plus whatever length of rope hangs below the cut" }
+            { tex: "f", say: "f", meaning: "the fraction of the rope hanging below the cut; f is 0 at the block and 1 at the hook" },
+            { tex: "T", say: "T", meaning: "the upward tension at the cut, the only upward force on that hanging piece" }
           ],
-          explain: "Next, put the 50 newton and 5 newton values in at the bottom cut and at the top cut.",
-          tex: "T(y) = W_{\mathrm{below}}(y)",
-          speakFormula: "So T of y equals the weight hanging below that cut."
+          explain: "Downward on the hanging piece is the block plus that fraction of the rope. Upward is T. Set them equal because the piece is at rest.",
+          tex: "T = W_b + f W_r",
+          speakFormula: "So T equals W b plus f times W r."
         }]
       },
       {
-        title: "Substitute at the bottom and at the top",
+        title: "Put in the two ends",
         blurb: "50 N at the block, 55 N at the hook",
-        caption: "The bottom supports only the block. The top supports the block plus the whole rope.",
-        lead: "Replace W below with the numbers from this figure. At the bottom of the rope, no rope hangs below the cut, so the tension is just the block. At the top, the whole 5 newton rope hangs below the hook.",
+        caption: "At the block, f is 0. At the hook, f is 1.",
+        lead: "Now put the end values of f into that law. At the bottom of the rope, next to the block, no rope hangs below the cut. At the top, next to the hook, the whole rope hangs below the cut.",
         blocks: [
           {
             vars: [
-              { tex: "T_{\mathrm{bottom}}", say: "T bottom", meaning: "the tension in the rope where it meets the block" }
+              { tex: "T_b", say: "T b", meaning: "the tension at the bottom of the rope, where the rope meets the block" }
             ],
-            explain: "That is 50 newtons, not 55. Choice B is already ruled out at this end.",
-            tex: "T_{\mathrm{bottom}} = W_{\mathrm{block}} = 50\,\mathrm{N}",
-            speakFormula: "T bottom equals 50 newtons."
+            explain: "There, f is 0, so T b is just the block. That is 50 newtons, not 55. Choice B is already wrong at this end.",
+            tex: "T_b = W_b + (0)W_r = 50\\,\\mathrm{N}",
+            speakFormula: "T b equals W b, which is 50 newtons."
           },
           {
             vars: [
-              { tex: "T_{\mathrm{top}}", say: "T top", meaning: "the tension in the rope where it meets the hook" }
+              { tex: "T_t", say: "T t", meaning: "the tension at the top of the rope, where the rope meets the hook" }
             ],
-            explain: "The hook holds 55 newtons. Choice A, 50 newtons everywhere, cannot match the top. Choice C reverses the two ends.",
-            tex: "T_{\mathrm{top}} = W_{\mathrm{block}} + W_{\mathrm{rope}} = 50\,\mathrm{N} + 5\,\mathrm{N} = 55\,\mathrm{N}",
-            speakFormula: "T top equals 50 newtons plus 5 newtons, which is 55 newtons."
+            explain: "There, f is 1, so T t is the block plus the whole rope. The hook must hold 55 newtons. Choice A cannot match this end, and choice C swaps the two ends.",
+            tex: "T_t = W_b + (1)W_r = 50\\,\\mathrm{N} + 5\\,\\mathrm{N} = 55\\,\\mathrm{N}",
+            speakFormula: "T t equals W b plus W r, which is 50 newtons plus 5 newtons, or 55 newtons."
           }
         ]
       },
       {
-        title: "The rope is uniform, so T changes uniformly",
+        title: "Uniform rope, so T rises uniformly",
         blurb: "50 N at the bottom to 55 N at the top",
-        caption: "Each extra meter of rope adds the same extra newtons of hanging weight.",
-        lead: "Because the density is uniform, W below grows linearly from 50 newtons at the bottom to 55 newtons at the top. Tension therefore changes uniformly between those two values.",
+        caption: "Each extra bit of rope below you adds the same extra newtons, so T climbs evenly.",
+        lead: "The rope has uniform density, so f grows steadily from 0 at the block to 1 at the hook. Then T = W b plus f times W r also grows steadily, from 50 newtons to 55 newtons.",
         blocks: [{
           vars: [
-            { tex: "T(y)", say: "T of y", meaning: "tension versus height, increasing from the block toward the hook" }
+            { tex: "f", say: "f", meaning: "how far you have climbed, as a fraction of the rope's length" }
           ],
-          explain: "Halfway up, you would hold the block plus half the rope, 52.5 newtons. The ranking of the ends is what the choices ask for.",
-          tex: "T:\ 50\,\mathrm{N}\text{ at the bottom }\rightarrow 55\,\mathrm{N}\text{ at the top}",
-          speakFormula: "Tension goes from 50 newtons at the bottom to 55 newtons at the top."
+          explain: "Halfway up, f is one half, so you hold the block plus half the rope: 52.5 newtons. Climbing up always adds hanging rope, so T is smaller at the bottom and larger at the top.",
+          tex: "T = 50\\,\\mathrm{N} + f(5\\,\\mathrm{N}),\\quad T_b = 50\\,\\mathrm{N} \\rightarrow T_t = 55\\,\\mathrm{N}",
+          speakFormula: "T equals 50 newtons plus f times 5 newtons, so T goes from 50 newtons at the bottom to 55 newtons at the top."
         }]
       },
       {
         title: "Why A, B, and C fail",
         blurb: "Constant T, or the ends swapped",
-        caption: "A and B ignore the rope's 5 N. C puts the 55 N at the bottom.",
-        lead: "Choices A, B, and C either throw away the rope weight or attach it at the wrong end.",
+        caption: "A and B make T one number. C puts the 55 N at the bottom.",
+        lead: "Choices A, B, and C either throw away the rope's 5 newtons or attach that extra load at the wrong end.",
         blocks: [{
           vars: [
-            { tex: "\text{A: }50\,\mathrm{N}", say: "choice A", meaning: "50 newtons at every location; that forgets the 5 newton rope" },
-            { tex: "\text{B: }55\,\mathrm{N}", say: "choice B", meaning: "55 newtons at every location; that pretends the rope is massless at the bottom" },
-            { tex: "\text{C}", say: "choice C", meaning: "50 newtons at the top and 55 newtons at the bottom, which swaps the ends" }
+            { tex: "\\text{A: }T=50\\,\\mathrm{N}", say: "choice A", meaning: "50 newtons at every height; that forgets W r" },
+            { tex: "\\text{B: }T=55\\,\\mathrm{N}", say: "choice B", meaning: "55 newtons at every height; that pretends even the bottom holds the whole rope" },
+            { tex: "\\text{C: }T_t=50\\,\\mathrm{N},\\ T_b=55\\,\\mathrm{N}", say: "choice C", meaning: "50 newtons at the top and 55 newtons at the bottom, which swaps the ends" }
           ],
-          explain: "The bottom of the rope does not support the rope's own weight. The top does. Swapping 50 and 55, or flattening them to one number, misses that.",
-          tex: "\text{reject A, B, and C}"
+          explain: "The bottom of the rope does not hold W r, because none of the rope is below that point. The top does hold W r, because the whole rope is below the hook. Flattening T to one number, or swapping 50 and 55, misses that.",
+          tex: "\\text{reject A, B, and C}"
         }]
       },
       {
         title: "The answer is D",
         blurb: "50 N at the bottom, 55 N at the top",
         caption: "Tension changes uniformly from 50 N at the bottom of the rope to 55 N at the top.",
-        lead: "The correct choice is D. The top holds block plus rope. The bottom holds only the block.",
+        lead: "The correct choice is D. The top holds the block plus the rope. The bottom holds only the block. Uniform density makes that change even along the rope.",
         blocks: [{
           vars: [
-            { tex: "T_{\mathrm{bottom}}", say: "T bottom", meaning: "50 newtons, the block alone" },
-            { tex: "T_{\mathrm{top}}", say: "T top", meaning: "55 newtons, block plus rope" }
+            { tex: "T_b", say: "T b", meaning: "50 newtons at the bottom: the block alone" },
+            { tex: "T_t", say: "T t", meaning: "55 newtons at the top: block plus the whole rope" }
           ],
-          explain: "The top of the rope supports both weights. The bottom supports only the 50 newton block. Uniform density makes the change from 50 newtons to 55 newtons linear along the rope.",
-          tex: "T:\ 50\,\mathrm{N}\text{ (bottom)}\rightarrow 55\,\mathrm{N}\text{ (top)}",
+          explain: "That is the official reason: the top of the rope supports both weights, while the bottom supports only the 50 newton block. Because the rope is uniform, T changes uniformly from T b to T t.",
+          tex: "T_b = 50\\,\\mathrm{N} \\rightarrow T_t = 55\\,\\mathrm{N}",
           speakFormula: "The correct choice is D. Tension goes from 50 newtons at the bottom to 55 newtons at the top."
         }],
         highlight: true

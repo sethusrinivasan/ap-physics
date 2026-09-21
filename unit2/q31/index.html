@@ -582,7 +582,7 @@
         lead: "Look at Question 31. An object is already moving under one constant force. Could adding another force of that same magnitude make the velocity constant, and why? Constant velocity is Newton's first law: the vector sum of forces must be zero. Direction of the new force is the whole issue.",
         blocks: [{
           vars: [
-            { tex: "\vec{v}", say: "v", meaning: "the object's velocity, which is constant only if the net force becomes zero" }
+            { tex: "\\vec{v}", say: "v", meaning: "the object's velocity, which is constant only if the net force becomes zero" }
           ],
           explain: "Choices C and D say no because the object is already in motion. Motion is allowed at constant v. You only need F net to drop to zero."
         }]
@@ -594,11 +594,11 @@
         lead: "Copy the setup. There is already a constant force of some magnitude F. You may add one more force whose magnitude is also F. The question is whether some direction of that second force makes F net zero.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}", say: "F", meaning: "the original constant force already acting" },
-            { tex: "\vec{F}_{\mathrm{add}}", say: "F add", meaning: "the additional force, with the same magnitude as F" }
+            { tex: "\\vec{F}", say: "F", meaning: "the original constant force already acting" },
+            { tex: "\\vec{F}_{\\mathrm{add}}", say: "F add", meaning: "the additional force, with the same magnitude as F" }
           ],
           explain: "Same magnitude does not automatically cancel. Only the opposite direction does.",
-          tex: "|\vec{F}_{\mathrm{add}}| = |\vec{F}|",
+          tex: "|\\vec{F}_{\\mathrm{add}}| = |\\vec{F}|",
           speakFormula: "The magnitude of F add equals the magnitude of F."
         }]
       },
@@ -609,11 +609,11 @@
         lead: "Here is the law. Each symbol is named before it appears in the formula.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_{\mathrm{net}}", say: "F net", meaning: "the vector sum of the original force and the added force" },
-            { tex: "\vec{a}", say: "a", meaning: "the acceleration; it is zero only if F net is zero" }
+            { tex: "\\vec{F}_{\\mathrm{net}}", say: "F net", meaning: "the vector sum of the original force and the added force" },
+            { tex: "\\vec{a}", say: "a", meaning: "the acceleration; it is zero only if F net is zero" }
           ],
           explain: "If you can make F net zero, a is zero and whatever velocity the object already has stays constant. Next, try opposite and try perpendicular.",
-          tex: "\vec{F}_{\mathrm{net}} = m\vec{a} = 0 \quad\Leftrightarrow\quad \vec{v}\text{ is constant}",
+          tex: "\\vec{F}_{\\mathrm{net}} = m\\vec{a} = 0 \\quad\\Leftrightarrow\\quad \\vec{v}\\text{ is constant}",
           speakFormula: "F net equals m a equals 0 if and only if v is constant."
         }]
       },
@@ -624,10 +624,10 @@
         lead: "Point F add opposite F, with the same magnitude. The two arrows cancel.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_{\mathrm{add}}", say: "F add", meaning: "now taken opposite the original F" }
+            { tex: "\\vec{F}_{\\mathrm{add}}", say: "F add", meaning: "now taken opposite the original F" }
           ],
           explain: "The object can keep moving in a straight line at whatever speed it had when the second force was added. That is choice B.",
-          tex: "\vec{F}_{\mathrm{net}} = \vec{F} + (-\vec{F}) = 0",
+          tex: "\\vec{F}_{\\mathrm{net}} = \\vec{F} + (-\\vec{F}) = 0",
           speakFormula: "F net is F plus negative F, which equals 0."
         }]
       },
@@ -638,10 +638,10 @@
         lead: "If instead F add is perpendicular to F, the two vectors form a right angle. Their resultant has magnitude F times square root of 2, so the object still accelerates.",
         blocks: [{
           vars: [
-            { tex: "|\vec{F}_{\mathrm{net}}|", say: "the magnitude of F net", meaning: "for a perpendicular add of equal size" }
+            { tex: "|\\vec{F}_{\\mathrm{net}}|", say: "the magnitude of F net", meaning: "for a perpendicular add of equal size" }
           ],
           explain: "Perpendicular equal forces are not a canceling pair. Choice A is the same magnitude idea with the wrong direction.",
-          tex: "|\vec{F}_{\mathrm{net}}| = \sqrt{F^2 + F^2} = F\sqrt{2} \neq 0",
+          tex: "|\\vec{F}_{\\mathrm{net}}| = \\sqrt{F^2 + F^2} = F\\sqrt{2} \\neq 0",
           speakFormula: "The magnitude of F net would be F times the square root of 2, which is not 0."
         }]
       },
@@ -652,12 +652,12 @@
         lead: "Choices A, C, and D either pick a direction that leaves a leftover net force, or they treat motion itself as a reason to say no.",
         blocks: [{
           vars: [
-            { tex: "\text{A}", say: "choice A", meaning: "yes, if the added force is perpendicular" },
-            { tex: "\text{C}", say: "choice C", meaning: "no, because it is already moving, so any extra force changes the speed" },
-            { tex: "\text{D}", say: "choice D", meaning: "no, because it is already moving, so the extra force only turns it" }
+            { tex: "\\text{A}", say: "choice A", meaning: "yes, if the added force is perpendicular" },
+            { tex: "\\text{C}", say: "choice C", meaning: "no, because it is already moving, so any extra force changes the speed" },
+            { tex: "\\text{D}", say: "choice D", meaning: "no, because it is already moving, so the extra force only turns it" }
           ],
           explain: "A leaves F net of F root 2. C is false because a canceling opposite force does not change the speed. D describes a perpendicular force, which would change direction, but that is not the added force that produces constant v.",
-          tex: "\text{reject A, C, and D}"
+          tex: "\\text{reject A, C, and D}"
         }]
       },
       {
@@ -667,10 +667,10 @@
         lead: "The correct choice is B. An opposite force of equal magnitude cancels the original force.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_{\mathrm{net}}", say: "F net", meaning: "after adding the opposite force of equal magnitude" }
+            { tex: "\\vec{F}_{\\mathrm{net}}", say: "F net", meaning: "after adding the opposite force of equal magnitude" }
           ],
           explain: "An additional force in the opposite direction of equal magnitude to the original force results in zero net force, so the object moves with constant velocity.",
-          tex: "\vec{F}_{\mathrm{net}} = 0 \quad\Rightarrow\quad \vec{v}\text{ constant}",
+          tex: "\\vec{F}_{\\mathrm{net}} = 0 \\quad\\Rightarrow\\quad \\vec{v}\\text{ constant}",
           speakFormula: "The correct choice is B. F net equals 0, so the velocity is constant."
         }],
         highlight: true

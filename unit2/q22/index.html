@@ -585,19 +585,19 @@
             { tex: "F_{ab}", say: "F a b", meaning: "the force that box A exerts on box B" },
             { tex: "F_{ba}", say: "F b a", meaning: "the force that box B exerts on box A" }
           ],
-          explain: "The figure even shows A smaller than B, and the surface is rough, so the boxes need not have equal mass or zero acceleration. If the claim is still true, the reason cannot be constant velocity or equal mass."
+          explain: "The figure shows A smaller than B, and the surface is rough, so the boxes need not have equal mass or zero acceleration. If the claim is still true, the reason cannot be constant velocity or equal mass."
         }]
       },
       {
-        title: "Read what the figure does not give",
-        blurb: "Masses and acceleration are unknown",
+        title: "Masses and acceleration are not given",
+        blurb: "You do not need them for this pair",
         caption: "The surface is rough. The elephant is pushing. A and B need not be identical.",
-        lead: "The stem never says the masses are equal, and it never says the speed is constant. Rough surface plus a push usually means a net force and an acceleration. Those missing numbers are bait for choices A through C.",
+        lead: "The stem never says the masses are equal, and it never says the speed is constant. A rough surface plus a push usually means a net force, so the boxes can accelerate. Those missing numbers are bait for choices A through C.",
         blocks: [{
           vars: [
             { tex: "m_a", say: "m a", meaning: "the mass of box A, not given" },
             { tex: "m_b", say: "m b", meaning: "the mass of box B, not given" },
-            { tex: "a", say: "a", meaning: "the common acceleration if they stay in contact, also not given" }
+            { tex: "a", say: "a", meaning: "the acceleration of the boxes, also not given" }
           ],
           explain: "You do not need m a, m b, or a to compare F a b with F b a. You only need to know they are one contact pair."
         }]
@@ -606,14 +606,14 @@
         title: "Write Newton's third law",
         blurb: "One interaction, two equal magnitudes",
         caption: "The law does not mention mass, speed, or friction.",
-        lead: "Here is the law. Each symbol is named before it appears in the formula.",
+        lead: "Here is the law. If A pushes B, then B pushes A back with the same strength, opposite direction.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_{ab}", say: "F a b", meaning: "A on B" },
-            { tex: "\vec{F}_{ba}", say: "F b a", meaning: "B on A, the other member of the same contact" }
+            { tex: "F_{ab}", say: "F a b", meaning: "A on B" },
+            { tex: "F_{ba}", say: "F b a", meaning: "B on A, the other member of the same contact" }
           ],
-          explain: "Newton's third law is about the pair, not about Newton's first law and not about m a versus m b. Next, write that pair with the boxes in this figure.",
-          tex: "\vec{F}_{ab} = -\vec{F}_{ba}",
+          explain: "Newton's third law is about that pair. It is not Newton's first law, and it is not a statement about m a versus m b.",
+          tex: "F_{ab} = -F_{ba}",
           speakFormula: "F a b equals the negative of F b a."
         }]
       },
@@ -621,26 +621,16 @@
         title: "Apply it to these two boxes",
         blurb: "Equal magnitudes with no extra conditions",
         caption: "Rough surface, unequal sizes, and a pushing elephant do not break the pair.",
-        lead: "Substitute the objects from the figure. The contact between A and B is still one interaction, so the magnitudes stay equal whether the stack speeds up, crawls at constant speed, or has m b much larger than m a.",
-        blocks: [
-          {
-            vars: [
-              { tex: "|F_{ab}|", say: "the magnitude of F a b", meaning: "how hard A pushes B" },
-              { tex: "|F_{ba}|", say: "the magnitude of F b a", meaning: "how hard B pushes A" }
-            ],
-            explain: "That equality is the claim in the stem. It does not require a = 0 and it does not require m a = m b.",
-            tex: "|F_{ab}| = |F_{ba}|",
-            speakFormula: "The magnitude of F a b equals the magnitude of F b a."
-          },
-          {
-            vars: [
-              { tex: "a_a", say: "a a", meaning: "the acceleration of A, which can differ from B's if they lose contact, but while they touch the pair is still equal" }
-            ],
-            explain: "Newton's second law can give A and B different accelerations if a third object (the elephant, friction) acts. That still does not make |F a b| differ from |F b a|.",
-            tex: "F_{\mathrm{net},a} = m_a a_a \quad\text{does not set }|F_{ab}|\neq|F_{ba}|",
-            speakFormula: "F net on A equals m a times a a, and that does not make the two contact magnitudes unequal."
-          }
-        ]
+        lead: "The contact between A and B is still one interaction. Other forces also act: the elephant on A, and friction on each box. Those extra forces change each box's net force, but they do not make the A-B pair unequal.",
+        blocks: [{
+          vars: [
+            { tex: "|F_{ab}|", say: "the magnitude of F a b", meaning: "how hard A pushes B" },
+            { tex: "|F_{ba}|", say: "the magnitude of F b a", meaning: "how hard B pushes A" }
+          ],
+          explain: "That equality is the claim in the stem. It stays true if the boxes speed up, crawl at constant speed, or have m b much larger than m a.",
+          tex: "|F_{ab}| = |F_{ba}|",
+          speakFormula: "The magnitude of F a b equals the magnitude of F b a."
+        }]
       },
       {
         title: "Why A, B, and C fail",
@@ -649,26 +639,26 @@
         lead: "Choices A, B, and C treat the third-law claim as if it were a first-law or a mass-matching claim.",
         blocks: [{
           vars: [
-            { tex: "\text{A}", say: "choice A", meaning: "true only if the boxes move at constant velocity" },
-            { tex: "\text{B}", say: "choice B", meaning: "true only if the masses are equal" },
-            { tex: "\text{C}", say: "choice C", meaning: "true only if equal mass and constant velocity" }
+            { tex: "\\text{A}", say: "choice A", meaning: "true only if the boxes move at constant velocity" },
+            { tex: "\\text{B}", say: "choice B", meaning: "true only if the masses are equal" },
+            { tex: "\\text{C}", say: "choice C", meaning: "true only if equal mass and constant velocity" }
           ],
           explain: "If A were required, accelerating boxes would violate Newton's third law, which they do not. If B were required, a light box could not push a heavy box with a matching pair, which it does. C stacks both extra conditions.",
-          tex: "\text{reject A, B, and C}"
+          tex: "\\text{reject A, B, and C}"
         }]
       },
       {
         title: "The answer is D",
         blurb: "True for any motion and any mass ratio",
         caption: "The forces are equal in magnitude because they are a Newton's third-law pair.",
-        lead: "The correct choice is D. The equality holds regardless of the type of motion or the relative mass of the boxes.",
+        lead: "The correct choice is D. The equality holds no matter how the boxes move and no matter which box is heavier.",
         blocks: [{
           vars: [
             { tex: "F_{ab}", say: "F a b", meaning: "A on B" },
             { tex: "F_{ba}", say: "F b a", meaning: "B on A" }
           ],
-          explain: "The forces will always have equal magnitude due to Newton's third law. Friction, the elephant, and unequal sizes affect other forces on each box, not this pair.",
-          tex: "|F_{ab}| = |F_{ba}|\quad\text{for any }m_a,\ m_b,\ a",
+          explain: "The forces always have equal magnitude because of Newton's third law. Friction, the elephant, and unequal sizes affect other forces on each box, not this pair.",
+          tex: "|F_{ab}| = |F_{ba}|",
           speakFormula: "The correct choice is D. The magnitude of F a b equals the magnitude of F b a for any masses and any acceleration."
         }],
         highlight: true

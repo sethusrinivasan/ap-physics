@@ -579,54 +579,54 @@
         title: "Two of the three forces are one interaction",
         blurb: "Friction is a different pair",
         caption: "F 1 and F 3 are cart-on-block and block-on-cart. F 2 is the floor on the block.",
-        lead: "Look at Question 21. A cart moving right hits a stationary block. During the collision the cart exerts F 1 on the block, the surface exerts friction F 2 on the block, and the block exerts F 3 on the cart. Newton's third law only equates the two members of the same interaction.",
+        lead: "Look at Question 21. A cart moving right hits a stationary block. During the collision the cart exerts F 1 on the block, the surface exerts friction F 2 on the block, and the block exerts F 3 on the cart. Newton's third law only pairs two forces from the same interaction.",
         blocks: [{
           vars: [
             { tex: "F_1", say: "F 1", meaning: "the force the cart exerts on the block during the collision" },
             { tex: "F_2", say: "F 2", meaning: "kinetic friction the surface exerts on the block" },
             { tex: "F_3", say: "F 3", meaning: "the force the block exerts on the cart" }
           ],
-          explain: "F 1 and F 3 are the cart-block contact pair. F 2 belongs to the block-surface pair, whose other member is not drawn."
+          explain: "F 1 and F 3 are the two ends of the cart-block collision. F 2 is a different pair: the block rubbing on the surface."
         }]
       },
       {
-        title: "Name the objects in each pair",
-        blurb: "Cart, block, and surface",
-        caption: "The collision pair is cart with block. The friction pair is block with surface.",
-        lead: "Write who pushes whom. F 1 is cart on block. F 3 is block on cart. F 2 is surface on block. The missing partner of F 2 would be the friction the block exerts on the surface.",
+        title: "Name who pushes whom",
+        blurb: "Cart-block pair, and block-surface pair",
+        caption: "The missing partner of F 2 is the friction of the block on the surface, not F 1 or F 3.",
+        lead: "Write the two pairs. The collision pair is cart with block: F 1 is cart on block, and F 3 is block on cart. The friction pair is block with surface: F 2 is surface on block, and F s is block on surface.",
         blocks: [{
           vars: [
-            { tex: "F_{\mathrm{block\rightarrow surface}}", say: "friction of the block on the surface", meaning: "the third-law partner of F 2; it is not F 1 or F 3" }
+            { tex: "F_s", say: "F s", meaning: "the friction the block exerts on the surface; the partner of F 2, not drawn" }
           ],
-          explain: "Nothing in the stem says the collision force equals the friction force. During a collision F 1 is typically much larger than F 2."
+          explain: "The problem never says the collision force equals the friction force. During a hit, F 1 is usually much larger than F 2."
         }]
       },
       {
         title: "Write Newton's third law",
-        blurb: "Equal magnitude, opposite direction, same pair",
-        caption: "The two forces of one interaction are equal in magnitude.",
-        lead: "Here is the law. Each symbol is named before it appears in the formula.",
+        blurb: "Equal strength, opposite direction, same pair",
+        caption: "Two objects push each other equally. That is one interaction, not two.",
+        lead: "Here is the law. If object i pushes object j, then j pushes i back with the same strength, opposite direction.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_{i\rightarrow j}", say: "F of i on j", meaning: "the force that object i exerts on object j" },
-            { tex: "\vec{F}_{j\rightarrow i}", say: "F of j on i", meaning: "the force that object j exerts on object i, the other member of the same pair" }
+            { tex: "F_{ij}", say: "F i j", meaning: "the force that object i exerts on object j" },
+            { tex: "F_{ji}", say: "F j i", meaning: "the force that object j exerts on object i, the other member of the same pair" }
           ],
-          explain: "The law does not compare forces from two different interactions. Next, identify which of F 1, F 2, and F 3 share an interaction.",
-          tex: "\vec{F}_{i\rightarrow j} = -\vec{F}_{j\rightarrow i}",
-          speakFormula: "F of i on j equals the negative of F of j on i."
+          explain: "The law does not compare forces from two different interactions. Next, match F 1, F 2, and F 3 to those pairs.",
+          tex: "F_{ij} = -F_{ji}",
+          speakFormula: "F i j equals the negative of F j i."
         }]
       },
       {
         title: "Apply the law to the cart and the block",
         blurb: "F 1 and F 3 are the pair",
         caption: "Cart-on-block is equal and opposite to block-on-cart.",
-        lead: "Substitute the labels from this problem. Object i is the cart and object j is the block for the collision contact.",
+        lead: "Substitute the labels from this problem. For the collision, i is the cart and j is the block.",
         blocks: [{
           vars: [
-            { tex: "F_1", say: "F 1", meaning: "cart on block" },
-            { tex: "F_3", say: "F 3", meaning: "block on cart" }
+            { tex: "F_1", say: "F 1", meaning: "cart on block, so this is F i j" },
+            { tex: "F_3", say: "F 3", meaning: "block on cart, so this is F j i" }
           ],
-          explain: "That is the only equality the third law requires among the three given magnitudes. It must be true during the collision, whether or not they later slide together and stop.",
+          explain: "That is the only equality the third law requires among the three given magnitudes. It is true during the collision, even though they later slide together and stop.",
           tex: "|F_1| = |F_3|",
           speakFormula: "The magnitude of F 1 equals the magnitude of F 3."
         }]
@@ -634,16 +634,16 @@
       {
         title: "F 2 is not in that pair",
         blurb: "Friction does not have to match F 1",
-        caption: "Newton's second law on the block can have F 1 much larger than F 2.",
-        lead: "For completeness, write Newton's second law on the block during the short collision. Rightward F 1 and leftward F 2 are not required to be equal.",
+        caption: "The block starts moving, so F 1 minus F 2 is not zero.",
+        lead: "Now look at the block alone during the short collision. Rightward F 1 and leftward F 2 do not have to be equal, because they are not a third-law pair.",
         blocks: [{
           vars: [
-            { tex: "m_{\mathrm{block}}", say: "m block", meaning: "the mass of the originally stationary block" },
-            { tex: "a_{\mathrm{block}}", say: "a block", meaning: "the block's acceleration during the collision" }
+            { tex: "m_b", say: "m b", meaning: "the mass of the originally stationary block" },
+            { tex: "a_b", say: "a b", meaning: "the block's acceleration during the collision, which is not zero" }
           ],
-          explain: "The block starts moving, so a block is not zero. Then F 1 cannot equal F 2. Choice A is false, and so is D, which includes that false equality.",
-          tex: "F_1 - F_2 = m_{\mathrm{block}} a_{\mathrm{block}} \neq 0",
-          speakFormula: "F 1 minus F 2 equals m block times a block, which is not zero."
+          explain: "The block was at rest and then starts moving, so a b is not zero. Newton's second law then says F 1 cannot equal F 2. Choice A is false, and so is D, which includes that false equality.",
+          tex: "F_1 - F_2 = m_b a_b \\neq 0",
+          speakFormula: "F 1 minus F 2 equals m b times a b, which is not zero."
         }]
       },
       {
@@ -653,12 +653,12 @@
         lead: "Choices A, B, and D all force friction to match a collision force. Those are different interactions.",
         blocks: [{
           vars: [
-            { tex: "\text{A: }|F_1|=|F_2|", say: "choice A", meaning: "collision force equal to friction on the block" },
-            { tex: "\text{B: }|F_2|=|F_3|", say: "choice B", meaning: "friction equal to the force on the cart" },
-            { tex: "\text{D}", say: "choice D", meaning: "all three magnitudes equal" }
+            { tex: "\\text{A: }|F_1|=|F_2|", say: "choice A", meaning: "collision force equal to friction on the block" },
+            { tex: "\\text{B: }|F_2|=|F_3|", say: "choice B", meaning: "friction equal to the force on the cart" },
+            { tex: "\\text{D}", say: "choice D", meaning: "all three magnitudes equal" }
           ],
-          explain: "F 2's partner is the friction on the floor, not F 1 or F 3. D fails because it includes both of those false equalities.",
-          tex: "\text{reject A, B, and D}"
+          explain: "F 2's partner is F s, the friction on the floor, not F 1 or F 3. D fails because it includes both of those false equalities.",
+          tex: "\\text{reject A, B, and D}"
         }]
       },
       {
@@ -671,7 +671,7 @@
             { tex: "F_1", say: "F 1", meaning: "cart on block" },
             { tex: "F_3", say: "F 3", meaning: "block on cart" }
           ],
-          explain: "These two forces establish an action-reaction pair described by Newton's third law, so their magnitudes are equal. Friction F 2 is a different pair.",
+          explain: "These two forces are one action-reaction pair, so Newton's third law makes their magnitudes equal. Friction F 2 belongs to a different pair.",
           tex: "|F_1| = |F_3|",
           speakFormula: "The correct choice is C. The magnitude of F 1 equals the magnitude of F 3."
         }],
