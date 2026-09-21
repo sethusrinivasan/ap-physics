@@ -578,11 +578,11 @@
       {
         title: "At rest means the third force cancels the other two",
         blurb: "Find the missing vector, then its magnitude",
-        caption: "The two drawn forces already have a nonzero sum. F 3 must be minus that sum.",
+        caption: "The two drawn forces already have a nonzero sum. F c must be minus that sum.",
         lead: "Look at Question 29. An object at rest feels three coplanar forces. Two are drawn: 70 newtons to the right, and 50 newtons down and left at 53.1 degrees from the dashed horizontal. The third force is the one that keeps the net force zero. Its magnitude is what the choices list.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_3", say: "F 3", meaning: "the undrawn third force that holds the object at rest" }
+            { tex: "\\vec{F}_c", say: "F c", meaning: "the undrawn third force that holds the object at rest" }
           ],
           explain: "Do not add 70 and 50 as scalars, and do not report a single component as the answer. Resolve, add, then reverse."
         }]
@@ -594,30 +594,30 @@
         lead: "Copy the figure. Take right as plus x and up as plus y. The 70 newton arrow lies on the plus x axis. The 50 newton arrow is 53.1 degrees below the negative x axis, so both of its components are negative.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_{70}", say: "the 70 newton force", meaning: "straight right in the figure" },
-            { tex: "\vec{F}_{50}", say: "the 50 newton force", meaning: "down and left, 53.1 degrees from the dashed line" },
-            { tex: "\theta", say: "theta", meaning: "53.1 degrees, with cosine 0.6 and sine 0.8" }
+            { tex: "\\vec{F}_a", say: "F a", meaning: "the 70 newton force, straight right in the figure" },
+            { tex: "\\vec{F}_b", say: "F b", meaning: "the 50 newton force, down and left, 53.1 degrees from the dashed line" },
+            { tex: "\\theta", say: "theta", meaning: "53.1 degrees, with cosine 0.6 and sine 0.8" }
           ],
           explain: "Those trig values turn 50 newtons into a 30 newton x-piece and a 40 newton y-piece.",
-          tex: "\theta = 53.1^\circ,\quad \cos\theta = 0.6,\quad \sin\theta = 0.8",
+          tex: "\\theta = 53.1^\\circ,\\quad \\cos\\theta = 0.6,\\quad \\sin\\theta = 0.8",
           speakFormula: "Theta is 53.1 degrees, cosine theta is 0.6, and sine theta is 0.8."
         }]
       },
       {
         title: "Write the equilibrium law",
         blurb: "The vector sum of all three is zero",
-        caption: "F 3 is the opposite of the resultant of the two drawn forces.",
+        caption: "F c is the opposite of the resultant of the two drawn forces.",
         lead: "Here is the law. Each symbol is named before it appears in the formula.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_{\mathrm{net}}", say: "F net", meaning: "the sum of the three coplanar forces" },
-            { tex: "\vec{F}_{70}", say: "the 70 newton force", meaning: "one drawn force" },
-            { tex: "\vec{F}_{50}", say: "the 50 newton force", meaning: "the other drawn force" },
-            { tex: "\vec{F}_3", say: "F 3", meaning: "the unknown third force" }
+            { tex: "\\vec{F}_{\\mathrm{net}}", say: "F net", meaning: "the sum of the three coplanar forces" },
+            { tex: "\\vec{F}_a", say: "F a", meaning: "the 70 newton force, one drawn force" },
+            { tex: "\\vec{F}_b", say: "F b", meaning: "the 50 newton force, the other drawn force" },
+            { tex: "\\vec{F}_c", say: "F c", meaning: "the unknown third force" }
           ],
           explain: "The object is at rest, so a is 0 and F net is 0. Next, replace the two drawn vectors with components from the figure.",
-          tex: "\vec{F}_{70} + \vec{F}_{50} + \vec{F}_3 = 0 \quad\Rightarrow\quad \vec{F}_3 = -(\vec{F}_{70}+\vec{F}_{50})",
-          speakFormula: "F 70 plus F 50 plus F 3 equals 0, so F 3 equals the negative of F 70 plus F 50."
+          tex: "\\vec{F}_a + \\vec{F}_b + \\vec{F}_c = 0 \\quad\\Rightarrow\\quad \\vec{F}_c = -(\\vec{F}_a+\\vec{F}_b)",
+          speakFormula: "F a plus F b plus F c equals 0, so F c equals the negative of F a plus F b."
         }]
       },
       {
@@ -628,45 +628,45 @@
         blocks: [
           {
             vars: [
-              { tex: "F_{50,x}", say: "F 50 x", meaning: "the leftward piece of the 50 newton force" },
-              { tex: "F_{50,y}", say: "F 50 y", meaning: "the downward piece of the 50 newton force" }
+              { tex: "F_{b,x}", say: "F b x", meaning: "the leftward piece of F b, the 50 newton force" },
+              { tex: "F_{b,y}", say: "F b y", meaning: "the downward piece of F b" }
             ],
             explain: "50 times 0.6 is 30. 50 times 0.8 is 40. Both signs are negative because the arrow points down and left.",
-            tex: "F_{50,x} = -50\cos\theta = -30\,\mathrm{N},\quad F_{50,y} = -50\sin\theta = -40\,\mathrm{N}",
-            speakFormula: "F 50 x is minus 30 newtons, and F 50 y is minus 40 newtons."
+            tex: "F_{b,x} = -50\\cos\\theta = -30\\,\\mathrm{N},\\quad F_{b,y} = -50\\sin\\theta = -40\\,\\mathrm{N}",
+            speakFormula: "F b x is minus 30 newtons, and F b y is minus 40 newtons."
           },
           {
             vars: [
-              { tex: "F_{70,x}", say: "F 70 x", meaning: "the entire 70 newton force, to the right" }
+              { tex: "F_{a,x}", say: "F a x", meaning: "the entire 70 newton force F a, to the right" }
             ],
             explain: "Adding the two drawn forces: x is 70 minus 30, which is plus 40 newtons. y is minus 40 newtons. The official solution's (40, 40) newtons are the component sizes of the closing vector.",
-            tex: "\vec{F}_{70}+\vec{F}_{50} = (70-30,\ 0-40)\,\mathrm{N} = (40,-40)\,\mathrm{N}",
+            tex: "\\vec{F}_a+\\vec{F}_b = (70-30,\\ 0-40)\\,\\mathrm{N} = (40,-40)\\,\\mathrm{N}",
             speakFormula: "The two drawn forces add to 40 newtons in x and minus 40 newtons in y."
           }
         ]
       },
       {
         title: "Reverse the sum and take the magnitude",
-        blurb: "F 3 has components 40 N and 40 N",
+        blurb: "F c has components 40 N and 40 N",
         caption: "The magnitude is 40 times square root of 2, which is 56.6 N.",
-        lead: "F 3 must cancel that (40, minus 40) newton resultant, so F 3 is minus 40 newtons in x and plus 40 newtons in y. The magnitude is the hypotenuse.",
+        lead: "F c must cancel that (40, minus 40) newton resultant, so F c is minus 40 newtons in x and plus 40 newtons in y. The magnitude is the hypotenuse.",
         blocks: [
           {
             vars: [
-              { tex: "F_{3,x}", say: "F 3 x", meaning: "the x-component of the third force" },
-              { tex: "F_{3,y}", say: "F 3 y", meaning: "the y-component of the third force" }
+              { tex: "F_{c,x}", say: "F c x", meaning: "the x-component of the third force" },
+              { tex: "F_{c,y}", say: "F c y", meaning: "the y-component of the third force" }
             ],
             explain: "The component pair is 40 newtons and 40 newtons in size, matching the official solution.",
-            tex: "\vec{F}_3 = (-40,+40)\,\mathrm{N}",
-            speakFormula: "F 3 is minus 40 newtons in x and plus 40 newtons in y."
+            tex: "\\vec{F}_c = (-40,+40)\\,\\mathrm{N}",
+            speakFormula: "F c is minus 40 newtons in x and plus 40 newtons in y."
           },
           {
             vars: [
-              { tex: "|F_3|", say: "the magnitude of F 3", meaning: "the number the question asks for" }
+              { tex: "|F_c|", say: "the magnitude of F c", meaning: "the number the question asks for" }
             ],
             explain: "40 times square root of 2 is 56.6 newtons, which is choice B. Choice A is one of those 40 newton components, not the magnitude.",
-            tex: "|F_3| = \sqrt{40^2 + 40^2} = 40\sqrt{2} = 56.6\,\mathrm{N}",
-            speakFormula: "The magnitude of F 3 is 40 times the square root of 2, which is 56.6 newtons."
+            tex: "|F_c| = \\sqrt{40^2 + 40^2} = 40\\sqrt{2} = 56.6\\,\\mathrm{N}",
+            speakFormula: "The magnitude of F c is 40 times the square root of 2, which is 56.6 newtons."
           }
         ]
       },
@@ -677,12 +677,12 @@
         lead: "Choices A, C, and D skip the reverse-the-resultant step, or they never resolve the 50 newton force.",
         blocks: [{
           vars: [
-            { tex: "\text{A: }40.0\,\mathrm{N}", say: "choice A", meaning: "one component of F 3, not the magnitude" },
-            { tex: "\text{C: }108\,\mathrm{N}", say: "choice C", meaning: "much larger than 40 root 2; not the closing vector" },
-            { tex: "\text{D: }120\,\mathrm{N}", say: "choice D", meaning: "70 newtons plus 50 newtons, as if the arrows were parallel" }
+            { tex: "\\text{A: }40.0\\,\\mathrm{N}", say: "choice A", meaning: "one component of F c, not the magnitude" },
+            { tex: "\\text{C: }108\\,\\mathrm{N}", say: "choice C", meaning: "much larger than 40 root 2; not the closing vector" },
+            { tex: "\\text{D: }120\\,\\mathrm{N}", say: "choice D", meaning: "70 newtons plus 50 newtons, as if the arrows were parallel" }
           ],
           explain: "A stops after reading a 40 newton component. D adds the two drawn lengths as scalars. C is not 40 root 2 and is not the resultant of the two drawn forces either, which has magnitude 56.6 newtons as well before you reverse it.",
-          tex: "\text{reject A, C, and D}"
+          tex: "\\text{reject A, C, and D}"
         }]
       },
       {
@@ -692,10 +692,10 @@
         lead: "The correct choice is B. The missing force has 40 newton components and a 56.6 newton magnitude.",
         blocks: [{
           vars: [
-            { tex: "|F_3|", say: "the magnitude of F 3", meaning: "the third force needed for equilibrium" }
+            { tex: "|F_c|", say: "the magnitude of F c", meaning: "the third force needed for equilibrium" }
           ],
           explain: "The components of the third vector are 40 newtons and 40 newtons, which yields a resultant magnitude of 56.6 newtons.",
-          tex: "|F_3| = 56.6\,\mathrm{N}",
+          tex: "|F_c| = 56.6\\,\\mathrm{N}",
           speakFormula: "The correct choice is B, 56.6 newtons."
         }],
         highlight: true

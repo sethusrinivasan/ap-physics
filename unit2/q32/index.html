@@ -595,12 +595,12 @@
         lead: "Copy the inequality. Theta 1 is greater than theta 2. Both angles are measured below the horizontal, as drawn. The mass is m, at rest.",
         blocks: [{
           vars: [
-            { tex: "\theta_1", say: "theta 1", meaning: "the left angle below the horizontal; larger, so the left string is steeper" },
-            { tex: "\theta_2", say: "theta 2", meaning: "the right angle below the horizontal; smaller, so the right string is closer to flat" },
+            { tex: "\\theta_1", say: "theta 1", meaning: "the left angle below the horizontal; larger, so the left string is steeper" },
+            { tex: "\\theta_2", say: "theta 2", meaning: "the right angle below the horizontal; smaller, so the right string is closer to flat" },
             { tex: "mg", say: "m g", meaning: "the hanging weight, straight down" }
           ],
           explain: "Because theta 1 is larger, cosine of theta 1 is smaller than cosine of theta 2, and sine of theta 1 is larger than sine of theta 2.",
-          tex: "\theta_1 > \theta_2 \quad\Rightarrow\quad \cos\theta_1 < \cos\theta_2",
+          tex: "\\theta_1 > \\theta_2 \\quad\\Rightarrow\\quad \\cos\\theta_1 < \\cos\\theta_2",
           speakFormula: "Theta 1 is greater than theta 2, so cosine of theta 1 is less than cosine of theta 2."
         }]
       },
@@ -611,11 +611,11 @@
         lead: "Here is the law. Each symbol is named before it appears in the formula.",
         blocks: [{
           vars: [
-            { tex: "F_{\mathrm{net},x}", say: "F net x", meaning: "the horizontal sum on the hanging mass" },
-            { tex: "F_{\mathrm{net},y}", say: "F net y", meaning: "the vertical sum on the hanging mass" }
+            { tex: "F_{\\mathrm{net},x}", say: "F net x", meaning: "the horizontal sum on the hanging mass" },
+            { tex: "F_{\\mathrm{net},y}", say: "F net y", meaning: "the vertical sum on the hanging mass" }
           ],
           explain: "Take right as plus x and up as plus y. T 1's horizontal piece points right-to-left, T 2's points left-to-right. Next, replace those pieces with T cosine theta.",
-          tex: "F_{\mathrm{net},x} = 0,\qquad F_{\mathrm{net},y} = 0",
+          tex: "F_{\\mathrm{net},x} = 0,\\qquad F_{\\mathrm{net},y} = 0",
           speakFormula: "F net x equals 0, and F net y equals 0."
         }]
       },
@@ -626,11 +626,11 @@
         lead: "Replace F net x with the horizontal pieces from this figure. Each tension's x-component is T times cosine of its angle below the horizontal.",
         blocks: [{
           vars: [
-            { tex: "T_1\cos\theta_1", say: "T 1 cosine theta 1", meaning: "the left string's horizontal component, toward the left" },
-            { tex: "T_2\cos\theta_2", say: "T 2 cosine theta 2", meaning: "the right string's horizontal component, toward the right" }
+            { tex: "T_1\\cos\\theta_1", say: "T 1 cosine theta 1", meaning: "the left string's horizontal component, toward the left" },
+            { tex: "T_2\\cos\\theta_2", say: "T 2 cosine theta 2", meaning: "the right string's horizontal component, toward the right" }
           ],
           explain: "Choice B says each x-component equals half the weight. Weight is vertical, so that is the wrong axis. Choice D puts the half-weight claim on the y-components instead, which is also false unless the angles are equal.",
-          tex: "T_1\cos\theta_1 = T_2\cos\theta_2",
+          tex: "T_1\\cos\\theta_1 = T_2\\cos\\theta_2",
           speakFormula: "T 1 cosine theta 1 equals T 2 cosine theta 2."
         }]
       },
@@ -645,7 +645,7 @@
             { tex: "T_2", say: "T 2", meaning: "right, shallower string" }
           ],
           explain: "That ranking is the first sentence of choice A. The shallower string is closer to horizontal, so a given tension already supplies a large x-piece; it does not need as large a T.",
-          tex: "\cos\theta_1 < \cos\theta_2 \quad\Rightarrow\quad T_1 > T_2",
+          tex: "\\cos\\theta_1 < \\cos\\theta_2 \\quad\\Rightarrow\\quad T_1 > T_2",
           speakFormula: "Cosine of theta 1 is less than cosine of theta 2, so T 1 is greater than T 2."
         }]
       },
@@ -657,21 +657,21 @@
         blocks: [
           {
             vars: [
-              { tex: "T_1\sin\theta_1", say: "T 1 sine theta 1", meaning: "the left string's upward component" },
-              { tex: "T_2\sin\theta_2", say: "T 2 sine theta 2", meaning: "the right string's upward component" }
+              { tex: "T_1\\sin\\theta_1", say: "T 1 sine theta 1", meaning: "the left string's upward component" },
+              { tex: "T_2\\sin\\theta_2", say: "T 2 sine theta 2", meaning: "the right string's upward component" }
             ],
             explain: "Together they equal the weight. Neither is forced to be half of m g.",
-            tex: "T_1\sin\theta_1 + T_2\sin\theta_2 = mg",
+            tex: "T_1\\sin\\theta_1 + T_2\\sin\\theta_2 = mg",
             speakFormula: "T 1 sine theta 1 plus T 2 sine theta 2 equals m g."
           },
           {
             vars: [
-              { tex: "\text{B}", say: "choice B", meaning: "T 1 greater than T 2, but each x-component is half the weight" },
-              { tex: "\text{C}", say: "choice C", meaning: "T 1 less than T 2 because the left string is shorter" },
-              { tex: "\text{D}", say: "choice D", meaning: "T 1 less than T 2, and each y-component is half the weight" }
+              { tex: "\\text{B}", say: "choice B", meaning: "T 1 greater than T 2, but each x-component is half the weight" },
+              { tex: "\\text{C}", say: "choice C", meaning: "T 1 less than T 2 because the left string is shorter" },
+              { tex: "\\text{D}", say: "choice D", meaning: "T 1 less than T 2, and each y-component is half the weight" }
             ],
             explain: "B has the right ranking and the wrong x-story. C uses length, which does not appear in the force balance. D reverses the ranking and splits the weight in half on y.",
-            tex: "\text{reject B, C, and D}"
+            tex: "\\text{reject B, C, and D}"
           }
         ]
       },
@@ -686,7 +686,7 @@
             { tex: "T_2", say: "T 2", meaning: "shallower-string tension" }
           ],
           explain: "The hanging mass is in equilibrium, so net force in x and in y is zero. The x-components are equal: T 1 cosine theta 1 equals T 2 cosine theta 2. Because cosine of theta 1 is less than cosine of theta 2, T 1 is greater than T 2. The left y-component is also larger because theta 1 is larger.",
-          tex: "T_1\cos\theta_1 = T_2\cos\theta_2 \quad\Rightarrow\quad T_1 > T_2",
+          tex: "T_1\\cos\\theta_1 = T_2\\cos\\theta_2 \\quad\\Rightarrow\\quad T_1 > T_2",
           speakFormula: "The correct choice is A. T 1 cosine theta 1 equals T 2 cosine theta 2, so T 1 is greater than T 2."
         }],
         highlight: true

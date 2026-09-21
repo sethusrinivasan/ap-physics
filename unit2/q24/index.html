@@ -610,11 +610,11 @@
         lead: "Here is the law. Each symbol is named before it appears in the formula.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_{l\rightarrow b}", say: "F of launcher on block", meaning: "the force the launcher, through the spring, exerts on the block" },
-            { tex: "\vec{F}_{b\rightarrow l}", say: "F of block on launcher", meaning: "the force the block exerts on the launcher" }
+            { tex: "\\vec{F}_{l\\rightarrow b}", say: "F of launcher on block", meaning: "the force the launcher, through the spring, exerts on the block" },
+            { tex: "\\vec{F}_{b\\rightarrow l}", say: "F of block on launcher", meaning: "the force the block exerts on the launcher" }
           ],
           explain: "The law does not say the heavier object exerts the larger force. Next, keep this pair and use m a = F to see why the speeds differ.",
-          tex: "\vec{F}_{l\rightarrow b} = -\vec{F}_{b\rightarrow l}",
+          tex: "\\vec{F}_{l\\rightarrow b} = -\\vec{F}_{b\\rightarrow l}",
           speakFormula: "The force of the launcher on the block equals the negative of the force of the block on the launcher."
         }]
       },
@@ -629,7 +629,7 @@
               { tex: "F", say: "F", meaning: "the common magnitude of the launcher-block pair" }
             ],
             explain: "Call that shared magnitude F. The tex is no longer the generic third-law statement; it is F on each object.",
-            tex: "|F_{l\rightarrow b}| = |F_{b\rightarrow l}| = F",
+            tex: "|F_{l\\rightarrow b}| = |F_{b\\rightarrow l}| = F",
             speakFormula: "The two force magnitudes both equal F."
           },
           {
@@ -638,7 +638,7 @@
               { tex: "a_l", say: "a l", meaning: "the launcher's acceleration while the spring pushes" }
             ],
             explain: "Because m l is greater than m b, a b is greater than a l. After the same push time, v b is greater than v l. Choice D says you need those speeds to compare the forces. You do not: the forces were equal the whole time.",
-            tex: "a_b = \dfrac{F}{m_b} > \dfrac{F}{m_l} = a_l",
+            tex: "a_b = \\dfrac{F}{m_b} > \\dfrac{F}{m_l} = a_l",
             speakFormula: "a b equals F over m b, which is greater than F over m l, which is a l."
           }
         ]
@@ -650,12 +650,12 @@
         lead: "Choices A and B assign the larger force to whichever object they think 'should' win. Choice D treats the speeds as needed data.",
         blocks: [{
           vars: [
-            { tex: "\text{A}", say: "choice A", meaning: "launcher exerts a greater force on the block" },
-            { tex: "\text{B}", say: "choice B", meaning: "block exerts a greater force on the launcher" },
-            { tex: "\text{D}", say: "choice D", meaning: "cannot compare without v b and v l" }
+            { tex: "\\text{A}", say: "choice A", meaning: "launcher exerts a greater force on the block" },
+            { tex: "\\text{B}", say: "choice B", meaning: "block exerts a greater force on the launcher" },
+            { tex: "\\text{D}", say: "choice D", meaning: "cannot compare without v b and v l" }
           ],
           explain: "A would make the lighter block's acceleration even larger, but it is not what the third law allows. B would make the heavy launcher speed up more, which contradicts m l greater than m b plus equal F. D is unnecessary: the pair is equal whether or not you measure the exit speeds.",
-          tex: "\text{reject A, B, and D}"
+          tex: "\\text{reject A, B, and D}"
         }]
       },
       {
@@ -665,11 +665,11 @@
         lead: "The correct choice is C. The spring forces are an action-reaction pair, so they are equal in magnitude the whole time.",
         blocks: [{
           vars: [
-            { tex: "F_{l\rightarrow b}", say: "launcher on block", meaning: "the force during launch" },
-            { tex: "F_{b\rightarrow l}", say: "block on launcher", meaning: "the other member of the pair" }
+            { tex: "F_{l\\rightarrow b}", say: "launcher on block", meaning: "the force during launch" },
+            { tex: "F_{b\\rightarrow l}", say: "block on launcher", meaning: "the other member of the pair" }
           ],
           explain: "These forces represent an action-reaction pair described by Newton's third law. The mass inequality explains the different accelerations and the different exit speeds, not a force imbalance.",
-          tex: "|F_{l\rightarrow b}| = |F_{b\rightarrow l}|",
+          tex: "|F_{l\\rightarrow b}| = |F_{b\\rightarrow l}|",
           speakFormula: "The correct choice is C. The launcher-on-block force equals the block-on-launcher force in magnitude."
         }],
         highlight: true

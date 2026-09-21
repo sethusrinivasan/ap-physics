@@ -583,11 +583,13 @@
         blocks: [{
           vars: [
             { tex: "v_x", say: "v x", meaning: "the x component of the ring's velocity a short time later" },
-            { tex: "v_y", say: "v y", meaning: "the y component of that velocity" }
+            { tex: "v_y", say: "v y", meaning: "the y component of that velocity" },
+            { tex: "F_{\\mathrm{net},x}", say: "F net x", meaning: "the x component of the net force on the ring" },
+            { tex: "F_{\\mathrm{net},y}", say: "F net y", meaning: "the y component of the net force on the ring" }
           ],
-          explain: "The ring starts with speed zero. After a short time, each velocity component has the same sign as the corresponding net-force component. Do not pick a letter until both signs are read off the 30 newton, 30 newton, and 20 newton arrows.",
-          tex: "\\mathrm{sign}(v_x)=\\mathrm{sign}(F_{\\mathrm{net},x}),\\quad \\mathrm{sign}(v_y)=\\mathrm{sign}(F_{\\mathrm{net},y})",
-          speakFormula: "So the sign of v x matches the sign of F net x, and the sign of v y matches the sign of F net y."
+          explain: "The ring starts with speed zero. After a short time, v x is positive, negative, or zero together with F net x, and the same for y. That is Newton's second law, not a sine of an angle.",
+          tex: "v_x \\text{ matches } F_{\\mathrm{net},x},\\quad v_y \\text{ matches } F_{\\mathrm{net},y}",
+          speakFormula: "So v x matches F net x, and v y matches F net y."
         }]
       },
       {

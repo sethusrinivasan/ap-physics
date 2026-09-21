@@ -597,11 +597,11 @@
           vars: [
             { tex: "m_h", say: "m h", meaning: "the hanging block's mass" },
             { tex: "m_s", say: "m s", meaning: "the table block's mass; the stem says m h is greater than m s" },
-            { tex: "m_{\mathrm{string}}", say: "m string", meaning: "negligible" }
+            { tex: "m_i", say: "m i", meaning: "the ideal string's mass, negligible" }
           ],
           explain: "m h greater than m s is why the hanging block reaches the floor. It is not a reason for T h to exceed T s while they are still connected by an ideal string.",
-          tex: "m_h > m_s,\qquad m_{\mathrm{string}} \approx 0",
-          speakFormula: "m h is greater than m s, and m string is about 0."
+          tex: "m_h > m_s,\\quad m_i \\approx 0",
+          speakFormula: "m h is greater than m s, and m i is about 0."
         }]
       },
       {
@@ -613,10 +613,10 @@
           vars: [
             { tex: "T_h", say: "T h", meaning: "pull on the hanging block" },
             { tex: "T_s", say: "T s", meaning: "pull on the table block" },
-            { tex: "I_{\mathrm{pulley}}", say: "I pulley", meaning: "the pulley's rotational inertia, negligible here" }
+            { tex: "I_p", say: "I p", meaning: "the pulley's rotational inertia, negligible here" }
           ],
           explain: "If the pulley had inertia, T h and T s could differ to provide a torque. This pulley is ideal, so that split does not happen. Next, put the in-motion and after-stop cases in.",
-          tex: "T_h = T_s \quad\text{(taut, massless string, ideal pulley)}",
+          tex: "T_h = T_s \\quad\\text{(taut, massless string, ideal pulley)}",
           speakFormula: "While the string is taut, T h equals T s."
         }]
       },
@@ -632,7 +632,7 @@
               { tex: "g", say: "g", meaning: "the gravitational field strength" }
             ],
             explain: "Newton's second law on the hanging block uses T h. The same T is T s on the table. So T h equals T s, and that common value is greater than 0.",
-            tex: "m_h g - T_h = m_h a,\qquad T_h = T_s > 0",
+            tex: "m_h g - T_h = m_h a,\\qquad T_h = T_s > 0",
             speakFormula: "m h g minus T h equals m h a, and T h equals T s, which is greater than 0."
           }
         ]
@@ -659,12 +659,12 @@
         lead: "Choices B, C, and D each break either the ideal-string equality or the slack-after-landing result.",
         blocks: [{
           vars: [
-            { tex: "\text{B}", say: "choice B", meaning: "equal T while moving, but T s greater than T h equals 0 after stopping" },
-            { tex: "\text{C}", say: "choice C", meaning: "T h greater than T s while moving, then both 0" },
-            { tex: "\text{D}", say: "choice D", meaning: "T h greater than T s while moving, and leftover T s after stopping" }
+            { tex: "\\text{B}", say: "choice B", meaning: "equal T while moving, but T s greater than T h equals 0 after stopping" },
+            { tex: "\\text{C}", say: "choice C", meaning: "T h greater than T s while moving, then both 0" },
+            { tex: "\\text{D}", say: "choice D", meaning: "T h greater than T s while moving, and leftover T s after stopping" }
           ],
           explain: "C and D use the heavier hanging mass as an excuse to make T h larger than T s. On an ideal string that is false. B and D leave a table-end tension after the hanging end has gone slack.",
-          tex: "\text{reject B, C, and D}"
+          tex: "\\text{reject B, C, and D}"
         }]
       },
       {
@@ -678,7 +678,7 @@
             { tex: "T_s", say: "T s", meaning: "on the table block" }
           ],
           explain: "The tension is the same everywhere along a massless string over an ideal pulley. After the hanging block comes to rest, the hanging weight is no longer pulling on the string, so the tension is zero.",
-          tex: "\text{in motion: }T_h=T_s>0;\quad\text{after stop: }T_h=T_s=0",
+          tex: "\\text{in motion: }T_h=T_s>0;\\quad\\text{after stop: }T_h=T_s=0",
           speakFormula: "The correct choice is A. While both move, T h equals T s and is greater than 0. After the hanging block stops, both tensions are 0."
         }],
         highlight: true

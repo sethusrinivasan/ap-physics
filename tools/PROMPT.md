@@ -12,7 +12,7 @@ Requirements (keep these exactly):
 - State the problem first. Keep the problem statement visible at the top during interactive navigation (sticky problem bar).
 - When stating a formula or variable, explain the variable first, then show the formula.
 - Formulas in LaTeX (KaTeX), left-aligned, not centered. Use `fleqn`.
-- Keep suffix letters in lowercase (`M_a`, `y_{cm,a}`, not `M_A` / `y_{CM,A}`).
+- Keep suffix letters in lowercase, never digits (`M_a`, `F_b`, not `F_{24}`, `m_1`, or `M_A`). Give each quantity a one-letter suffix even when the stem is a number. Keep a numbered suffix only if the exam itself printed that symbol (such as \(F_1\) in the choices).
 - Previous / Next problem links, plus a Contents link back to that unit’s table of contents (`unitN/index.html`).
 - After the new problem exists, add it to `unitN/index.html` and wire Previous/Next between neighbors. If this is the first problem in a new unit, also add the unit to the root `index.html`.
 - Make the heading **The problem** a link that opens the exact exam-cut image (`../figures/qNN.png`) in a new browser window (`target="_blank"`).

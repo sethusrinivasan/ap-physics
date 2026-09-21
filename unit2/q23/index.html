@@ -586,49 +586,48 @@
             { tex: "F_{w1}", say: "F w 1", meaning: "the force the wall exerts on the 1 kilogram box" },
             { tex: "F_{w2}", say: "F w 2", meaning: "the force the wall exerts on the 2 kilogram box" }
           ],
-          explain: "If F b is the same push on the wall both times, Newton's third law makes the wall's replies equal. The extra kilogram changes the floor's normal force, which is vertical."
+          explain: "If F b is the same push on the wall both times, Newton's third law makes the wall's replies equal. The extra kilogram changes the floor's upward normal force, which is vertical, not the wall pair."
         }]
       },
       {
         title: "Name the two trials",
         blurb: "1 kg, then 2 kg, same F b",
         caption: "Negligible floor friction. Side view: box against wall, F b pointing into the wall.",
-        lead: "Copy the masses. First box: 1 kilogram. Second box: 2 kilogram. In each trial the box is made to exert F b on the wall. The floor is frictionless, so there is no horizontal force from the floor.",
+        lead: "Copy the masses. First box: 1 kilogram. Second box: 2 kilograms. In each trial the box is made to exert the same F b on the wall. The floor is frictionless, so the floor adds no horizontal force.",
         blocks: [{
           vars: [
-            { tex: "m_1", say: "m 1", meaning: "the first box" },
-            { tex: "m_2", say: "m 2", meaning: "the replacement box" }
+            { tex: "m_s", say: "m s", meaning: "the mass of the first box, 1 kilogram" },
+            { tex: "m_l", say: "m l", meaning: "the mass of the replacement box, 2 kilograms" }
           ],
-          explain: "m 2 is twice m 1, so the weight and the floor's vertical normal both double. That does not by itself double the horizontal wall force.",
-          tex: "m_1 = 1\,\mathrm{kg},\qquad m_2 = 2\,\mathrm{kg}",
-          speakFormula: "m 1 is 1 kilogram, and m 2 is 2 kilograms."
+          explain: "m l is twice m s, so the weight and the floor's upward normal both double. That does not double the horizontal wall force.",
+          tex: "m_s = 1\\,\\mathrm{kg},\\quad m_l = 2\\,\\mathrm{kg}",
+          speakFormula: "m s is 1 kilogram, and m l is 2 kilograms."
         }]
       },
       {
         title: "Write Newton's third law at the wall",
         blurb: "Wall on box equals box on wall",
         caption: "Each trial is its own action-reaction pair with the same F b.",
-        lead: "Here is the law. Each symbol is named before it appears in the formula.",
+        lead: "Here is the law. The box pushes the wall with F b. The wall pushes the box back with equal strength, opposite direction.",
         blocks: [{
           vars: [
-            { tex: "\vec{F}_{\mathrm{box}\rightarrow\mathrm{wall}}", say: "box on wall", meaning: "F b in that trial" },
-            { tex: "\vec{F}_{\mathrm{wall}\rightarrow\mathrm{box}}", say: "wall on box", meaning: "F w 1 in the first trial, or F w 2 in the second" }
+            { tex: "F_b", say: "F b", meaning: "box on wall in that trial" },
+            { tex: "F_w", say: "F w", meaning: "wall on box in that trial: F w 1 the first time, F w 2 the second time" }
           ],
-          explain: "The pair does not include the box's weight. Next, substitute F b into both trials.",
-          tex: "\vec{F}_{\mathrm{wall}\rightarrow\mathrm{box}} = -\vec{F}_{\mathrm{box}\rightarrow\mathrm{wall}}",
-          speakFormula: "The wall on the box equals the negative of the box on the wall."
+          explain: "The pair does not include the box's weight. Weight is vertical. F b and F w are horizontal.",
+          tex: "F_w = -F_b",
+          speakFormula: "F w equals the negative of F b."
         }]
       },
       {
-        title: "Substitute the same F b into both trials",
+        title: "The same F b in both trials",
         blurb: "F w 1 and F w 2 both equal F b",
         caption: "The stem reused F b, so the wall's replies match.",
-        lead: "Replace the generic box-on-wall force with F b from this problem. The first trial and the second trial use that same F b.",
+        lead: "The first trial and the second trial use that same F b. So each wall force has the same magnitude as F b.",
         blocks: [
           {
             vars: [
-              { tex: "F_{w1}", say: "F w 1", meaning: "wall on the 1 kilogram box" },
-              { tex: "F_b", say: "F b", meaning: "box on wall, first trial" }
+              { tex: "F_{w1}", say: "F w 1", meaning: "wall on the 1 kilogram box" }
             ],
             explain: "Magnitudes: F w 1 equals F b.",
             tex: "|F_{w1}| = |F_b|",
@@ -639,7 +638,7 @@
               { tex: "F_{w2}", say: "F w 2", meaning: "wall on the 2 kilogram box" }
             ],
             explain: "The second trial uses the same F b, so F w 2 equals F b as well. Then F w 1 equals F w 2.",
-            tex: "|F_{w2}| = |F_b| \quad\Rightarrow\quad |F_{w1}| = |F_{w2}|",
+            tex: "|F_{w2}| = |F_b| \\quad\\Rightarrow\\quad |F_{w1}| = |F_{w2}|",
             speakFormula: "The magnitude of F w 2 also equals F b, so F w 1 equals F w 2."
           }
         ]
@@ -647,15 +646,15 @@
       {
         title: "Weight is vertical; it does not set F w",
         blurb: "The extra kilogram changes N, not the wall pair",
-        caption: "Floor normal equals mg. That is perpendicular to F b.",
-        lead: "Choices A and B argue from weight or from the floor's normal force. Write those vertical forces to see that they never enter the horizontal wall equation.",
+        caption: "Floor normal equals m g. That is perpendicular to F b.",
+        lead: "Choices A and B argue from weight or from the floor's normal force. Those forces are vertical, so they never enter the horizontal wall equation.",
         blocks: [{
           vars: [
-            { tex: "N", say: "N", meaning: "the floor's normal force on the box" },
+            { tex: "N", say: "N", meaning: "the floor's upward normal force on the box" },
             { tex: "mg", say: "m g", meaning: "the box's weight, 1 g or 2 g" }
           ],
-          explain: "With no vertical acceleration, N = m g. That equality is why N is larger for the 2 kilogram box, and it is irrelevant to F w. Choice D cites negligible friction as the reason the wall forces are equal, but friction being zero is why there is no extra horizontal floor force; the equality itself is still Newton's third law.",
-          tex: "N = mg \quad\text{(vertical)},\qquad |F_w| = |F_b| \quad\text{(horizontal)}",
+          explain: "With no vertical acceleration, N equals m g. That is why N is larger for the 2 kilogram box, and it is irrelevant to F w. Choice D cites negligible friction as the reason the wall forces are equal. Friction being zero only means the floor adds no horizontal force. The equality itself is still Newton's third law.",
+          tex: "N = mg \\quad\\text{(vertical)},\\qquad |F_w| = |F_b| \\quad\\text{(horizontal)}",
           speakFormula: "N equals m g vertically, while F w equals F b horizontally."
         }]
       },
@@ -666,11 +665,11 @@
         lead: "Choices A and B compare the 2 kilogram weight to the 1 kilogram weight. Choice D names friction instead of the third-law pair.",
         blocks: [{
           vars: [
-            { tex: "\text{A, B}", say: "choices A and B", meaning: "F w 2 greater than F w 1 because weight or N is greater" },
-            { tex: "\text{D}", say: "choice D", meaning: "F w 1 equals F w 2 because friction is negligible" }
+            { tex: "\\text{A, B}", say: "choices A and B", meaning: "F w 2 greater than F w 1 because weight or N is greater" },
+            { tex: "\\text{D}", say: "choice D", meaning: "F w 1 equals F w 2 because friction is negligible" }
           ],
           explain: "The student set the box-on-wall force to the same F b both times, so the wall cannot reply more strongly just because the box got heavier. D gets the equality right and the reason wrong.",
-          tex: "\text{reject A, B, and D}"
+          tex: "\\text{reject A, B, and D}"
         }]
       },
       {

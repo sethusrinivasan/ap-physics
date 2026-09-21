@@ -1,32 +1,37 @@
 [
   {
     "file": "step-01.mp3",
-    "title": "Read the problem",
-    "words": 14
+    "title": "Two of the three forces are one interaction",
+    "words": 119
   },
   {
     "file": "step-02.mp3",
-    "title": "Name what the question asks",
-    "words": 55
+    "title": "Name who pushes whom",
+    "words": 91
   },
   {
     "file": "step-03.mp3",
-    "title": "Use the governing idea",
-    "words": 73
+    "title": "Write Newton's third law",
+    "words": 92
   },
   {
     "file": "step-04.mp3",
-    "title": "Apply it to the given objects",
-    "words": 61
+    "title": "Apply the law to the cart and the block",
+    "words": 87
   },
   {
     "file": "step-05.mp3",
-    "title": "Why the other choices fail",
-    "words": 75
+    "title": "F 2 is not in that pair",
+    "words": 113
   },
   {
     "file": "step-06.mp3",
+    "title": "Why A, B, and D fail",
+    "words": 79
+  },
+  {
+    "file": "step-07.mp3",
     "title": "The answer is C",
-    "words": 55
+    "words": 76
   }
 ]

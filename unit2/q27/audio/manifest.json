@@ -1,32 +1,37 @@
 [
   {
     "file": "step-01.mp3",
-    "title": "Read the problem",
-    "words": 14
+    "title": "One ideal string means one tension",
+    "words": 130
   },
   {
     "file": "step-02.mp3",
-    "title": "Name what the question asks",
-    "words": 55
+    "title": "Name the masses and the ideal pulley",
+    "words": 127
   },
   {
     "file": "step-03.mp3",
-    "title": "Use the governing idea",
-    "words": 73
+    "title": "Write the massless-string law",
+    "words": 94
   },
   {
     "file": "step-04.mp3",
-    "title": "Apply it to the given objects",
-    "words": 92
+    "title": "While both blocks move, T is positive and uniform",
+    "words": 118
   },
   {
     "file": "step-05.mp3",
-    "title": "Why the other choices fail",
-    "words": 75
+    "title": "After the hanging block stops, the string is slack",
+    "words": 120
   },
   {
     "file": "step-06.mp3",
+    "title": "Why B, C, and D fail",
+    "words": 110
+  },
+  {
+    "file": "step-07.mp3",
     "title": "The answer is A",
-    "words": 86
+    "words": 104
   }
 ]

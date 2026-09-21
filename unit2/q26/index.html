@@ -591,18 +591,18 @@
       },
       {
         title: "Name the masses and the string",
-        blurb: "m block greater than m cart, string massless",
+        blurb: "m b greater than m c, string massless",
         caption: "The figure shows both objects already moving, with motion dashes.",
         lead: "Copy the givens. The block is heavier than the cart. The connecting string is ideal, so its mass is taken to be zero. The three points are equally spaced, which would matter only if the string had mass distributed along it.",
         blocks: [{
           vars: [
-            { tex: "m_{\mathrm{block}}", say: "m block", meaning: "the mass of the sliding block; greater than the cart" },
-            { tex: "m_{\mathrm{cart}}", say: "m cart", meaning: "the mass of the wheeled cart" },
-            { tex: "m_{\mathrm{string}}", say: "m string", meaning: "the mass of the ideal string, negligible" }
+            { tex: "m_b", say: "m b", meaning: "the mass of the sliding block; greater than the cart" },
+            { tex: "m_c", say: "m c", meaning: "the mass of the wheeled cart" },
+            { tex: "m_s", say: "m s", meaning: "the mass of the ideal string, negligible" }
           ],
           explain: "If the string had mass, a gradient T 1 greater than T 3 or the reverse could appear. Ideal drops that possibility.",
-          tex: "m_{\mathrm{block}} > m_{\mathrm{cart}},\qquad m_{\mathrm{string}} \approx 0",
-          speakFormula: "m block is greater than m cart, and m string is about 0."
+          tex: "m_b > m_c,\\quad m_s \\approx 0",
+          speakFormula: "m b is greater than m c, and m s is about 0."
         }]
       },
       {
@@ -612,21 +612,21 @@
         lead: "Here is the law. Cut out the piece of string from point 1 to point 2. Each symbol is named before it appears.",
         blocks: [{
           vars: [
-            { tex: "T_{\mathrm{left}}", say: "T left", meaning: "the tension pulling one end of a string segment" },
-            { tex: "T_{\mathrm{right}}", say: "T right", meaning: "the tension pulling the other end" },
-            { tex: "m_{\mathrm{seg}}", say: "m seg", meaning: "the mass of that segment, zero for an ideal string" },
+            { tex: "T_l", say: "T l", meaning: "the tension pulling one end of a string segment" },
+            { tex: "T_r", say: "T r", meaning: "the tension pulling the other end" },
+            { tex: "m_e", say: "m e", meaning: "the mass of that string element, zero for an ideal string" },
             { tex: "a", say: "a", meaning: "the acceleration of the segment, the same as the block and cart if the string stays taut" }
           ],
           explain: "Zero times a is still zero, so the two tensions on a massless segment must be equal. Next, put T 1, T 2, and T 3 in for those ends.",
-          tex: "T_{\mathrm{left}} - T_{\mathrm{right}} = m_{\mathrm{seg}} a = 0",
-          speakFormula: "T left minus T right equals m seg times a, which is 0."
+          tex: "T_l - T_r = m_e a = 0",
+          speakFormula: "T l minus T r equals m e times a, which is 0."
         }]
       },
       {
         title: "Substitute the three labeled tensions",
         blurb: "T 1 equals T 2 equals T 3",
         caption: "The same argument joins 1 to 2 and 2 to 3.",
-        lead: "Replace T left and T right with the labels from the figure. Between 1 and 2 the ends are T 1 and T 2. Between 2 and 3 they are T 2 and T 3.",
+        lead: "Replace T l and T r with the labels from the figure. Between 1 and 2 the ends are T 1 and T 2. Between 2 and 3 they are T 2 and T 3.",
         blocks: [
           {
             vars: [
@@ -634,7 +634,7 @@
               { tex: "T_2", say: "T 2", meaning: "tension at the middle mark" }
             ],
             explain: "The segment has negligible mass, so these two pulls match.",
-            tex: "T_1 - T_2 = 0 \quad\Rightarrow\quad T_1 = T_2",
+            tex: "T_1 - T_2 = 0 \\quad\\Rightarrow\\quad T_1 = T_2",
             speakFormula: "T 1 minus T 2 equals 0, so T 1 equals T 2."
           },
           {
@@ -642,7 +642,7 @@
               { tex: "T_3", say: "T 3", meaning: "tension at the cart-side mark" }
             ],
             explain: "The same zero-mass argument on the next segment makes T 2 equal T 3. All three are equal, even though the block is heavier than the cart.",
-            tex: "T_2 = T_3 \quad\Rightarrow\quad T_1 = T_2 = T_3",
+            tex: "T_2 = T_3 \\quad\\Rightarrow\\quad T_1 = T_2 = T_3",
             speakFormula: "T 2 equals T 3, so T 1 equals T 2 equals T 3."
           }
         ]
@@ -654,12 +654,12 @@
         lead: "Choices B, C, and D would be stories about a massive rope, not about an ideal string.",
         blocks: [{
           vars: [
-            { tex: "\text{B: }T_1>T_2>T_3", say: "choice B", meaning: "larger tension toward the heavier block" },
-            { tex: "\text{C: }T_1=T_3>T_2", say: "choice C", meaning: "the middle mark somehow slacker" },
-            { tex: "\text{D: }T_3>T_2>T_1", say: "choice D", meaning: "larger tension toward the cart" }
+            { tex: "\\text{B: }T_1>T_2>T_3", say: "choice B", meaning: "larger tension toward the heavier block" },
+            { tex: "\\text{C: }T_1=T_3>T_2", say: "choice C", meaning: "the middle mark somehow slacker" },
+            { tex: "\\text{D: }T_3>T_2>T_1", say: "choice D", meaning: "larger tension toward the cart" }
           ],
           explain: "B treats the string like a chain that must pull harder on the heavy end. D does the same toward the cart. C has no mechanism on a massless string for the middle to be smaller. An ideal string has the same tension everywhere along its length.",
-          tex: "\text{reject B, C, and D}"
+          tex: "\\text{reject B, C, and D}"
         }]
       },
       {
