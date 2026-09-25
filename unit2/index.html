@@ -32,14 +32,74 @@
     .back { margin: 0 0 10px; font-size: 13px; }
     .back a { color: var(--accent); text-decoration: none; }
     .back a:hover { text-decoration: underline; }
+    .title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .page-qr {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 30;
+      display: grid;
+      justify-items: center;
+      width: 136px;
+      padding: 6px 6px 4px;
+      background: #fff;
+      color: #071018;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    }
+    .page-qr img { width: 124px; height: 124px; display: block; }
+    .page-qr span {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    @media (min-width: 901px) {
+      body:not(.qr-off) { padding-top: 168px; }
+    }
+    body.qr-off .page-qr { display: none; }
+    @media (max-width: 900px) {
+      .page-qr, .qr-toggle { display: none; }
+    }
+    .qr-toggle {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: #132536;
+      color: var(--ink);
+      border-radius: 7px;
+      padding: 6px 10px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .qr-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
   <div class="app">
     <header>
       <p class="back"><a href="../index.html">All units</a></p>
-      <h1>Unit 2 · Topic questions</h1>
+      <div class="title-row">
+        <h1>Unit 2 · Topic questions</h1>
+        <button type="button" class="qr-toggle" id="qrToggle" aria-expanded="true" aria-controls="pageQr">Hide QR</button>
+      </div>
       <p>Open a problem for the step-by-step walkthrough with captions and English audio. Each problem has Previous, Contents, and Next.</p>
+      <a class="page-qr" id="pageQr" href="https://sethusrinivasan.github.io/ap-physics/unit2/" target="_blank" rel="noopener noreferrer" aria-label="QR code to open Unit 2 on a phone">
+        <img src="qr.svg" alt="" width="120" height="120" />
+        <span>Scan</span>
+      </a>
     </header>
     <h2>Questions 1–90</h2>
     <table>
@@ -771,5 +831,23 @@
     </table>
     <p class="hint">To add another problem, follow <a href="../tools/PROMPT.md" style="color: var(--accent);">PROMPT.md</a>.</p>
   </div>
+  <script>
+    const qrToggle = document.getElementById("qrToggle");
+    function setQrOpen(open) {
+      document.body.classList.toggle("qr-off", !open);
+      if (qrToggle) {
+        qrToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        qrToggle.textContent = open ? "Hide QR" : "Show QR";
+      }
+      try { sessionStorage.setItem("ap-hide-qr", open ? "0" : "1"); } catch (err) {}
+    }
+    if (qrToggle) {
+      setQrOpen(sessionStorage.getItem("ap-hide-qr") !== "1");
+      qrToggle.addEventListener("click", () => {
+        setQrOpen(document.body.classList.contains("qr-off"));
+      });
+    }
+  </script>
+  <script data-goatcounter="https://ap-physics.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
