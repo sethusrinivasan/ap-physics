@@ -36,6 +36,43 @@
       gap: 12px;
     }
     header h1 { margin: 0; font-size: 20px; font-weight: 700; }
+    .title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .page-qr {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 30;
+      display: grid;
+      justify-items: center;
+      width: 136px;
+      padding: 6px 6px 4px;
+      background: #fff;
+      color: #071018;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    }
+    .page-qr img { width: 124px; height: 124px; display: block; }
+    .page-qr span {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    @media (min-width: 901px) {
+      body:not(.qr-off) { padding-top: 168px; }
+    }
+    body.qr-off .page-qr { display: none; }
+    @media (max-width: 900px) {
+      .page-qr, .qr-toggle { display: none; }
+    }
     header p { margin: 4px 0 8px; color: var(--muted); font-size: 13px; }
     .problem-nav {
       display: flex;
@@ -99,7 +136,7 @@
       width: 100%;
     }
     .problem-tools h2 { margin: 0; }
-    .problem-toggle {
+    .problem-toggle, .qr-toggle {
       flex: 0 0 auto;
       border: 1px solid var(--line);
       background: #132536;
@@ -111,7 +148,7 @@
       text-transform: uppercase;
       cursor: pointer;
     }
-    .problem-toggle:hover {
+    .problem-toggle:hover, .qr-toggle:hover {
       border-color: var(--accent);
       color: var(--accent);
     }
@@ -518,12 +555,19 @@
 <body>
   <div class="app">
     <header>
+      <div class="title-row">
       <h1>Interactive walkthrough · Unit 2, Question 3</h1>
+        <button type="button" class="qr-toggle" id="qrToggle" aria-expanded="true" aria-controls="pageQr">Hide QR</button>
+      </div>
       <nav class="problem-nav" aria-label="Problem navigation">
         <a href="../q2/index.html">Previous problem</a>
         <a href="../index.html">Contents</a>
         <a href="../q4/index.html">Next problem</a>
       </nav>
+      <a class="page-qr" id="pageQr" href="https://sethusrinivasan.github.io/ap-physics/unit2/q3/" target="_blank" rel="noopener noreferrer" aria-label="QR code to open Unit 2 Question 3 on a phone">
+        <img src="qr.svg" alt="" width="120" height="120" />
+        <span>Scan</span>
+      </a>
     </header>
     <section class="problem-bar exam" id="problemBar" aria-label="Problem statement">
       <div class="exam-frame">
@@ -717,6 +761,21 @@
         problemToggle.textContent = open ? "Hide question" : "Show question";
       }
       try { sessionStorage.setItem("ap-hide-question", open ? "0" : "1"); } catch (err) {}
+    }
+    const qrToggle = $("qrToggle");
+    function setQrOpen(open) {
+      document.body.classList.toggle("qr-off", !open);
+      if (qrToggle) {
+        qrToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        qrToggle.textContent = open ? "Hide QR" : "Show QR";
+      }
+      try { sessionStorage.setItem("ap-hide-qr", open ? "0" : "1"); } catch (err) {}
+    }
+    if (qrToggle) {
+      setQrOpen(sessionStorage.getItem("ap-hide-qr") !== "1");
+      qrToggle.addEventListener("click", () => {
+        setQrOpen(document.body.classList.contains("qr-off"));
+      });
     }
     if (problemToggle) {
       setQuestionOpen(sessionStorage.getItem("ap-hide-question") !== "1");
@@ -1027,5 +1086,6 @@
     paintStep(0);
     updateTimeline(0);
   </script>
+  <script data-goatcounter="https://ap-physics.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
