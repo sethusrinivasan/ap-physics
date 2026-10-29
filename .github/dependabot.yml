@@ -12,3 +12,6 @@ updates:
       interval: weekly
     commit-message:
       prefix: "deps"
+    ignore:
+      - dependency-name: "pillow"
+        versions: [">= 13.0.0"] # Pillow 13 requires Python 3.11+, repo supports Python 3.10+
