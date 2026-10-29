@@ -8,7 +8,7 @@ import subprocess
 from pathlib import Path
 from PIL import Image
 
-ROOT = Path("/home/home/github/ap-physics")
+ROOT = Path(__file__).resolve().parents[1]
 Q_PDF = Path("/home/home/Downloads/Unit 4 Topic Questions.pdf")
 S_PDF = Path("/home/home/Downloads/Unit 4 Topic Questions. Solutions.pdf")
 UNIT4 = ROOT / "unit4"

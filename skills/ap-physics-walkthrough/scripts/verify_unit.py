@@ -144,9 +144,12 @@ def verify_prior_units_untouched(repo_root: Path, target_unit: int) -> list[str]
     return errors
 
 
+DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[3]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Comprehensive validation and regression testing")
-    parser.add_argument("--repo-root", default=Path("/home/home/github/ap-physics"), type=Path, help="Repo root")
+    parser.add_argument("--repo-root", default=DEFAULT_REPO_ROOT, type=Path, help="Repo root")
     parser.add_argument("--unit", required=True, type=int, help="Target unit number to validate")
     args = parser.parse_args()
     

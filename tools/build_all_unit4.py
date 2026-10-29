@@ -10,7 +10,7 @@ import qrcode.image.svg
 
 from unit4_specs import SPECS
 
-ROOT = Path("/home/home/github/ap-physics")
+ROOT = Path(__file__).resolve().parents[1]
 UNIT4 = ROOT / "unit4"
 FIG_DIR = UNIT4 / "figures"
 PARSED_JSON = ROOT / "tools" / "unit4_parsed.json"
