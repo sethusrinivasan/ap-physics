@@ -1,0 +1,21 @@
+# Cursor Rules: AP Physics C Walkthroughs
+
+This project uses the `ap-physics-walkthrough` agent skill.
+For detailed rule configuration, see `.cursor/rules/ap-physics-walkthrough.mdc`.
+
+## Quick Command
+To build or update a unit from Question and Answer PDFs:
+```bash
+python3 skills/ap-physics-walkthrough/scripts/run_unit_pipeline.py \
+  --unit <N> \
+  --title "<Unit Title>" \
+  --questions <questions.pdf> \
+  --answers <answers.pdf>
+```
+
+## Invariants
+- Additive only: Never touch `unit2/` or `unit4/`.
+- Symbols first: Explain variable before formula.
+- Left-aligned KaTeX (`fleqn: true`).
+- Audio files generated as MP3s with `manifest.json`.
+- Verification command: `python3 skills/ap-physics-walkthrough/scripts/verify_unit.py --unit <N>`.
