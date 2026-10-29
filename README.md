@@ -17,6 +17,7 @@
 [![KaTeX](https://img.shields.io/badge/KaTeX-left--aligned_math-3298dc?logo=katex&logoColor=white)](https://katex.org)
 [![Audio](https://img.shields.io/badge/Audio-Edge_TTS_Narration-FF8C00)](skills/ap-physics-walkthrough/)
 [![Agent Skill: ap-physics-walkthrough](https://img.shields.io/badge/Agent_Skill-ap--physics--walkthrough-8A2BE2?logo=probot&logoColor=white)](skills/ap-physics-walkthrough/SKILL.md)
+[![AI Evaluation Benchmark](https://img.shields.io/badge/AI_Eval-100%25_Pedagogical_Audit-success?logo=googledeepmind&logoColor=white)](docs/ai-evals.md)
 [![Pair Programmed with Google Gemini](https://img.shields.io/badge/AI_Agent-Google_Gemini-4285F4?logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)
 [![Built with Cursor](https://img.shields.io/badge/AI_IDE-Cursor-000000?logo=cursor&logoColor=white)](https://cursor.com)
 [![Codex Ready](https://img.shields.io/badge/AI_Agent-OpenAI_Codex-412991?logo=openai&logoColor=white)](https://openai.com)
@@ -76,6 +77,37 @@ Coding agents self-discover instructions and configuration from:
 
 ---
 
+## AI Evaluation & Harness Benchmark Suite
+
+To ensure student walkthroughs maintain rigorous pedagogical standards across different LLMs (Gemini, Claude Code, Cursor/Cursoft, Codex), this repository features an automated multi-dimensional **AI Evaluation & Harness Benchmark Suite** ([`tests/test_ai_eval.py`](tests/test_ai_eval.py)).
+
+Detailed rationale, architecture, mathematical weights, and sample run reports are documented in **[`docs/ai-evals.md`](docs/ai-evals.md)**.
+
+### The 5 Evaluation Dimensions
+
+| Rubric Dimension | Weight | Benchmark Target | Evaluated Criteria |
+| :--- | :---: | :---: | :--- |
+| **Symbol Grounding & Consistency** | **25%** | $\ge 90\%$ | Variables defined with notation, spoken sound, and plain-English meaning before appearing in formulas. |
+| **KaTeX Math & Syntax Soundness** | **25%** | $\ge 95\%$ | Balanced braces, clean LaTeX macros, and zero unescaped control characters in JSON blocks. |
+| **Spoken Math Narration Quality** | **20%** | $\ge 90\%$ | Zero raw LaTeX leaks (e.g. `\frac`, `\sqrt`) in spoken audio; natural teacher-style prose phrasing. |
+| **Distractor Rejection Depth** | **15%** | $\ge 80\%$ | Explicit physical refutation of incorrect choices ($A, B, C, D$) without circular tautologies. |
+| **College Board Key Concordance** | **15%** | $100\%$ | 100% agreement with the official College Board examination scoring guideline key. |
+
+### Running AI Evals & Benchmarks
+
+```bash
+# Run benchmark CLI on Unit 4 with rich diagnostics (default: sample of 5)
+python3 tests/test_ai_eval.py --unit unit4 --harness Gemini --limit 5
+
+# Benchmark all questions in Unit 4 and save JSON metrics
+python3 tests/test_ai_eval.py --unit unit4 --harness Gemini --all --json-out unit4_eval.json
+
+# Run via Pytest as continuous integration quality gates
+pytest tests/test_ai_eval.py -v
+```
+
+---
+
 ## Coding Agents & Attribution
 
 This project is built and maintained through human-AI pair programming across leading AI coding agents:
@@ -84,6 +116,7 @@ This project is built and maintained through human-AI pair programming across le
   - Performed comprehensive visual and variable audits of all Unit 4 questions and official answers to guarantee 100% mathematical fidelity.
   - Rewrote problem specs to ensure all spoken audio narration matches exact exam variables ($m_0, 2m_0, p_0, K_0, v_{\text{cm}}$).
   - Architected and packaged the cross-platform **`ap-physics-walkthrough`** autonomous agent skill, regression test suite, and agent self-discovery metadata.
+  - Designed and engineered the multi-dimensional **AI Evaluation & Harness Benchmark Framework** ([`docs/ai-evals.md`](docs/ai-evals.md)) to quantitatively grade pedagogical quality across AI models.
 - **[Cursor](https://cursor.com) ("Cursoft")**:
   - Designed the initial web player layout, sticky problem bar, KaTeX formula step slider, and mobile SVG QR code integration.
   - Authored the foundational interactive walkthroughs for the 90 problems of Unit 2.
@@ -99,13 +132,16 @@ Questions and official solution images come from AP Physics C problem sets share
 - [`index.html`](index.html) — Unit list (GitHub Pages home)
 - [`unit2/`](unit2/) — Unit 2 TOC, problems `q1`–`q90`, and exam/solution crops
 - [`unit4/`](unit4/) — Unit 4 TOC, problems `q1`–`q36`, and exam/solution crops
+- [`docs/ai-evals.md`](docs/ai-evals.md) — AI evaluation framework, architecture, rubric weights, and sample run reports
 - [`skills/ap-physics-walkthrough/`](skills/ap-physics-walkthrough/) — Universal agent skill specification, references, and pipeline scripts
 - [`.agents/skills/`](.agents/skills/) — Antigravity agent discovery symlink
 - [`.cursor/rules/`](.cursor/rules/) — Cursor rule configuration
 - [`AGENTS.md`](AGENTS.md) — Universal coding agent guidelines and rules
 - [`GEMINI.md`](GEMINI.md) — Gemini / Antigravity CLI project configuration
 - [`tools/`](tools/) — Build scripts and problem generators
-- [`tests/`](tests/) — HTTP and Playwright smoke tests
+- [`tests/test_ai_eval.py`](tests/test_ai_eval.py) — Multi-dimensional AI harness benchmark suite
+- [`tests/test_skill_e2e.py`](tests/test_skill_e2e.py) — End-to-end skill pipeline integration test
+- [`tests/`](tests/) — HTTP, browser, and regression test suites
 - [`LICENSE`](LICENSE) — MIT
 
 ---
@@ -133,6 +169,11 @@ source .venv/bin/activate
 pip install -r requirements.txt
 playwright install chromium
 python -m unittest discover -s tests -v
+```
+
+AI Evaluation & Benchmark CLI:
+```bash
+python3 tests/test_ai_eval.py --unit unit4 --harness Gemini --limit 5
 ```
 
 HTTP-only checks (no Chromium):
