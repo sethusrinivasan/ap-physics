@@ -1,6 +1,6 @@
 # Core Test & Browser Automation
 playwright>=1.49,<2
-pytest>=8.0.0
+pytest>=9.1.1
 
 # ap-physics-walkthrough Skill Dependencies
 pillow>=10.0.0
