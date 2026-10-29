@@ -1,0 +1,28 @@
+---
+description: Build interactive AP Physics C walkthroughs from Question and Answer PDFs
+globs: unit*/**, tools/**, skills/**
+alwaysApply: false
+---
+
+# AP Physics C Walkthrough Builder
+
+This rule activates when you ask to build, audit, crop, narrate, or verify AP Physics C walkthrough units.
+
+## Available Command
+
+To build or verify a unit from question and answer PDFs, run:
+
+```bash
+python3 skills/ap-physics-walkthrough-builder/scripts/run_unit_pipeline.py \
+  --unit <N> \
+  --title "<Unit Title>" \
+  --questions <path_to_questions.pdf> \
+  --answers <path_to_answers.pdf>
+```
+
+## Quality Guidelines for Cursor
+1. **Never disturb previous units**: Units like `unit2/` and `unit4/` must remain completely untouched.
+2. **Visual Crops**: Store cropped question figures in `unit<N>/figures/q01.png`..`q<M>.png` and answer figures in `a01.png`..`a<M>.png`.
+3. **Symbols First**: Name every physical symbol before writing its equation in `STEPS`.
+4. **Left-aligned KaTeX**: Always render KaTeX equations with `fleqn: true`.
+5. **Always run verification**: Run `python3 skills/ap-physics-walkthrough-builder/scripts/verify_unit.py --unit <N>` to verify all assets, navigation links, and regression tests.
