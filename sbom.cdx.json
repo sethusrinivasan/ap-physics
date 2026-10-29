@@ -1,0 +1,154 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:91d7ee9f-e53a-428b-9b72-4a30180432a8",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-29T05:38:36Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "ap-physics-sbom-generator",
+          "version": "1.0"
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "ap-physics",
+      "version": "1.2.0",
+      "description": "Step-by-step interactive audio solutions and authoring skill for AP Physics C",
+      "purl": "pkg:github/sethusrinivasan/ap-physics@1.2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "playwright",
+      "version": "1.64.1",
+      "description": "Chromium, Firefox, and WebKit browser automation library",
+      "purl": "pkg:pypi/playwright@1.64.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://playwright.dev"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pytest",
+      "version": "9.1.1",
+      "description": "pytest: simple powerful testing with Python",
+      "purl": "pkg:pypi/pytest@9.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://pytest.org"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "Pillow",
+      "version": "12.1.1",
+      "description": "Python Imaging Library (Fork)",
+      "purl": "pkg:pypi/pillow@12.1.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "HPND"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://python-pillow.org"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "qrcode",
+      "version": "8.2",
+      "description": "QR Code image generator with SVG and PNG output",
+      "purl": "pkg:pypi/qrcode@8.2",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/lincolnloop/python-qrcode"
+        }
+      ]
+    },
+    {
+      "type": "operating-system",
+      "name": "poppler-utils",
+      "version": "26.01.0",
+      "description": "PDF rendering and text extraction utilities (pdftoppm, pdftotext)",
+      "purl": "pkg:deb/debian/poppler-utils@26.01.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-2.0-or-later"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://poppler.freedesktop.org/"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "katex",
+      "version": "0.16.11",
+      "description": "Fast math typesetting library for the web",
+      "purl": "pkg:npm/katex@0.16.11",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://katex.org/"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "ap-physics-sbom",
+  "documentNamespace": "https://github.com/sethusrinivasan/ap-physics/spdx/56614795-d808-4130-8253-ce40b502a6bb",
+  "creationInfo": {
+    "created": "2026-10-29T05:38:36Z",
+    "creators": [
+      "Tool: ap-physics-sbom-generator-1.0",
+      "Organization: Google Gemini / DeepMind Antigravity Pair"
+    ],
+    "licenseListVersion": "3.23"
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-1-ap-physics",
+      "name": "ap-physics",
+      "versionInfo": "1.2.0",
+      "summary": "Step-by-step interactive audio solutions and authoring skill for AP Physics C",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "homepage": "https://sethusrinivasan.github.io/ap-physics/",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "supplier": "Person: Sethu Srinivasan",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:github/sethusrinivasan/ap-physics@1.2.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-2-playwright",
+      "name": "playwright",
+      "versionInfo": "1.64.1",
+      "summary": "Chromium, Firefox, and WebKit browser automation library",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "homepage": "https://playwright.dev",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "supplier": "Organization: Microsoft",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/playwright@1.64.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-3-pytest",
+      "name": "pytest",
+      "versionInfo": "9.1.1",
+      "summary": "pytest: simple powerful testing with Python",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "homepage": "https://pytest.org",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "supplier": "Organization: pytest-dev",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pytest@9.1.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-4-Pillow",
+      "name": "Pillow",
+      "versionInfo": "12.1.1",
+      "summary": "Python Imaging Library (Fork)",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "homepage": "https://python-pillow.org",
+      "licenseConcluded": "HPND",
+      "licenseDeclared": "HPND",
+      "supplier": "Organization: Jeffrey A. Clark (Alex) and contributors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/pillow@12.1.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-5-qrcode",
+      "name": "qrcode",
+      "versionInfo": "8.2",
+      "summary": "QR Code image generator with SVG and PNG output",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "homepage": "https://github.com/lincolnloop/python-qrcode",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "supplier": "Person: Lincoln Loop",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:pypi/qrcode@8.2"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-6-poppler-utils",
+      "name": "poppler-utils",
+      "versionInfo": "26.01.0",
+      "summary": "PDF rendering and text extraction utilities (pdftoppm, pdftotext)",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "homepage": "https://poppler.freedesktop.org/",
+      "licenseConcluded": "GPL-2.0-or-later",
+      "licenseDeclared": "GPL-2.0-or-later",
+      "supplier": "Organization: freedesktop.org",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:deb/debian/poppler-utils@26.01.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-7-katex",
+      "name": "katex",
+      "versionInfo": "0.16.11",
+      "summary": "Fast math typesetting library for the web",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "homepage": "https://katex.org/",
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "supplier": "Organization: KaTeX Team",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/katex@0.16.11"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-1-ap-physics"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-1-ap-physics",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-2-playwright"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-1-ap-physics",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-3-pytest"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-1-ap-physics",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-4-Pillow"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-1-ap-physics",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-5-qrcode"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-1-ap-physics",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-6-poppler-utils"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-1-ap-physics",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-7-katex"
+    }
+  ]
+}

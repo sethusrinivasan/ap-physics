@@ -96,6 +96,12 @@ if [ "${INSTALL_BROWSER:-}" = "true" ] || [[ "${*:-}" == *"--with-browser"* ]]; 
   python3 -m playwright install chromium || true
 fi
 
+# 5. Configure local git hooks for secret scanning
+if [ -d "$REPO_ROOT/.git" ] && [ -d "$REPO_ROOT/.githooks" ]; then
+  git config core.hooksPath .githooks 2>/dev/null || true
+  echo "✔ Git pre-commit secret-scanning hook configured."
+fi
+
 # 4. Verify installation
 echo "▶ Verifying installed components..."
 ERRORS=0

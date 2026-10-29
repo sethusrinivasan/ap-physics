@@ -1,0 +1,4 @@
+name: "CodeQL custom configuration"
+
+paths-ignore:
+  - 'unit*/**/generate-audio.mjs'

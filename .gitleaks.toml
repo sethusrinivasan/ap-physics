@@ -1,0 +1,12 @@
+# Gitleaks Configuration for ap-physics
+title = "ap-physics secret scanning rules"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Global allowlist"
+paths = [
+  '''^\.gitleaks\.toml$''',
+  '''^tests/.*''',
+]

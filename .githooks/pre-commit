@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Pre-commit hook: scan staged files for secrets and credentials
+set -euo pipefail
+
+# Patterns that suggest secrets or credentials
+SECRET_PATTERNS=(
+  "ghp_[A-Za-z0-9]{36}"
+  "gho_[A-Za-z0-9]{36}"
+  "github_pat_[A-Za-z0-9_]{82}"
+  "AIza[0-9A-Za-z\\-_]{35}"
+  "sk-[a-zA-Z0-9]{48}"
+  "-----BEGIN (RSA|EC|DSA|OPENSSH|PGP) PRIVATE KEY-----"
+  "AKIA[0-9A-Z]{16}"
+)
+
+# Files being staged
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+if [ -z "$STAGED_FILES" ]; then
+  exit 0
+fi
+
+FAILED=0
+
+for pattern in "${SECRET_PATTERNS[@]}"; do
+  MATCHES=$(git grep -E -I -n "$pattern" -- $STAGED_FILES 2>/dev/null || true)
+  if [ -n "$MATCHES" ]; then
+    echo "❌ ERROR: Potential secret detected matching pattern: $pattern"
+    echo "$MATCHES"
+    FAILED=1
+  fi
+done
+
+# Check forbidden file extensions
+for file in $STAGED_FILES; do
+  case "$file" in
+    *.pem|*.key|*.pkcs12|*.pfx|*.env|*.env.*|*credentials*.json|*client_secret*.json)
+      echo "❌ ERROR: Sensitive file committed: $file"
+      FAILED=1
+      ;;
+  esac
+done
+
+if [ "$FAILED" -ne 0 ]; then
+  echo ""
+  echo "🚫 Commit rejected! Please remove the credentials or sensitive files before committing."
+  echo "If this is a false positive, inspect the file or update .githooks/pre-commit."
+  exit 1
+fi
+
+exit 0

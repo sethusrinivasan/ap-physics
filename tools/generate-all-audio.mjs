@@ -152,7 +152,7 @@ async function generateOne(dir) {
     while (manifest.length > STEPS.length) manifest.pop();
     for (let extra = STEPS.length + 1; extra <= 12; extra += 1) {
       const leftover = path.join(audioDir, `step-${String(extra).padStart(2, "0")}.mp3`);
-      if (fs.existsSync(leftover)) fs.unlinkSync(leftover);
+      fs.rmSync(leftover, { force: true });
     }
     fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
     return { dir, skipped: false, steps: STEPS.length, onlyFirst: true };

@@ -1,6 +1,42 @@
+# Temporary & Build files
 _v_*.png
 _build_*.py
 node_modules/
 .venv/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Secrets, Credentials & Tokens (Strictly protected)
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+*.token
+*secret*
+*credential*
+credentials.json
+client_secret*.json
+id_rsa*
+id_ed25519*
+gho_*
+ghp_*
+*.session
+auth.json
+token.json
+
+# IDE & OS metadata
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

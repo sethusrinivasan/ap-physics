@@ -22,13 +22,7 @@ if ! venv_usable; then
   if python3 -m venv .venv >/dev/null 2>&1 && venv_usable; then
     :
   elif python3 -m venv --without-pip .venv >/dev/null 2>&1 && [ -x .venv/bin/python ]; then
-    echo "Bootstrapping pip into .venv (python3-venv / ensurepip not available)."
-    if command -v curl >/dev/null 2>&1; then
-      curl -sS https://bootstrap.pypa.io/get-pip.py | .venv/bin/python
-    else
-      python3 -c "import urllib.request; urllib.request.urlretrieve('https://bootstrap.pypa.io/get-pip.py', '/tmp/get-pip.py')"
-      .venv/bin/python /tmp/get-pip.py
-    fi
+    .venv/bin/python -m ensurepip --default-pip >/dev/null 2>&1 || true
   fi
 fi
 
