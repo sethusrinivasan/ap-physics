@@ -15,12 +15,14 @@
 
 Step-by-step interactive solutions for AP Physics C topic questions. Each problem keeps the exam item on screen, names every symbol before the formula, and plays English audio through the derivation to the answer choice.
 
-Unit 2 is 90 problems covering center of mass, Newton’s laws, gravity, friction, springs, drag, and circular motion.
+- **Unit 2**: 90 problems covering center of mass, Newton’s laws, gravity, friction, springs, drag, and circular motion.
+- **Unit 4**: 36 problems covering linear momentum, impulse, conservation of linear momentum, center of mass velocity, and collisions.
 
 This site was created with [Cursor](https://cursor.com). Questions and official solution images come from AP Physics C problem sets shared by a school teacher. They remain the property of the College Board. This project is an independent study aid and is not affiliated with or endorsed by the College Board.
 
 - [`index.html`](index.html) — unit list (GitHub Pages home)
 - [`unit2/`](unit2/) — Unit 2 TOC, problems `q1`–`q90`, and exam/solution crops
+- [`unit4/`](unit4/) — Unit 4 TOC, problems `q1`–`q36`, and exam/solution crops
 - [`tools/`](tools/) — build scripts and authoring prompt
 - [`tests/`](tests/) — HTTP and Playwright smoke tests
 - [`LICENSE`](LICENSE) — MIT

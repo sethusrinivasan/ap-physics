@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AP Physics C Unit 4 topic questions</title>
+  <meta name="description" content="Thirty-six AP Physics C Mechanics walkthroughs for Unit 4: Linear Momentum, Impulse, and Collisions. Each problem stays on screen while the derivation is narrated." />
+  <link rel="canonical" href="https://sethusrinivasan.github.io/ap-physics/unit4/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AP Physics C Unit 4 topic questions" />
+  <meta property="og:description" content="Thirty-six AP Physics C Mechanics walkthroughs for Unit 4: Linear Momentum, Impulse, and Collisions. Each problem stays on screen while the derivation is narrated." />
+  <meta property="og:url" content="https://sethusrinivasan.github.io/ap-physics/unit4/" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "AP Physics C Unit 4 topic questions",
+  "description": "Thirty-six AP Physics C Mechanics walkthroughs for Unit 4: Linear Momentum, Impulse, and Collisions. Each problem stays on screen while the derivation is narrated.",
+  "learningResourceType": "Walkthrough",
+  "educationalLevel": "High school",
+  "teaches": "AP Physics C Unit 4 Linear Momentum and Collisions",
+  "inLanguage": "en",
+  "url": "https://sethusrinivasan.github.io/ap-physics/unit4/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "AP Physics C walkthroughs",
+    "url": "https://sethusrinivasan.github.io/ap-physics/"
+  }
+}
+  </script>
+  <style>
+    :root {
+      --bg: #071018; --panel: #102033; --ink: #e8eef6; --muted: #9bb0c7;
+      --line: #27415c; --accent: #5ec8ff; --gold: #f0c75e;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--ink);
+      font-family: "Liberation Sans", "Ubuntu", "Segoe UI", sans-serif; }
+    body { display: grid; place-items: start center; padding: 24px 16px 40px; }
+    .app { width: min(920px, 100%); }
+    header h1 { margin: 0; font-size: 26px; font-weight: 700; }
+    header p { margin: 8px 0 22px; color: var(--muted); font-size: 14px; line-height: 1.45; }
+    h2 { margin: 0 0 10px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+    table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #132536; }
+    .num { white-space: nowrap; color: var(--gold); font-weight: 700; width: 7.5em; }
+    .topic { color: var(--accent); font-weight: 700; }
+    .blurb { margin: 4px 0 0; color: var(--muted); font-size: 13px; line-height: 1.4; }
+    a.open { display: inline-block; border: 1px solid var(--line); background: #132536; color: var(--ink);
+      border-radius: 7px; padding: 8px 12px; font-size: 13px; text-decoration: none; white-space: nowrap; }
+    a.open:hover { border-color: var(--accent); }
+    .hint { margin-top: 16px; color: var(--muted); font-size: 12px; }
+    .back { margin: 0 0 10px; font-size: 13px; }
+    .back a { color: var(--accent); text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    .title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .page-qr {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 30;
+      display: grid;
+      justify-items: center;
+      width: 136px;
+      padding: 6px 6px 4px;
+      background: #fff;
+      color: #071018;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    }
+    .page-qr img { width: 124px; height: 124px; display: block; }
+    .page-qr span {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    @media (min-width: 901px) {
+      body:not(.qr-off) { padding-top: 168px; }
+    }
+    body.qr-off .page-qr { display: none; }
+    @media (max-width: 900px) {
+      .page-qr, .qr-toggle { display: none; }
+    }
+    .qr-toggle {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: #132536;
+      color: var(--ink);
+      border-radius: 7px;
+      padding: 6px 10px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .qr-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <p class="back"><a href="../index.html">← All units</a></p>
+    <header>
+      <div class="title-row">
+        <h1>AP Physics C Unit 4: Linear Momentum</h1>
+        <button type="button" class="qr-toggle" id="qrToggle" aria-expanded="true" aria-controls="pageQr">Hide QR</button>
+      </div>
+      <p>Open a problem for the step-by-step walkthrough with captions and English audio. Each problem has Previous, Contents, and Next.</p>
+      <a class="page-qr" id="pageQr" href="https://sethusrinivasan.github.io/ap-physics/unit4/" target="_blank" rel="noopener noreferrer" aria-label="QR code to open Unit 4 on a phone">
+        <img src="qr.svg" alt="" width="120" height="120" />
+        <span>Scan</span>
+      </a>
+    </header>
+    <h2>Questions 1–36</h2>
+    <table>
+      <thead>
+        <tr><th>Problem</th><th>Topic</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">Question 1</td>
+          <td>
+            <div class="topic">Linear momentum magnitude in two dimensions</div>
+            <p class="blurb">Mass 0.5 kg with velocity components 3.0 m/s and -4.0 m/s has momentum magnitude 2.5 kg*m/s.</p>
+          </td>
+          <td><a class="open" href="q1/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 2</td>
+          <td>
+            <div class="topic">Momentum scaling with mass at constant kinetic energy</div>
+            <p class="blurb">At fixed kinetic energy K_0, doubling the mass scales momentum by sqrt(2), which equals 2 p_0 / sqrt(2).</p>
+          </td>
+          <td><a class="open" href="q2/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 3</td>
+          <td>
+            <div class="topic">Momentum factor when kinetic energy quadruples</div>
+            <p class="blurb">Quadrupling kinetic energy K_0 -> 4 K_0 increases momentum by a factor of sqrt(4) = 2.</p>
+          </td>
+          <td><a class="open" href="q3/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 4</td>
+          <td>
+            <div class="topic">Momentum from cubic position function at a specific time</div>
+            <p class="blurb">Differentiating x(t) = 0.5 t^3 gives v(4.0) = 24 m/s; multiplying by 2.0 kg gives 48 kg*m/s.</p>
+          </td>
+          <td><a class="open" href="q4/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 5</td>
+          <td>
+            <div class="topic">Momentum change from position-time graph slopes</div>
+            <p class="blurb">Slopes give v_i = +0.5 m/s and v_f = -2.0 m/s; Delta p = 3.0 kg * 2.5 m/s = 7.5 kg*m/s.</p>
+          </td>
+          <td><a class="open" href="q5/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 6</td>
+          <td>
+            <div class="topic">Conserved momentum in an inelastic block collision</div>
+            <p class="blurb">Mass doubles while speed is halved, so final momentum remains exactly p_0.</p>
+          </td>
+          <td><a class="open" href="q6/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 7</td>
+          <td>
+            <div class="topic">Comparing speeds of two objects with equal momentum</div>
+            <p class="blurb">For equal momentum p_0, speed is inversely proportional to mass; since m_1 > m_2, v_2 > v_1.</p>
+          </td>
+          <td><a class="open" href="q7/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 8</td>
+          <td>
+            <div class="topic">Direction of linear momentum at path crest</div>
+            <p class="blurb">Velocity is tangent to the semicircular path at crest Y, directed horizontally to the right.</p>
+          </td>
+          <td><a class="open" href="q8/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 9</td>
+          <td>
+            <div class="topic">Momentum of a leaking water cart at constant velocity</div>
+            <p class="blurb">Mass of the cart-water system decreases while speed is constant, so system momentum decreases.</p>
+          </td>
+          <td><a class="open" href="q9/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 10</td>
+          <td>
+            <div class="topic">Comparing student final speeds from equal impulses</div>
+            <p class="blurb">Both receive 10 N*s impulse; the 40-kg student-chair has less mass than 50 kg, so it reaches greater speed.</p>
+          </td>
+          <td><a class="open" href="q10/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 11</td>
+          <td>
+            <div class="topic">Impulse magnitude on rebounding object</div>
+            <p class="blurb">Rebounding reverses velocity direction, so impulse magnitude is m_1 (v_1f + v_1i).</p>
+          </td>
+          <td><a class="open" href="q11/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 12</td>
+          <td>
+            <div class="topic">Force-time collision profile for padded wall</div>
+            <p class="blurb">Padding cushions impact: collision duration increases, maximum force decreases, and area under F_h(t) remains the same.</p>
+          </td>
+          <td><a class="open" href="q12/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 13</td>
+          <td>
+            <div class="topic">Asymptotic momentum from exponential force</div>
+            <p class="blurb">Integrating F_0 e^{-bt} dt from 0 to infinity gives total momentum F_0 / b.</p>
+          </td>
+          <td><a class="open" href="q13/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 14</td>
+          <td>
+            <div class="topic">Comparing work and impulse from force-time graphs</div>
+            <p class="blurb">Trial 2 has greater force at all times, giving greater impulse (J_1 < J_2) and greater final kinetic energy (W_1 < W_2).</p>
+          </td>
+          <td><a class="open" href="q14/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 15</td>
+          <td>
+            <div class="topic">Determining momentum change from net force-time graph</div>
+            <p class="blurb">The area under a net force-time curve gives impulse, which equals the change in momentum regardless of initial velocity.</p>
+          </td>
+          <td><a class="open" href="q15/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 16</td>
+          <td>
+            <div class="topic">Impulse on a block pulled up a ramp by a varying motor tension</div>
+            <p class="blurb">Net force is 2kt - mg sin(theta); integrating from t_1 to t_2 gives k(t_2^2 - t_1^2) - mg sin(theta)(t_2 - t_1).</p>
+          </td>
+          <td><a class="open" href="q16/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 17</td>
+          <td>
+            <div class="topic">Comparing signed impulses from symmetric force triangles</div>
+            <p class="blurb">The negative triangle gives J_1 = -0.5 N*s and the positive triangle gives J_2 = +0.5 N*s, so J_1 = -J_2.</p>
+          </td>
+          <td><a class="open" href="q17/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 18</td>
+          <td>
+            <div class="topic">Rocket recoil with variable launcher mass</div>
+            <p class="blurb">Constant mass flow gives constant thrust; with decreasing system mass, acceleration must increase.</p>
+          </td>
+          <td><a class="open" href="q18/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 19</td>
+          <td>
+            <div class="topic">Center of mass speed for student-block system</div>
+            <p class="blurb">More mass is moving across the ice in Scenario 3 (3m vs m in Scenario 1), giving the greatest center of mass speed.</p>
+          </td>
+          <td><a class="open" href="q19/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 20</td>
+          <td>
+            <div class="topic">Center of mass speed and impulse in two collision trials</div>
+            <p class="blurb">Center of mass speed is unchanged (v_1 = v_2 = 0.5 v_0), and stopping Block A requires more impulse than sticking (J_1 > J_2).</p>
+          </td>
+          <td><a class="open" href="q20/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 21</td>
+          <td>
+            <div class="topic">Center of mass speed through spring collision</div>
+            <p class="blurb">Total initial momentum is m v_0 and total mass is 3m; with zero external force, v_cm = v_0 / 3 at all times.</p>
+          </td>
+          <td><a class="open" href="q21/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 22</td>
+          <td>
+            <div class="topic">Invariance of center of mass speed across collision outcomes</div>
+            <p class="blurb">In all collision outcomes, external force is zero, so center of mass speed is identically conserved: v_Pcm = v_Qcm = v_Rcm.</p>
+          </td>
+          <td><a class="open" href="q22/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 23</td>
+          <td>
+            <div class="topic">Slope of final velocity vs initial velocity with increased projectile mass</div>
+            <p class="blurb">Slope is m_1 / (m_1 + m_2); replacing m_1 with 2m_1 increases this fraction, making the slope greater.</p>
+          </td>
+          <td><a class="open" href="q23/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 24</td>
+          <td>
+            <div class="topic">Total momentum direction with unequal masses and speeds</div>
+            <p class="blurb">4 kg moving left vs 3 kg moving right; total momentum sign depends on whether v_3 / v_4 is greater or less than 4/3.</p>
+          </td>
+          <td><a class="open" href="q24/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 25</td>
+          <td>
+            <div class="topic">Momentum conservation and relative speed in elastic collision</div>
+            <p class="blurb">Total momentum is conserved at 18 kg*m/s and relative speed is 2 m/s before and after, matching Choice A.</p>
+          </td>
+          <td><a class="open" href="q25/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 26</td>
+          <td>
+            <div class="topic">Two-dimensional momentum components after deflection</div>
+            <p class="blurb">Conserving momentum in x and y gives v_x = v_0(1 - cos theta) and v_y = -v_0 sin theta.</p>
+          </td>
+          <td><a class="open" href="q26/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 27</td>
+          <td>
+            <div class="topic">Center of mass separation distance during recoil</div>
+            <p class="blurb">Recoil speed of 3m block is v/3; relative speed is 4/3 v, giving separation D + 4/3 v (t - t_1).</p>
+          </td>
+          <td><a class="open" href="q27/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 28</td>
+          <td>
+            <div class="topic">Speed of deflected puck from kinetic energy conservation</div>
+            <p class="blurb">Elastic collision conserves kinetic energy: 72 J = 2 v^2 + 6 J yields v = sqrt(33) approx 5.7 m/s.</p>
+          </td>
+          <td><a class="open" href="q28/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 29</td>
+          <td>
+            <div class="topic">Collision position conserving momentum and kinetic energy</div>
+            <p class="blurb">At turning point Q the box is at rest (v = 0), so zero momentum and zero kinetic energy are identically preserved.</p>
+          </td>
+          <td><a class="open" href="q29/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 30</td>
+          <td>
+            <div class="topic">Post-collision kinetic energy of stuck carts</div>
+            <p class="blurb">Combined mass 0.75 kg moves at 4/3 m/s; K_f = 0.5 * 0.75 * (4/3)^2 = 2/3 J.</p>
+          </td>
+          <td><a class="open" href="q30/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 31</td>
+          <td>
+            <div class="topic">Speed and kinetic energy transfer in elastic vs inelastic collisions</div>
+            <p class="blurb">In elastic Collision 1, Cart Y gets all K_i; in inelastic Collision 2, Cart Y gets less than K_i, so speed is greater after Collision 1.</p>
+          </td>
+          <td><a class="open" href="q31/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 32</td>
+          <td>
+            <div class="topic">Kinetic energy loss ratio in swapped-mass inelastic collisions</div>
+            <p class="blurb">Kinetic energy lost in a sticky collision is 0.5 * mu * v_rel^2; since mu and v_rel are identical, the ratio is 1.</p>
+          </td>
+          <td><a class="open" href="q32/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 33</td>
+          <td>
+            <div class="topic">Testing collision elasticity using momentum conservation</div>
+            <p class="blurb">Momentum gives v_2 = v/2; computing K_f shows K_f = K_i, so the collision is confirmed elastic, matching Choice B.</p>
+          </td>
+          <td><a class="open" href="q33/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 34</td>
+          <td>
+            <div class="topic">Kinetic energy dissipated in opposing stick collision</div>
+            <p class="blurb">K_i = 162 J and K_f = 54 J; the decrease in kinetic energy is 162 J - 54 J = 108 J.</p>
+          </td>
+          <td><a class="open" href="q34/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 35</td>
+          <td>
+            <div class="topic">Identifying an elastic collision from momentum-time graphs</div>
+            <p class="blurb">Graph B shows equal masses completely exchanging momentum of 4.8 kg*m/s, conserving total kinetic energy.</p>
+          </td>
+          <td><a class="open" href="q35/index.html">Open walkthrough</a></td>
+        </tr>
+        <tr>
+          <td class="num">Question 36</td>
+          <td>
+            <div class="topic">Best-fit curve of final velocity as a function of target mass</div>
+            <p class="blurb">v_f = (m_1 v_1) / (m_1 + m_2) is an inverse function: decreasing, concave up, asymptotically approaching zero (Graph A).</p>
+          </td>
+          <td><a class="open" href="q36/index.html">Open walkthrough</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+    const qrToggle = document.getElementById("qrToggle");
+    function setQrOpen(open) {
+      document.body.classList.toggle("qr-off", !open);
+      if (qrToggle) {
+        qrToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        qrToggle.textContent = open ? "Hide QR" : "Show QR";
+      }
+      try { sessionStorage.setItem("ap-hide-qr", open ? "0" : "1"); } catch (err) {}
+    }
+    if (qrToggle) {
+      setQrOpen(sessionStorage.getItem("ap-hide-qr") !== "1");
+      qrToggle.addEventListener("click", () => {
+        setQrOpen(document.body.classList.contains("qr-off"));
+      });
+    }
+  </script>
+  <script data-goatcounter="https://ap-physics.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,714 @@
+[
+  {
+    "n": 1,
+    "stem": "An object of mass              is moving in the -plane with velocity components of                        and\n                     . What is the magnitude of the object\u2019s momentum?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "B",
+    "explanation": "The magnitude of the object\u2019s momentum is determined by the product of its mass and the\n     magnitude of its velocity."
+  },
+  {
+    "n": 2,
+    "stem": "A moving block of mass      has kinetic energy     and momentum of magnitude . A second block of mass\n     is moving with the same kinetic energy    . What is the magnitude of the momentum of the second block?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "B",
+    "explanation": "The second block has a velocity which is a factor of      of the velocity of the first block in\n     order to have the same kinetic energy. The momentum of the second block therefore will be a factor of\n         of the momentum of the first block due to the differences in mass and velocity compared to the first\n     block.\n\n\n\n\n                                                                               AP Physics C: Mechanics     Page 1 of 29\n\f                                                                                                                  Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 3,
+    "stem": "The kinetic energy of a moving object changes from        to     . By what factor does the magnitude of the object\u2019s\n     momentum change?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "B",
+    "explanation": "The momentum of the object is proportional to the velocity of the object. For a constant mass,\n     the velocity of the object is proportional the square root of its kinetic energy and therefore doubles."
+  },
+  {
+    "n": 4,
+    "stem": "A block with a mass of            starts from rest and begins to move along the -axis at time        according to the\n     equation            , where   is the block\u2019s position, in meters, and is the time, in seconds. What is the momentum\n     of the block at time            ?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)\n\n\n\n\n                                                                                  AP Physics C: Mechanics      Page 1 of 21\n\f                                                                                                                        Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "C",
+    "explanation": "The velocity of the block is determined using the derivative of the position function as\n     and evaluating at            yields             . The momentum is determined as the product of the\n     mass and the velocity resulting in\n\n\n\n\nPage 2 of 29        AP Physics C: Mechanics\n\f                                                                                                                       Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 5,
+    "stem": "The graph shows the position as a function of time for a cart of mass                       that moves along the -axis.\n      What is the magnitude of the change in the cart\u2019s momentum between                  and           ?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "D",
+    "explanation": "The velocity of the object can be calculated from the slope of the graph at the two given times.\n     The magnitude of the change in momentum is calculated as:                        ,\n                                             ,                        ."
+  },
+  {
+    "n": 6,
+    "stem": "A block slides along a surface with a speed       and a momentum of magnitude . It collides with and sticks to an\n      identical block that is initially at rest. Immediately after the collision, the two blocks slide together with a speed of\n           . What is the magnitude of the momentum of the two-block system immediately after the collision?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "C",
+    "explanation": "The momentum of the system is proportional to the product of the mass and the velocity of the\n     system. Because the mass doubles and the velocity is halved, the momentum of the system is the same as\n     the momentum of the single block before the collision."
+  },
+  {
+    "n": 7,
+    "stem": "Two moving objects each have momenta of equal magnitude             . Object    is more massive than Object . Which of\n      the following claims about the speed of Object is true?",
+    "choices": [
+      [
+        "A",
+        "It is greater than the speed of Object ."
+      ],
+      [
+        "B",
+        "It is equal to the speed of Object ."
+      ],
+      [
+        "C",
+        "It is less than the speed of Object .\n               It could be greater than, equal to, or less than the speed of Object   depending on the directions of the"
+      ],
+      [
+        "D",
+        "momenta.\n\n\n\n\nPage 2 of 21         AP Physics C: Mechanics\n\f                                                                                                                Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "A",
+    "explanation": "The momentum is defined by                       . The magnitudes of the momenta are then\n                  and           . Because                      , it follows that       ."
+  },
+  {
+    "n": 8,
+    "stem": "A semicircular path connects three points labeled , , and , as shown in the figure. A particle is initially at point\n        and moves along the path with a constant speed toward point . When the particle is at point , as shown in the\n     figure, which of the following diagrams correctly represents the directions of the velocity and momentum         of\n     the object?\n\n\n\n\n                                                                                 AP Physics C: Mechanics     Page 3 of 21\n\f                                                                                                                      Test Booklet\n\n\nUnit 4 Topic Questions",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "A",
+    "explanation": "The velocity   must be tangent to the circular path and the momentum      is parallel to the\n  velocity.\n\n\n\n\n                                                                      AP Physics C: Mechanics      Page 5 of 29\n\f                                                                                                                       Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 9,
+    "stem": "A student is pulling a cart full of water horizontally on flat ground at a constant velocity. The cart has a small hole\n      through which the water slowly leaks out of the cart. For the system consisting of the cart and the water within the\n      cart, how is the magnitude of the momentum of the system changing, if at all?",
+    "choices": [
+      [
+        "A",
+        "The magnitude of the momentum is increasing."
+      ],
+      [
+        "B",
+        "The magnitude of the momentum remains the same."
+      ],
+      [
+        "C",
+        "The magnitude of the momentum is decreasing.\n               The answer cannot be determined without knowing the cart's mass and the mass of water that leaks through"
+      ],
+      [
+        "D",
+        "the hole each second.\n\n\n\n\nPage 4 of 21        AP Physics C: Mechanics\n\f                                                                                                                       Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "C",
+    "explanation": "Momentum is defined as               . In this situation the velocity is constant, and mass is\n      leaving the system, therefore the magnitude of the momentum is decreasing."
+  },
+  {
+    "n": 10,
+    "stem": "A         student sitting in a rolling chair at rest pushes against a wall, which applies a      horizontal impulse to\n      the student. Later, a         student is at rest in the same rolling chair and catches a    ball while applying a\n              horizontal impulse to the ball. Which of the following statements best describes the students\u2019 final speeds\n      and provides valid reasoning supporting the claim?\n             Both students have the same final speed because the      student-chair system and the             ball-",
+    "choices": [
+      [
+        "A",
+        "student-chair system have the same mass and experience impulses of the same magnitude.\n             Both students have the same final speed because each ball-chair-student system experiences the same"
+      ],
+      [
+        "B",
+        "impulse regardless of the mass of the system.\n             The        student has a greater final speed because the         student-chair system has less mass than the"
+      ],
+      [
+        "C",
+        "student-chair system.\n             The         student has a greater final speed because the ball transfers all of its momentum to the student"
+      ],
+      [
+        "D",
+        "when it is caught."
+      ]
+    ],
+    "answer": "C",
+    "explanation": "In the interaction between the       student and the ball, both the ball and the        student-\n      chair system experience          of impulse. This means that the         student-chair system has the\n      same impulse acting on it as the        student-chair system. When two systems of differing mass\n      experience the same impulse, the less massive system will have the greater change in velocity.\n      Consequently the         student-chair system, and therefore the         student, will have a greater final\n      speed\n\n\n\n\nPage 6 of 29         AP Physics C: Mechanics\n\f                                                                                                                   Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 11,
+    "stem": "Object of mass        and Object of mass        move along the -axis toward each other with speeds        and     ,\n      respectively. The objects collide and then move away from each other with speeds      and      , respectively, as\n      shown in the figure. There are no external forces acting on the two-object system. What is the magnitude of the\n      impulse exerted on Object by Object during the collision?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)\n\n\n\n\n                                                                                    AP Physics C: Mechanics      Page 5 of 21\n\f                                                                                                                   Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "B",
+    "explanation": "The magnitude of the impulse on Object is equal to the magnitude of the change in momentum\n      of Object . The change in momentum is defined as                , where the change in velocity has a\n      magnitude                                       .\n\n\n\n\n                                                                                     AP Physics C: Mechanics     Page 7 of 29\n\f                                                                                                                    Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 12,
+    "stem": "A piece of clay is thrown against a hard wall. The graph shows the horizontal component        of the net force\n      exerted on the clay during the collision as a function of time . How would the maximum of        , the duration of the\n      collision, and the area under the graph change if an identical piece of clay was instead thrown against a padded wall\n      with the same velocity? Assume that both collisions are perfectly inelastic.\n\n                                  Maximum of             Duration of collision        Area under graph\n                         A       Increases               Decreases                   Increases\n                         B       Decreases               Increases                   Remains the same\n                         C       Increases               Decreases                   Remains the same\n                         D       Decreases               Remains the same            Decreases",
+    "choices": [
+      [
+        "A",
+        "A"
+      ],
+      [
+        "B",
+        "B"
+      ],
+      [
+        "C",
+        "C"
+      ],
+      [
+        "D",
+        "D"
+      ]
+    ],
+    "answer": "B",
+    "explanation": "The clay impacts each surface with the same initial momentum and is brought to rest. Therefore,\n      the impulse experienced by the clay in each case is equal and the area under the graph remains the same.\n      In one dimension:\n\n\n\n\nPage 8 of 29         AP Physics C: Mechanics\n\f                                                                                                               Scoring Guide\n\n\nUnit 4 Topic Questions\n\n\n\n\n                                              .\n\n\n\n\n      The collision with the padded surface will have a greater duration and thus the maximum force\n      experienced by the clay will decrease in order for the area under the graph to remain the same."
+  },
+  {
+    "n": 13,
+    "stem": "A force that varies with time is exerted on an object. The force is described by the equation\n      where      and are positive constants. If the object is at rest at time , the momentum of the object a very long\n      time later is most nearly",
+    "choices": [
+      [
+        "A",
+        "zero"
+      ],
+      [
+        "B",
+        "(C)"
+      ],
+      [
+        "D",
+        "Page 6 of 21       AP Physics C: Mechanics\n\f                                                                                                                     Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "C",
+    "explanation": "The change in momentum of the object is equal to the impulse delivered by the force.\n\n\n\n\n                                                                                 AP Physics C: Mechanics     Page 9 of 29\n\f                                                                                                                      Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 14,
+    "stem": "Students are conducting an experiment on a block that is free to move along a straight, horizontal track with\n      negligible friction. They conduct two trials, Trial and Trial , in which the block is initially at rest and a time-\n      varying horizontal force is applied to the block in a direction parallel to the track. The applied force as a function of\n      time is shown in the graph for each trial, both of which last the same amount of time. During Trial , the students do\n      work       on the block and apply an impulse . During Trial , they do work              on the block and apply an\n      impulse . How do these values of work and impulse compare to each other?\n\n                                                           Work            Impulse\n                                                A\n                                                B\n                                                C\n                                                D",
+    "choices": [
+      [
+        "A",
+        "A"
+      ],
+      [
+        "B",
+        "B"
+      ],
+      [
+        "C",
+        "C"
+      ],
+      [
+        "D",
+        "D\n\n\n\n\n                                                                                     AP Physics C: Mechanics      Page 7 of 21\n\f                                                                                                                    Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "A",
+    "explanation": "The impulse is found from the area under the graph, which is greater in Trial . Because the\n      force is greater at any point of time in Trial , there is a greater acceleration at every time. Therefore, the\n      block in Trial will reach a greater final speed and thus a greater kinetic energy, meaning that more\n      work was done on it.\n\n\n\n\nPage 10 of 29        AP Physics C: Mechanics\n\f                                                                                                                     Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 15,
+    "stem": "A lab cart is traveling along a straight, horizontal track with an unknown initial velocity. The graph shows the net\n      force on the cart as a function of time during a short time interval. Does the graph provide sufficient information to\n      determine the change in momentum of the cart during the time interval shown, and what evidence supports the\n      claim?",
+    "choices": [
+      [
+        "A",
+        "Yes, because the change in momentum is equal to the area under the curve of the force-versus-time graph."
+      ],
+      [
+        "B",
+        "Yes, because the change in momentum is equal to the slope of the force-versus-time graph."
+      ],
+      [
+        "C",
+        "No, because the initial momentum is unknown and therefore the change in momentum cannot be determined."
+      ],
+      [
+        "D",
+        "No, because the force is not constant and therefore the change in momentum cannot be determined."
+      ]
+    ],
+    "answer": "A",
+    "explanation": "The change in momentum is equal to the impulse, which is defined as\n\n                                         .\n\n\n\n\n                                                                                      AP Physics C: Mechanics     Page 11 of 29\n\f                                                                                                                     Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 16,
+    "stem": "A block of mass can move with negligible friction on a ramp that is at an angle from the horizontal, as shown\n      in the figure. Starting at time       , the motor creates a varying string tension     given by            , where is\n      a positive constant. If the positive direction is taken to be up the ramp, what is the magnitude of the impulse exerted\n      on the block between time            and a later time ?\n\n\n\n\nPage 8 of 21        AP Physics C: Mechanics\n\f                                                                                                                     Test Booklet\n\n\nUnit 4 Topic Questions",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "C",
+    "explanation": "Impulse is defined as                          . The net force exerted on the block is the vector sum\n\n      of the tension force and the component of the weight down the incline. Therefore\n\n                                               which yields                                                .\n\n\n\n\nPage 12 of 29        AP Physics C: Mechanics\n\f                                                                                                                      Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 17,
+    "stem": "The graph shows the net force     exerted on an object as a function of time . How does the impulse        exerted on\n      the object from        to           compare to the impulse      exerted on the object from       to             ?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "A",
+    "explanation": "Impulse is the area under the curve and, in this case, the part of the curve that is negative is\n      exactly the negative of the part of the curve that is positive."
+  },
+  {
+    "n": 18,
+    "stem": "A toy water launcher, initially full of water, can slide with negligible friction on a horizontal surface. Water is\n      ejected horizontally from the launcher with a constant speed relative to the launcher. The mass of water ejected\n      from the launcher over any time interval of length       is constant as well. Which of the following statements\n      correctly describes how the launcher moves, if at all, and provides a correct justification?",
+    "choices": [
+      [
+        "A",
+        "The launcher will remain in place because there is no horizontal force acting on the launcher."
+      ],
+      [
+        "B",
+        "The launcher will move at a constant speed because the water is ejected at a constant speed.\n             The launcher will move at a constant acceleration because the system of the launcher and remaining water"
+      ],
+      [
+        "C",
+        "experiences the same impulse during any time interval of length    .\n           The launcher will move at an increasing acceleration because the mass of the system of the launcher and"
+      ],
+      [
+        "D",
+        "remaining water is decreasing, and the system experiences the same impulse during any time interval of\n           length   .\n\n\n\n\n                                                                                     AP Physics C: Mechanics      Page 9 of 21\n\f                                                                                                                       Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "D",
+    "explanation": "By Newton\u2019s third law, because the water is ejected by the launcher, the water also pushes back\n      on the launcher. The ejection of water also decreases the total mass of the launcher and remaining water,\n      so by Newton\u2019s second law, the acceleration of the launcher will increase."
+  },
+  {
+    "n": 19,
+    "stem": "In three different scenarios, a student of mass       pulls on a lightweight rope attached to a block of mass . The\n      student and the block are both initially at rest in each scenario. In Scenario , the student stands on the shore of a\n      frozen lake and the block is on the ice. After the student starts pulling on the rope in Scenario , the block slides\n      with negligible friction while the student remains in the same location on the shore. In Scenario , both the student\n      and the block are on the ice. After the student starts pulling on the rope in Scenario , both the student and the block\n      slide with negligible friction. In Scenario , the block is at rest on the shore while the student is on the ice. After the\n      student starts pulling on the rope in Scenario , the student slides with negligible friction while the block remains in\n      the same location on the shore. The final velocity of the block relative to the student is the same in each scenario.\n      For which scenario, if any, is the final speed of the center of mass of the block-student system the greatest?",
+    "choices": [
+      [
+        "A",
+        "Scenario"
+      ],
+      [
+        "B",
+        "Scenario"
+      ],
+      [
+        "C",
+        "Scenario"
+      ],
+      [
+        "D",
+        "The speed of the center of mass is the same in all three scenarios."
+      ]
+    ],
+    "answer": "C",
+    "explanation": "The center of mass velocity is zero for Scenario . More mass is moving in Scenario , when\n      the student moves across the ice, than in Scenario . Therefore the center of mass velocity for Scenario\n      is the greatest.\n\n\n\n\nPage 14 of 29        AP Physics C: Mechanics\n\f                                                                                                                   Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 20,
+    "stem": "Center of mass speed after                 Impulse exerted on Block\n         Trial\n                      collision\n\n\n\n\n      Blocks and can move along a horizontal surface with negligible friction, as shown in the figure. The mass of\n      Block is three times the mass of Block . In two separate experimental trials, the blocks are initially moving\n      toward each other, each with a speed of . In Trial , Block comes to rest after the collision, while in Trial the\n      blocks stick together. The table shows the speed of the center of mass of the two-block system after the collision in\n      each trial, as well as the magnitude of the impulse exerted on Block during each collision. Which of the following\n      correctly compares these values?\n\n                               Center of mass speeds         Magnitude of the impulses exerted on Block\n                       A\n                       B\n                       C\n                       D",
+    "choices": [
+      [
+        "A",
+        "A"
+      ],
+      [
+        "B",
+        "B"
+      ],
+      [
+        "C",
+        "C"
+      ],
+      [
+        "D",
+        "D\n\n\n\nPage 10 of 21        AP Physics C: Mechanics\n\f                                                                                                                   Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "A",
+    "explanation": "Since there is no net external force on the two-block system in either trial, the velocity of the\n      center of mass of the system is unchanged during either collision. In Trial , Block experiences a\n      greater momentum change than in Trial , and therefore Block does as well since the total momentum\n      change is zero for the two-block system. Since impulse equals change in momentum, Block\n      experiences a greater impulse in Trial than in Trial .\n\n\n\n\n                                                                                    AP Physics C: Mechanics     Page 15 of 29\n\f                                                                                                                   Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 21,
+    "stem": "Two blocks and have masses and                  , respectively, and are free to move on a horizontal surface with\n      negligible friction, as shown in the figure. Block is initially moving with speed       toward Block , which is at\n      rest and has a spring attached to one side. Block then makes contact with the spring, causing the spring to\n      compress. After the spring reaches its maximum compression, the blocks move apart and Block loses contact\n      with the spring. What is the speed of the center of mass of the blocks-spring system after the blocks have separated?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "D",
+    "explanation": "Because the net external force on the blocks-spring system is zero, the velocity of the center of\n      mass of the system is the same before and after the collision. The center of mass speed is then\n                                         .\n\n\n\n\nPage 16 of 29       AP Physics C: Mechanics\n\f                                                                                                                   Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 22,
+    "stem": "A block of mass      moves with initial speed       on a horizontal surface toward a stationary block of mass   , as\n      shown in the figure labeled \u201cBefore Collision.\u201d Friction between the blocks and the horizontal surface is negligible.\n      Three possible outcomes labeled , , and , are also shown. Rank the two-block system\u2019s final center of mass\n      speeds      ,      , and       after the three collision outcomes.\n\n\n\n\n                                                                                   AP Physics C: Mechanics    Page 11 of 21\n\f                                                                                                                       Test Booklet\n\n\nUnit 4 Topic Questions",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "A",
+    "explanation": "The velocity of the center of mass will be constant in the absence of a net force acting on the\n      two-block system. In each of these collisions, the net force on the system is zero, so the center of mass\n      velocity after each collision is the same as the initial center of mass velocity.\n\n\n\n\n                                                                                     AP Physics C: Mechanics    Page 17 of 29\n\f                                                                                                                        Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 23,
+    "stem": "A collision experiment is conducted using two blocks, Block and Block , that can slide with negligible friction\n      along a horizontal surface. Block of mass          is initially moving with speed toward Block , which has a mass\n           and is initially at rest, as shown in Figure . The blocks collide, and after the collision they stick together and\n      move with speed . In multiple trials of this experiment, Block is given different initial velocities. Data for          as\n      a function of are recorded, and the data is used to make a best-fit curve, which is a straight line as shown in\n      Figure . If the experiment were repeated with Block replaced by a block of mass               , how would the best-fit\n      line to the data change, if at all?",
+    "choices": [
+      [
+        "A",
+        "The slope of the line would be less."
+      ],
+      [
+        "B",
+        "The slope of the line would be greater."
+      ],
+      [
+        "C",
+        "The line would become a curve with a slope that is not constant."
+      ],
+      [
+        "D",
+        "The line would not change."
+      ]
+    ],
+    "answer": "B",
+    "explanation": "Conservation of momentum gives that                                       and hence                      .\n      Doubling       would increase the slope of the graph, because the mass ratio term in the equation\n      approaches     from below as     increases."
+  },
+  {
+    "n": 24,
+    "stem": "A        object moving to the left collides with and sticks to a       object moving to the right. Just before the\n      collision, the lighter object is moving faster than the heavier object. Which of the following is true of the combined\n      objects immediately after the collision?",
+    "choices": [
+      [
+        "A",
+        "They must be moving to the left."
+      ],
+      [
+        "B",
+        "They must be moving to the right."
+      ],
+      [
+        "C",
+        "They must be at rest.\n                The combined objects' direction of motion, if any, cannot be determined without knowing the ratio of the"
+      ],
+      [
+        "D",
+        "speeds of the objects before the collision.\n\n\n\n\nPage 12 of 21        AP Physics C: Mechanics\n\f                                                                                                                    Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "D",
+    "explanation": "Without knowing the ration of the speeds of the objects, the direction of the total momentum of\n      the two-object system cannot be determined. Hence it is impossible to determine in which direction the\n      combined objects move."
+  },
+  {
+    "n": 25,
+    "stem": "A       object moving at     collides with a     object moving at        in the same direction. Data for the\n      momentum as a function of time for both objects is shown in the graph. Which of the following statements best\n      describes this collision?\n             The momentum of the two-object system is constant, and the magnitude of the relative velocity between the",
+    "choices": [
+      [
+        "A",
+        "objects is the same before and after the collision.\n             The momentum of the two-object system is constant, and the magnitude of the relative velocity between the"
+      ],
+      [
+        "B",
+        "objects is different before and after the collision.\n             The momentum of the           object is constant, and the magnitude of the relative velocity between the objects"
+      ],
+      [
+        "C",
+        "is the same before and after the collision.\n             The momentum of the           object is not constant, and the magnitude of the relative velocity between the"
+      ],
+      [
+        "D",
+        "objects is different before and after the collision."
+      ]
+    ],
+    "answer": "A",
+    "explanation": "The momentum of the system calculated before and after the collision is the same.\n                                                                      ;\n\n\n\n                                                                                       AP Physics C: Mechanics     Page 19 of 29\n\f                                                                                                                     Scoring Guide\n\n\nUnit 4 Topic Questions\n\n                                                                                . The relative speed between the\n      objects before they collide is                                  . The objects velocities after the collision are\n                                   and                       , so the relative speed is still       ."
+  },
+  {
+    "n": 26,
+    "stem": "Two objects, both of mass , are free to slide with negligible friction on a horizontal surface that lies in the plane\n      of an -coordinate system. Initially one of the objects moves with a velocity         in the    -direction and toward\n      the second object, which is at rest. The two objects interact for a brief time with no net external force acting on the\n      two-object system. After the interaction the first object moves with a velocity that has positive and components,\n      a magnitude , and is directed at an angle from the          -direction. What are the final -component         and\n      -component of the velocity of the object that was initially at rest?\n\n\n\n                                            A\n                                            B\n                                            C\n                                            D\n\n\n\n\n                                                                                    AP Physics C: Mechanics     Page 13 of 21\n\f                                                                                                                       Test Booklet\n\n\nUnit 4 Topic Questions",
+    "choices": [
+      [
+        "A",
+        "A"
+      ],
+      [
+        "B",
+        "B"
+      ],
+      [
+        "C",
+        "C"
+      ],
+      [
+        "D",
+        "D"
+      ]
+    ],
+    "answer": "A",
+    "explanation": "With no net external force exerted on the two-object system, a conserved quantity such as total\n      momentum stays the same. The system's initial momentum is          in the    -direction. The first object's\n      final momentum has components                     and                    . In order for the system to\n      have the same momentum before and after the interaction, the second object's final momentum must\n      have an -component of                                     and a -component of                                         .\n      Dividing these momentum components by results in the correct velocity components.\n\n\n\n\nPage 20 of 29        AP Physics C: Mechanics\n\f                                                                                                                        Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 27,
+    "stem": "A small block of mass       is held in place inside a larger, -shaped block of mass          , as shown in the figure.\n      Initially, the centers of mass of the two blocks are located at the same position, and a spring attached to the larger\n      block is compressed a distance from its relaxed length by the smaller block. At time                  , the two blocks are\n      released from rest. At time           , the spring is at its relaxed length, the centers of mass of the two blocks are a\n      distance apart, and the small block is moving to the right with a velocity just as it loses contact with the spring.\n      If there are no external forces exerted on the blocks-spring system, what is the distance of separation of the two\n      centers of mass at a later time           ?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)\n\n\n\n\nPage 14 of 21       AP Physics C: Mechanics\n\f                                                                                                                        Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "D",
+    "explanation": "Conservation of momentum gives that                         , where the velocity of the    block\n      is , and therefore              . At time , the blocks\u2019 centers of mass have separated a distance .\n      After time , the additional distance the small and large blocks travel are given by              and\n                 , respectively. The total separation of the blocks\u2019 centers of mass is therefore\n                         .\n\n\n\n\n                                                                                        AP Physics C: Mechanics      Page 21 of 29\n\f                                                                                                                         Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 28,
+    "stem": "Two pucks are free to slide on a horizontal surface with negligible friction. The figure shows a top view of the\n      pucks, one of mass             and one of mass         , before and after they undergo an elastic collision with each\n      other. Before the collision, the          puck slides at            in the     -direction and the         puck is at rest.\n      After the collision, the           puck moves with a speed of              at an unknown angle measured clockwise\n      from the       -direction, as indicated, while the         puck moves at an unknown speed and at an unknown angle\n         measured counterclockwise from the           -direction, as indicated. What is the speed of the         puck after the\n      elastic collision?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)\n\n\n\n\n                                                                                       AP Physics C: Mechanics     Page 15 of 21\n\f                                                                                                                       Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "D",
+    "explanation": "Because this is an elastic collision, there is enough information to solve for the final velocity by\n      equating the initial and final total kinetic energies of the two-puck system. It is not necessary to use\n      conservation of momentum:                                                                    . Solving this\n      equation for results in the answer.\n\n\n\n\nPage 22 of 29        AP Physics C: Mechanics\n\f                                                                                                                     Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 29,
+    "stem": "A spring has its left end fixed to a wall and its right end attached to a box, which can move back and forth on a\n      horizontal surface with negligible friction, as shown in the figure. When the spring is at its relaxed length the box is\n      at position . The spring is compressed a distance from its relaxed length and the box is then released from rest at\n      position . The box moves from position to position , continues moving on to position a distance to the\n      right of , and continues moving beyond position toward the right. As the box moves, a block can be dropped\n      onto the box from a small height just above the box. When this happens, the block sticks to the box in a perfectly\n      inelastic collision and the two objects move together horizontally after colliding. At which labeled position(s) can\n      the block be dropped onto the box so that the block-box system's total momentum and total kinetic energy are each\n      the same immediately before and immediately after the collision? Neglect the block's vertical component of motion,\n      and treat the collision as occurring instantaneously.",
+    "choices": [
+      [
+        "A",
+        "At position        only"
+      ],
+      [
+        "B",
+        "At position   only"
+      ],
+      [
+        "C",
+        "At position   only"
+      ],
+      [
+        "D",
+        "At positions       ,   , and"
+      ]
+    ],
+    "answer": "A",
+    "explanation": "Treating the collision as occurring instantaneously, the net external force due to the spring on\n      the box results in zero impulse on the system, so the system's total momentum stays the same for all\n      collision locations. However, since the collision is perfectly inelastic, there will be a change in kinetic\n      energy unless the two objects are instantaneously at rest at the time of the collision. The objects are\n      instantaneously at rest at position . However, at positions and , the spring has less potential energy\n      than it does at , so there must be kinetic energy in the box-spring system. The box must be in motion,\n      so the (nonzero) kinetic energy will change if the collision occurs at either or .\n\n\n\n\n                                                                                      AP Physics C: Mechanics     Page 23 of 29\n\f                                                                                                                       Scoring Guide\n\n\nUnit 4 Topic Questions"
+  },
+  {
+    "n": 30,
+    "stem": "Two carts, Cart of mass             and Cart of mass               , are free to move along a straight, horizontal track,\n      as shown in the figure. There is negligible friction in the axles of the carts' wheels, and Cart is initially moving to\n      the right at       before colliding with Cart , which is initially at rest. After the collision, the carts stick together\n      and move to the right. What is the kinetic energy of the two-cart system immediately after the collision?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)\n\n\n\n\nPage 16 of 21        AP Physics C: Mechanics\n\f                                                                                                                        Test Booklet\n\n\nUnit 4 Topic Questions"
+      ]
+    ],
+    "answer": "A",
+    "explanation": "Because the system's momentum is the same before and after the collision,\n                                        , so                             . The final kinetic energy is"
+  },
+  {
+    "n": 31,
+    "stem": "Identical carts and are placed on a straight, horizontal track, where they are free to move with negligible\n      friction in the axles of their wheels. The carts undergo two separate collisions. In Collision , Cart moves to the\n      right with an initial kinetic energy     toward Cart , which is at rest, and the carts collide elastically. After the\n      collision, Cart comes to rest, and Cart moves to the right. In Collision , Cart again moves to the right with\n      the same initial kinetic energy      toward Cart , which is at rest, but the carts stick together during the collision\n      and then move together to the right. Is the speed of Cart greater immediately after Collision or immediately\n      after Collision ? What reasoning supports the claim?\n             Immediately after Collision . During Collision , Cart gains an amount of kinetic energy equal to                ,",
+    "choices": [
+      [
+        "A",
+        "while in Collision , Cart gains an amount of kinetic energy less than .\n             Immediately after Collision . During Collision , Cart gains an amount of kinetic energy greater than                  ,"
+      ],
+      [
+        "B",
+        "while in Collision , Cart gains an amount of kinetic energy equal to .\n             Immediately after Collision . In Collision , the two-cart system loses more kinetic energy than in Collision"
+      ],
+      [
+        "C",
+        ".\n             Immediately after Collision . When the carts stick together, Cart        transfers more energy to Cart     than"
+      ],
+      [
+        "D",
+        "when the carts bounce off of one another."
+      ]
+    ],
+    "answer": "A",
+    "explanation": "Because Collision is elastic, the total kinetic energy of the two-cart system does not change\n      during the collision. Therefore, all of the kinetic energy of Cart is transferred to Cart . In Collision\n      , the collision is inelastic, so the kinetic energy decreases during the collision. Both carts move together,\n      so the remaining kinetic energy in the system after the collision is split between Cart and Cart ."
+  },
+  {
+    "n": 32,
+    "stem": "Two blocks, one of mass and one of mass            , are free to move along a horizontal surface with negligible\n      friction. The blocks undergo collisions in two separate scenarios. In the first scenario, the block of mass moves\n      with an initial speed    toward the block of mass       , which is initially at rest, and the blocks stick together after\n      they collide. In the second scenario, the block of mass        moves with the same initial speed        toward the block of\n      mass , which is initially at rest, and the blocks again stick together after colliding. The total kinetic energy of the\n      two-block system decreases by an amount            in the first scenario and by          in the second scenario. What is\n      the ratio       ?",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "D",
+    "explanation": "The change in kinetic energy is the same in both scenarios. For the first scenario, conservation\n      of momentum implies that                   , so that        , and\n                                                        . For the second scenario, conservation of momentum\n      implies that                    ,             and                                                           ."
+  },
+  {
+    "n": 33,
+    "stem": "Object of mass and Object of mass               can slide along a straight, horizontal track with negligible friction.\n      Object initially moves to the right with speed toward Object , which is initially at rest, and the two objects\n      collide. Immediately after the collision, Object moves to the left with speed . Is this information sufficient to\n      determine whether the collision was elastic? Why or why not?\n             Yes, because the fact that the velocity of Object    changed direction during the collision means that the",
+    "choices": [
+      [
+        "A",
+        "collision was not elastic.\n             Yes, because conservation of momentum can be used to determine the final speed of Object , and the total"
+      ],
+      [
+        "B",
+        "kinetic energy of the two-object system after the collision can be calculated.\n             No, because the final speed of Object     cannot be determined without knowing whether the collision was"
+      ],
+      [
+        "C",
+        "elastic or inelastic."
+      ],
+      [
+        "D",
+        "No, because the collision can be elastic for many different values of the final speed of Object ."
+      ]
+    ],
+    "answer": "B",
+    "explanation": "The total momentum of the two-object system is constant during the collision. Therefore,\n      conservation of momentum can be used to find the speed    of Object after the collision:\n\n\n                                       . To determine whether the collision was elastic, the initial total kinetic\n\n\n      energy can be compared to the final total kinetic energy. If they are equal, the collision was elastic.\n\n\n                                                             ."
+  },
+  {
+    "n": 34,
+    "stem": "An         object is moving with a speed of         along a horizontal surface while a       object is moving in the\n      opposite direction with a speed of         on the same surface. The objects collide and stick together after the\n      collision. Friction between the objects and the surface is negligible. What is the decrease in total kinetic energy of\n      the two-object system during the collision?\n\n\n\n                                                                                      AP Physics C: Mechanics      Page 17 of 21\n\f                                                                                                                  Test Booklet\n\n\nUnit 4 Topic Questions",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)"
+      ]
+    ],
+    "answer": "C",
+    "explanation": "Setting                 ,            ,            , and             , conservation of momentum,\n                                         , determines the speed of the objects when stuck together,\n      The kinetic energy lost in the collision is then                                                  ."
+  },
+  {
+    "n": 35,
+    "stem": "Two objects of equal mass undergo a series of collisions. For each collision, a graph is created of the momenta of\n      both objects as functions of time. Which of the following graphs represents an elastic collision?\n\n\n\n\nPage 18 of 21     AP Physics C: Mechanics\n\f                                                       Test Booklet\n\n\nUnit 4 Topic Questions",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "AP Physics C: Mechanics   Page 19 of 21\n\f                                                                                                                      Test Booklet\n\n\nUnit 4 Topic Questions"
+      ],
+      [
+        "D",
+        ""
+      ]
+    ],
+    "answer": "B",
+    "explanation": "Both before and after the collision, one of the objects is at rest and one is moving. The object\n      that is moving has the same momentum value and, since the objects also have the same mass, the moving\n      object has the same velocity and therefore the same kinetic energy as well. Since one object is at rest, the\n      total kinetic energy of the two-object system is the kinetic energy of whichever object is moving and\n      therefore is the same before and after the collision. Since the system's kinetic energy is the same, the\n      collision is by definition elastic."
+  },
+  {
+    "n": 36,
+    "stem": "Students perform an experiment with multiple trials using blocks that can slide with negligible friction on a straight,\n      horizontal track. In each trial, a block of mass       slides with speed     on the track and collides with a stationary\n      block of mass      . The blocks stick together and move with speed         after the collision. In each trial,   and\n      are kept constant but the mass        of the stationary block is varied, and     is recorded. The students graph     as a\n      function of     . Which of the following could represent a best-fit curve to the data collected by the students?\n\n\n\n\nPage 20 of 21      AP Physics C: Mechanics\n\f                                                       Test Booklet\n\n\nUnit 4 Topic Questions",
+    "choices": [
+      [
+        "A",
+        "(B)"
+      ],
+      [
+        "C",
+        "(D)\n\n\n\n\n                         AP Physics C: Mechanics   Page 21 of 21"
+      ]
+    ],
+    "answer": "A",
+    "explanation": "Using conservation of momentum, the relationship between       and       can be determined\n\n\n                           .\n\n\n  Therefore,     is inversely proportional to the sum of    and     . Because     is constant, as\n  increases the value of     will decrease and asymptotically approach zero.\n\n\n\n\n                                                                          AP Physics C: Mechanics   Page 29 of 29"
+  }
+]

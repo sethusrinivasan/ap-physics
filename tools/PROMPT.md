@@ -21,7 +21,7 @@ Requirements (keep these exactly):
 How to build it:
 
 1. Read the question PDF and the solutions PDF. If text extraction drops figures or choices, render PDF pages to images and read those.
-2. Copy the latest complete walkthrough folder (currently `unit2/q90/`) to `unitN/qM/` using the unit and question numbers. Copy the **full** `index.html` stylesheet — do not slice out `.problem-bar`, `.player`, `.stage`, `.eq`, `.caption`, or `.controls`.
+2. Copy the latest complete walkthrough folder (such as `unit2/q90/` or `unit4/q36/`) to `unitN/qM/` using the unit and question numbers. Copy the **full** `index.html` stylesheet — do not slice out `.problem-bar`, `.player`, `.stage`, `.eq`, `.caption`, or `.controls`.
 3. Replace the title, sticky problem text, figure/SVG, multiple-choice row, `STEPS` array, and `renderVisual` so they match the new problem. Remove leftover visuals from the previous problem.
 4. Keep the player, captions, Play/Pause/Mute/speed, and `generate-audio.mjs` pattern.
 5. Run `node generate-audio.mjs` in the new folder to write the MP3s and `audio/manifest.json`.
