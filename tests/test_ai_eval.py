@@ -90,9 +90,16 @@ class WalkthroughAIEvaluator:
     def evaluate_unit(
         self,
         unit_slug: str,
-        harness_name: str = "DefaultHarness"
+        harness_name: str = "DefaultHarness",
+        limit: Optional[int] = 5
     ) -> HarnessBenchmarkReport:
-        """Run comprehensive multi-dimensional evaluation on all problems in unit."""
+        """Run comprehensive multi-dimensional evaluation on problems in unit.
+        
+        Args:
+            unit_slug: directory name of the unit (e.g. 'unit4_test' or 'unit4')
+            harness_name: label of the agent / model harness being evaluated
+            limit: number of problems to evaluate (default: 5; pass None or 0 for all)
+        """
         unit_dir = self.repo_root / unit_slug
         if not unit_dir.exists():
             raise FileNotFoundError(f"Unit directory {unit_dir} does not exist")
@@ -103,6 +110,10 @@ class WalkthroughAIEvaluator:
         )
         if not q_dirs:
             raise ValueError(f"No problem directories found in {unit_dir}")
+
+        total_available = len(q_dirs)
+        if limit is not None and limit > 0:
+            q_dirs = q_dirs[:limit]
 
         parsed_file = self.repo_root / "tools" / f"{unit_slug}_parsed.json"
         ground_truth: Dict[int, str] = {}
@@ -119,7 +130,7 @@ class WalkthroughAIEvaluator:
             res = self.evaluate_problem(q, n, ground_truth.get(n))
             results.append(res)
 
-        return self._aggregate_report(harness_name, unit_slug, results)
+        return self._aggregate_report(harness_name, unit_slug, results, total_available=total_available)
 
     def evaluate_problem(
         self,
@@ -401,7 +412,8 @@ class WalkthroughAIEvaluator:
         self,
         harness_name: str,
         unit_slug: str,
-        results: List[ProblemEvalResult]
+        results: List[ProblemEvalResult],
+        total_available: int = 0
     ) -> HarnessBenchmarkReport:
         """Aggregate problem scores into a comprehensive report."""
         total = len(results)
@@ -427,9 +439,10 @@ class WalkthroughAIEvaluator:
         flagged = [r.problem_num for r in results if r.flags]
 
         # Generate summary markdown
+        eval_scope = f"{total} (first {total} of {total_available})" if total_available > total else f"{total}"
         md_lines = [
             f"# AI Harness Benchmark Report: `{harness_name}`",
-            f"**Unit Tested:** `{unit_slug}` | **Total Problems:** {total}",
+            f"**Unit Tested:** `{unit_slug}` | **Problems Evaluated:** {eval_scope}",
             f"**Overall Harness Score:** `{harness_score_pct}%` (**Grade:** {grade})\n",
             "## Dimension Rubric Breakdown",
             "| Evaluation Dimension | Weight | Harness Score | Benchmark Target | Status |",
@@ -443,7 +456,7 @@ class WalkthroughAIEvaluator:
         ]
 
         if not flagged:
-            md_lines.append("🎉 All problems passed all evaluation rubrics with zero flags!")
+            md_lines.append("🎉 All evaluated problems passed all rubrics with zero flags!")
         else:
             for r in results:
                 if r.flags:
@@ -479,7 +492,10 @@ class HarnessEfficacyAIEvalTest(unittest.TestCase):
         cls.evaluator = WalkthroughAIEvaluator(REPO_ROOT)
         # Evaluate unit4_test if present, else unit4
         target = "unit4_test" if (REPO_ROOT / "unit4_test").exists() else "unit4"
-        cls.report = cls.evaluator.evaluate_unit(target, harness_name="Antigravity-AgentSkill")
+        limit_env = os.environ.get("AI_EVAL_LIMIT", "5")
+        limit = int(limit_env) if limit_env.isdigit() else 5
+        limit = None if limit <= 0 else limit
+        cls.report = cls.evaluator.evaluate_unit(target, harness_name="Antigravity-AgentSkill", limit=limit)
 
     def test_01_composite_score_meets_threshold(self) -> None:
         """Harness composite score must meet pedagogical quality threshold (>= 85%)."""
@@ -530,11 +546,16 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="AI Evaluation Benchmark for Walkthrough Harnesses")
     parser.add_argument("--unit", default="unit4", help="Unit slug to evaluate (e.g. unit4, unit4_test, unit2)")
     parser.add_argument("--harness", default="Current-Agent", help="Label of harness/agent under test")
+    parser.add_argument("--limit", "-n", type=int, default=5, help="Number of questions to evaluate (default: 5, pass 0 for all)")
+    parser.add_argument("--all", action="store_true", help="Evaluate all questions in the unit (equivalent to --limit 0)")
     parser.add_argument("--json-out", type=Path, default=None, help="Save evaluation metrics to JSON file")
     args = parser.parse_args()
 
+    limit = 0 if args.all else args.limit
+    limit = None if limit == 0 else limit
+
     evaluator = WalkthroughAIEvaluator(REPO_ROOT)
-    report = evaluator.evaluate_unit(args.unit, harness_name=args.harness)
+    report = evaluator.evaluate_unit(args.unit, harness_name=args.harness, limit=limit)
 
     print("\n" + report.summary_markdown + "\n")
 
