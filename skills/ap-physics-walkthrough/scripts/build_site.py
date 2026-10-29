@@ -216,113 +216,183 @@ def build_page_html(unit_num: int, n: int, total: int, spec: dict, parsed: dict,
     return html
 
 
-def build_toc_html(unit_num: int, title: str, count: int, specs: dict[int, dict], parsed: list[dict]) -> str:
-    """Generate Unit Table of Contents page."""
-    cards = []
+def build_toc_html(unit_display: str | int, unit_slug: str, title: str, count: int, specs: dict[int, dict], parsed: list[dict]) -> str:
+    """Generate Unit Table of Contents page conforming to canonical site table layout."""
+    rows = []
     for item in parsed:
         n = item["n"]
         spec = specs.get(n, {})
-        ans = item.get("answer", "A")
         sub_title = spec.get("title", f"Question {n}")
         blurb = spec.get("blurb", "")
         
-        cards.append(f"""    <li class="card">
-      <div class="num">Q{n:02d}</div>
-      <div class="meta">
-        <h2><a href="q{n}/index.html">Question {n}: {sub_title}</a></h2>
-        <p class="blurb">{blurb}</p>
-        <div class="badges">
-          <span class="badge ans">Answer {ans}</span>
-          <span class="badge steps">7 steps</span>
-          <span class="badge audio">Audio narrated</span>
-        </div>
-      </div>
-    </li>""")
+        rows.append(f"""        <tr>
+          <td class="num">Question {n}</td>
+          <td>
+            <div class="topic">{sub_title}</div>
+            <p class="blurb">{blurb}</p>
+          </td>
+          <td><a class="open" href="q{n}/index.html">Open walkthrough</a></td>
+        </tr>""")
         
-    cards_html = "\n".join(cards)
+    rows_html = "\n".join(rows)
+    canonical_url = f"https://sethusrinivasan.github.io/ap-physics/{unit_slug}/"
+    desc_text = f"Step-by-step interactive walkthroughs for all {count} problems in AP Physics C Mechanics Unit {unit_display}: {title}."
     
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AP Physics C Unit {unit_num}: {title}</title>
-  <meta name="description" content="Step-by-step interactive walkthroughs for all {count} problems in AP Physics C Mechanics Unit {unit_num}: {title}." />
-  <link rel="canonical" href="https://sethusrinivasan.github.io/ap-physics/unit{unit_num}/" />
+  <title>AP Physics C Unit {unit_display}: {title}</title>
+  <meta name="description" content="{desc_text}" />
+  <link rel="canonical" href="{canonical_url}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AP Physics C Unit {unit_display}: {title}" />
+  <meta property="og:description" content="{desc_text}" />
+  <meta property="og:url" content="{canonical_url}" />
+  <script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "AP Physics C Unit {unit_display}: {title}",
+  "description": "{desc_text}",
+  "learningResourceType": "Walkthrough",
+  "educationalLevel": "High school",
+  "teaches": "AP Physics C Unit {unit_display} {title}",
+  "inLanguage": "en",
+  "url": "{canonical_url}",
+  "isPartOf": {{
+    "@type": "WebSite",
+    "name": "AP Physics C walkthroughs",
+    "url": "https://sethusrinivasan.github.io/ap-physics/"
+  }}
+}}
+  </script>
   <style>
     :root {{
-      --bg: #071018;
-      --card: #102033;
-      --border: #27415c;
-      --ink: #e8eef6;
-      --muted: #9bb0c7;
-      --accent: #5ec8ff;
-      --gold: #f0c75e;
-      --ok: #5bd08a;
+      --bg: #071018; --panel: #102033; --ink: #e8eef6; --muted: #9bb0c7;
+      --line: #27415c; --accent: #5ec8ff; --gold: #f0c75e;
     }}
     * {{ box-sizing: border-box; }}
-    body {{
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Liberation Sans", "Ubuntu", "Segoe UI", sans-serif;
-      padding: 24px 16px 48px;
-    }}
-    .wrap {{ max-width: 900px; margin: 0 auto; }}
-    header {{ margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }}
-    .crumb {{ font-size: 14px; color: var(--muted); margin-bottom: 8px; }}
-    .crumb a {{ color: var(--accent); text-decoration: none; }}
-    h1 {{ margin: 0 0 8px; font-size: 28px; }}
-    p.lead {{ color: var(--muted); margin: 0; font-size: 15px; }}
-    .cards {{ list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }}
-    .card {{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px 18px;
+    html, body {{ margin: 0; min-height: 100%; background: var(--bg); color: var(--ink);
+      font-family: "Liberation Sans", "Ubuntu", "Segoe UI", sans-serif; }}
+    body {{ display: grid; place-items: start center; padding: 24px 16px 40px; }}
+    .app {{ width: min(920px, 100%); }}
+    header h1 {{ margin: 0; font-size: 26px; font-weight: 700; }}
+    header p {{ margin: 8px 0 22px; color: var(--muted); font-size: 14px; line-height: 1.45; }}
+    h2 {{ margin: 0 0 10px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }}
+    table {{ width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }}
+    th, td {{ text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }}
+    th {{ font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }}
+    tr:last-child td {{ border-bottom: none; }}
+    tr:hover td {{ background: #132536; }}
+    .num {{ white-space: nowrap; color: var(--gold); font-weight: 700; width: 7.5em; }}
+    .topic {{ color: var(--accent); font-weight: 700; }}
+    .blurb {{ margin: 4px 0 0; color: var(--muted); font-size: 13px; line-height: 1.4; }}
+    a.open {{ display: inline-block; border: 1px solid var(--line); background: #132536; color: var(--ink);
+      border-radius: 7px; padding: 8px 12px; font-size: 13px; text-decoration: none; white-space: nowrap; }}
+    a.open:hover {{ border-color: var(--accent); }}
+    .hint {{ margin-top: 16px; color: var(--muted); font-size: 12px; }}
+    .back {{ margin: 0 0 10px; font-size: 13px; }}
+    .back a {{ color: var(--accent); text-decoration: none; }}
+    .back a:hover {{ text-decoration: underline; }}
+    .title-row {{
       display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      transition: border-color 0.15s ease;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }}
-    .card:hover {{ border-color: var(--accent); }}
-    .num {{
-      font-size: 18px;
+    .page-qr {{
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 30;
+      display: grid;
+      justify-items: center;
+      width: 136px;
+      padding: 6px 6px 4px;
+      background: #fff;
+      color: #071018;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    }}
+    .page-qr img {{ width: 124px; height: 124px; display: block; }}
+    .page-qr span {{
+      font-size: 10px;
       font-weight: 700;
-      color: var(--accent);
-      background: rgba(94, 200, 255, 0.1);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }}
+    @media (min-width: 901px) {{
+      body:not(.qr-off) {{ padding-top: 168px; }}
+    }}
+    body.qr-off .page-qr {{ display: none; }}
+    @media (max-width: 900px) {{
+      .page-qr, .qr-toggle {{ display: none; }}
+    }}
+    .qr-toggle {{
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: #132536;
+      color: var(--ink);
+      border-radius: 7px;
       padding: 6px 10px;
-      border-radius: 6px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
     }}
-    .meta {{ flex: 1; }}
-    .meta h2 {{ margin: 0 0 4px; font-size: 17px; }}
-    .meta h2 a {{ color: var(--ink); text-decoration: none; }}
-    .meta h2 a:hover {{ color: var(--accent); }}
-    .blurb {{ margin: 0 0 8px; color: var(--muted); font-size: 13.5px; line-height: 1.4; }}
-    .badges {{ display: flex; gap: 8px; flex-wrap: wrap; }}
-    .badge {{
-      font-size: 11px;
-      padding: 2px 7px;
-      border-radius: 4px;
-      font-weight: 600;
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--muted);
+    .qr-toggle:hover {{
+      border-color: var(--accent);
+      color: var(--accent);
     }}
-    .badge.ans {{ color: var(--ok); background: rgba(91, 208, 138, 0.15); }}
-    .badge.audio {{ color: var(--gold); background: rgba(240, 199, 94, 0.15); }}
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="app">
+    <p class="back"><a href="../index.html">← All units</a></p>
     <header>
-      <div class="crumb"><a href="../index.html">AP Physics C</a> · Unit {unit_num}</div>
-      <h1>Unit {unit_num}: {title}</h1>
-      <p class="lead">All {count} multiple-choice exam problems with step-by-step interactive player and narration audio.</p>
+      <div class="title-row">
+        <h1>AP Physics C Unit {unit_display}: {title}</h1>
+        <button type="button" class="qr-toggle" id="qrToggle" aria-expanded="true" aria-controls="pageQr">Hide QR</button>
+      </div>
+      <p>Open a problem for the step-by-step walkthrough with captions and English audio. Each problem has Previous, Contents, and Next.</p>
+      <a class="page-qr" id="pageQr" href="{canonical_url}" target="_blank" rel="noopener noreferrer" aria-label="QR code to open Unit {unit_display} on a phone">
+        <img src="qr.svg" alt="" width="120" height="120" />
+        <span>Scan</span>
+      </a>
     </header>
-    <ul class="cards">
-{cards_html}
-    </ul>
+    <h2>Questions 1–{count}</h2>
+    <table>
+      <thead>
+        <tr><th>Problem</th><th>Topic</th><th></th></tr>
+      </thead>
+      <tbody>
+{rows_html}
+      </tbody>
+    </table>
   </div>
+  <script>
+    const qrToggle = document.getElementById("qrToggle");
+    function setQrOpen(open) {{
+      document.body.classList.toggle("qr-off", !open);
+      if (qrToggle) {{
+        qrToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        qrToggle.textContent = open ? "Hide QR" : "Show QR";
+      }}
+      try {{ sessionStorage.setItem("ap-hide-qr", open ? "0" : "1"); }} catch (err) {{}}
+    }}
+    if (qrToggle) {{
+      setQrOpen(sessionStorage.getItem("ap-hide-qr") !== "1");
+      qrToggle.addEventListener("click", () => {{
+        setQrOpen(document.body.classList.contains("qr-off"));
+      }});
+    }}
+  </script>
+  <script data-goatcounter="https://ap-physics.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>"""
 
@@ -407,7 +477,7 @@ def main() -> None:
         print(f"Generated Q{n} page and QR code.")
         
     # Build TOC and QR
-    toc_html = build_toc_html(unit_display, args.title, total, specs, parsed_list)
+    toc_html = build_toc_html(unit_display, unit_slug, args.title, total, specs, parsed_list)
     (unit_dir / "index.html").write_text(toc_html)
     make_qr_svg(f"https://sethusrinivasan.github.io/ap-physics/{unit_slug}/", unit_dir / "qr.svg")
     print(f"Unit {args.unit} TOC created.")

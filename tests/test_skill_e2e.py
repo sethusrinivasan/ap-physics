@@ -128,8 +128,11 @@ class AgentSkillE2ETest(unittest.TestCase):
         self.assertTrue(toc_file.exists(), "TOC index.html missing")
         toc_html = toc_file.read_text()
         self.assertIn("Linear Momentum (E2E Test)", toc_html)
-        self.assertIn("Question 1:", toc_html)
-        self.assertIn("Question 36:", toc_html)
+        self.assertIn("Question 1</td>", toc_html)
+        self.assertIn("Question 36</td>", toc_html)
+        self.assertIn("<table>", toc_html)
+        self.assertIn("Open walkthrough</a>", toc_html)
+        self.assertIn('class="page-qr"', toc_html)
 
         # Unit QR code
         self.assertTrue((TEST_UNIT_DIR / "qr.svg").exists(), "Unit qr.svg missing")
