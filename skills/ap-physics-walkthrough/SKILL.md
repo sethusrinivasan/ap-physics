@@ -1,5 +1,5 @@
 ---
-name: ap-physics-walkthrough-builder
+name: ap-physics-walkthrough
 description: End-to-end agent skill to convert AP Physics C Question and Answer PDFs into interactive audio-narrated walkthrough pages with visual crops, KaTeX math, QR codes, and automated regression verification.
 ---
 
@@ -55,7 +55,7 @@ The skill executes six deterministic, automated stages:
 Run the master pipeline script from the repository root:
 
 ```bash
-python3 skills/ap-physics-walkthrough-builder/scripts/run_unit_pipeline.py \
+python3 skills/ap-physics-walkthrough/scripts/run_unit_pipeline.py \
   --unit 5 \
   --title "Work, Energy, and Power" \
   --questions /path/to/Unit5_Questions.pdf \
@@ -73,16 +73,16 @@ python3 skills/ap-physics-walkthrough-builder/scripts/run_unit_pipeline.py \
 ## 3. Platform Invocation Guide
 
 ### A. Google Gemini / Antigravity CLI (AGY)
-* **Triggering**: Say `"Build Unit 5 using the walkthrough builder skill with /path/to/q.pdf and /path/to/a.pdf"`.
+* **Triggering**: Say `"Build Unit 5 using the walkthrough skill with /path/to/q.pdf and /path/to/a.pdf"`.
 * **Behavior**: The agent locates this skill in `.agents/skills/` or `skills/`, inspects PDF crops using multimodal vision (`read_file`), verifies math formulas, and executes `run_unit_pipeline.py`.
 
 ### B. Cursor ("Cursoft")
 * **Triggering**: In Cursor chat or Composer, type:
-  `@walkthrough-builder Build Unit 5 using Questions.pdf and Answers.pdf`
-* **Behavior**: Cursor references `.cursor/rules/walkthrough-builder.mdc` and runs the pipeline scripts in the integrated terminal.
+  `@ap-physics-walkthrough Build Unit 5 using Questions.pdf and Answers.pdf`
+* **Behavior**: Cursor references `.cursor/rules/ap-physics-walkthrough.mdc` and runs the pipeline scripts in the integrated terminal.
 
 ### C. OpenAI Codex / Claude Code / Standalone Shell
-* **Triggering**: Run `python3 skills/ap-physics-walkthrough-builder/scripts/run_unit_pipeline.py ...` directly in terminal.
+* **Triggering**: Run `python3 skills/ap-physics-walkthrough/scripts/run_unit_pipeline.py ...` directly in terminal.
 
 ---
 

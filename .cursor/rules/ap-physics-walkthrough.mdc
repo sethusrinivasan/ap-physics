@@ -13,7 +13,7 @@ This rule activates when you ask to build, audit, crop, narrate, or verify AP Ph
 To build or verify a unit from question and answer PDFs, run:
 
 ```bash
-python3 skills/ap-physics-walkthrough-builder/scripts/run_unit_pipeline.py \
+python3 skills/ap-physics-walkthrough/scripts/run_unit_pipeline.py \
   --unit <N> \
   --title "<Unit Title>" \
   --questions <path_to_questions.pdf> \
@@ -25,4 +25,4 @@ python3 skills/ap-physics-walkthrough-builder/scripts/run_unit_pipeline.py \
 2. **Visual Crops**: Store cropped question figures in `unit<N>/figures/q01.png`..`q<M>.png` and answer figures in `a01.png`..`a<M>.png`.
 3. **Symbols First**: Name every physical symbol before writing its equation in `STEPS`.
 4. **Left-aligned KaTeX**: Always render KaTeX equations with `fleqn: true`.
-5. **Always run verification**: Run `python3 skills/ap-physics-walkthrough-builder/scripts/verify_unit.py --unit <N>` to verify all assets, navigation links, and regression tests.
+5. **Always run verification**: Run `python3 skills/ap-physics-walkthrough/scripts/verify_unit.py --unit <N>` to verify all assets, navigation links, and regression tests.
