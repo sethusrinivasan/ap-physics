@@ -28,7 +28,11 @@ class BrowserLiveSiteTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls._pw = sync_playwright().start()
-        cls.browser = cls._pw.chromium.launch(headless=True)
+        try:
+            cls.browser = cls._pw.chromium.launch(headless=True)
+        except Exception as e:
+            cls._pw.stop()
+            raise unittest.SkipTest(f"Chromium executable not available: {e}")
 
     @classmethod
     def tearDownClass(cls) -> None:
@@ -44,7 +48,7 @@ class BrowserLiveSiteTest(unittest.TestCase):
                 page.get_by_role("heading", name="AP Physics C walkthroughs")
             ).to_be_visible()
 
-            page.get_by_role("link", name="Open unit").click()
+            page.get_by_role("link", name="Open unit").first.click()
             expect(page.get_by_role("heading", name=re.compile(r"Unit 2"))).to_be_visible()
 
             page.locator("tr").filter(

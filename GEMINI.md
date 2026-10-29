@@ -6,6 +6,7 @@ This project includes the custom agent skill **`ap-physics-walkthrough`** design
 - **Name**: `ap-physics-walkthrough`
 - **Location**: [`skills/ap-physics-walkthrough/SKILL.md`](skills/ap-physics-walkthrough/SKILL.md)
 - **Symlink**: [`.agents/skills/ap-physics-walkthrough`](.agents/skills/ap-physics-walkthrough)
+- **Dependency Setup**: `./setup.sh` or `skills/ap-physics-walkthrough/scripts/install_deps.sh`
 
 ## Orchestrator
 When asked to build, update, or audit AP Physics units from PDFs, run:

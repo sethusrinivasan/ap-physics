@@ -12,6 +12,7 @@ Single-command entry point that runs all 6 stages:
 from __future__ import annotations
 
 import argparse
+import shutil
 import subprocess
 import sys
 import time
@@ -20,6 +21,32 @@ from pathlib import Path
 
 SCRIPTS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPTS_DIR.parents[2]
+
+
+def check_dependencies() -> None:
+    """Validate that all required system binaries and Python libraries are installed."""
+    missing_bins = [b for b in ("pdftoppm", "pdftotext") if shutil.which(b) is None]
+    missing_pkgs = []
+    for pkg in ("PIL", "qrcode"):
+        try:
+            __import__(pkg)
+        except ImportError:
+            missing_pkgs.append(pkg)
+
+    if missing_bins or missing_pkgs:
+        print("\n❌ MISSING DEPENDENCIES FOR ap-physics-walkthrough:")
+        if missing_bins:
+            print(f"  • Missing system binaries: {', '.join(missing_bins)}")
+            print("    👉 On Debian/Ubuntu: sudo apt-get install -y poppler-utils")
+            print("    👉 On macOS:        brew install poppler")
+        if missing_pkgs:
+            print(f"  • Missing Python packages: {', '.join(missing_pkgs)}")
+            print("    👉 Run: pip install -r requirements.txt")
+        print("\n💡 Run the automated setup script to install everything:")
+        print("    ./setup.sh")
+        print("  or:")
+        print("    ./skills/ap-physics-walkthrough/scripts/install_deps.sh\n")
+        sys.exit(1)
 
 
 def run_stage(stage_num: int, name: str, cmd: list[str]) -> None:
@@ -50,6 +77,7 @@ def main() -> None:
     parser.add_argument("--overwrite-audio", action="store_true", help="Overwrite existing audio MP3 files")
     parser.add_argument("--repo-root", type=Path, default=REPO_ROOT, help="Path to repository root")
     args = parser.parse_args()
+    check_dependencies()
 
     repo = args.repo_root.resolve()
     unit_dir = repo / f"unit{args.unit}"

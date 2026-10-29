@@ -49,7 +49,21 @@ The skill executes six deterministic, automated stages:
 
 ---
 
-## 2. CLI Usage
+## 2. One-Command Setup & Dependency Installation
+
+To install all required system binaries (`poppler-utils` / `pdftoppm` / `pdftotext`) and Python libraries (`Pillow`, `qrcode`, `pytest`, `playwright`) in a single step, run:
+
+```bash
+./setup.sh
+# or directly:
+./skills/ap-physics-walkthrough/scripts/install_deps.sh
+```
+
+The script automatically detects your operating system (Debian/Ubuntu, macOS, Fedora/RHEL, Arch) and verifies the installation.
+
+---
+
+## 3. CLI Usage
 
 ### Quick Single-Command Run
 Run the master pipeline script from the repository root:
@@ -70,7 +84,7 @@ python3 skills/ap-physics-walkthrough/scripts/run_unit_pipeline.py \
 
 ---
 
-## 3. Platform Invocation Guide
+## 4. Platform Invocation Guide
 
 ### A. Google Gemini / Antigravity CLI (AGY)
 * **Triggering**: Say `"Build Unit 5 using the walkthrough skill with /path/to/q.pdf and /path/to/a.pdf"`.
@@ -86,7 +100,7 @@ python3 skills/ap-physics-walkthrough/scripts/run_unit_pipeline.py \
 
 ---
 
-## 4. Strict Pedagogical & Architectural Rules
+## 5. Strict Pedagogical & Architectural Rules
 
 1. **Additive Only**: Adding a new unit must never touch, break, or modify existing unit folders (e.g., `unit2/`, `unit4/`).
 2. **Double-Linked Navigation**:
@@ -102,7 +116,7 @@ python3 skills/ap-physics-walkthrough/scripts/run_unit_pipeline.py \
 
 ---
 
-## 5. Verification Checklist (Stage 6)
+## 6. Verification Checklist (Stage 6)
 
 The pipeline automatically validates:
 * [x] $N$ question crops (`q01.png` .. `qN.png`) and $N$ solution crops (`a01.png` .. `aN.png`) exist with non-zero size.

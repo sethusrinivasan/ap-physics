@@ -31,6 +31,16 @@ This repository includes a universal, cross-platform **AI Agent Skill** located 
 
 Given two PDF files (**Questions PDF** and **Answers PDF**), any AI coding agent can autonomously build, crop, narrate, and verify a complete unit.
 
+### 1-Step Dependency Installation
+
+Install all system binaries (`poppler-utils` for `pdftoppm`/`pdftotext`) and Python packages (`Pillow`, `qrcode`, `pytest`, `playwright`) in one command:
+
+```bash
+./setup.sh
+# or directly:
+./skills/ap-physics-walkthrough/scripts/install_deps.sh
+```
+
 ### Running the Pipeline
 
 ```bash

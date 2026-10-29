@@ -8,6 +8,10 @@ alwaysApply: false
 
 This rule activates when you ask to build, audit, crop, narrate, or verify AP Physics C walkthrough units.
 
+## Setup & Dependencies
+
+If dependencies are missing, run `./setup.sh` (or `./skills/ap-physics-walkthrough/scripts/install_deps.sh`).
+
 ## Available Command
 
 To build or verify a unit from question and answer PDFs, run:

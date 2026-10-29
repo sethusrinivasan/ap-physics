@@ -29,8 +29,11 @@ The repository contains an autonomous agent skill that takes two PDFs (**Questio
 - **Agent Discovery Symlink**: [`.agents/skills/ap-physics-walkthrough`](.agents/skills/ap-physics-walkthrough)
 - **Cursor Rule**: [`.cursor/rules/ap-physics-walkthrough.mdc`](.cursor/rules/ap-physics-walkthrough.mdc)
 - **Pipeline Scripts**: [`skills/ap-physics-walkthrough/scripts/`](skills/ap-physics-walkthrough/scripts/)
+- **Dependency Setup**: `./setup.sh` or `skills/ap-physics-walkthrough/scripts/install_deps.sh`
 
 ### How Any Agent Can Run the Skill
+
+Before running the pipeline, ensure dependencies are present (or run `./setup.sh`):
 
 ```bash
 python3 skills/ap-physics-walkthrough/scripts/run_unit_pipeline.py \
