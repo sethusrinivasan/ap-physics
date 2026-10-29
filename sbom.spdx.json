@@ -3,9 +3,9 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "ap-physics-sbom",
-  "documentNamespace": "https://github.com/sethusrinivasan/ap-physics/spdx/56614795-d808-4130-8253-ce40b502a6bb",
+  "documentNamespace": "https://github.com/sethusrinivasan/ap-physics/spdx/fffd6773-812e-4ff3-9ec6-0b81aa45d209",
   "creationInfo": {
-    "created": "2026-10-29T05:38:36Z",
+    "created": "2026-10-29T05:54:51Z",
     "creators": [
       "Tool: ap-physics-sbom-generator-1.0",
       "Organization: Google Gemini / DeepMind Antigravity Pair"
