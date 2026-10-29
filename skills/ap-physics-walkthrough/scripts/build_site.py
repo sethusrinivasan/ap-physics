@@ -172,32 +172,46 @@ def build_page_html(unit_num: int, n: int, total: int, spec: dict, parsed: dict,
         }
     }
     json_ld_str = json.dumps(json_ld, indent=2)
-    html = re.sub(r'<script type="application/ld\+json">.*?</script>', f'<script type="application/ld+json">\n{json_ld_str}\n  </script>', html, flags=re.DOTALL)
+    html = re.sub(
+        r'<script type="application/ld\+json">.*?</script>',
+        lambda _: f'<script type="application/ld+json">\n{json_ld_str}\n  </script>',
+        html,
+        flags=re.DOTALL
+    )
     
     # Header & Nav
-    html = re.sub(r'<div class="crumb"><a href="\.\./index\.html">AP Physics C</a> · Unit \d+</div>', f'<div class="crumb"><a href="../index.html">AP Physics C</a> · Unit {unit_num}</div>', html)
+    html = re.sub(r'<h1>Interactive walkthrough · Unit \d+, Question \d+</h1>', f'<h1>Interactive walkthrough · Unit {unit_num}, Question {n}</h1>', html)
     html = re.sub(r'<h1>Question \d+ · .*?</h1>', f'<h1>Question {n} · {spec["title"]}</h1>', html)
     
-    nav_markup = f"""    <nav class="nav">
-      {prev_link}
-      <a href="../index.html">Contents</a>
-      {next_link}
-    </nav>"""
-    html = re.sub(r'<nav class="nav">.*?</nav>', nav_markup, html, flags=re.DOTALL)
+    nav_markup = f"""      <nav class="problem-nav" aria-label="Problem navigation">
+        {prev_link}
+        <a href="../index.html">Contents</a>
+        {next_link}
+      </nav>"""
+    html = re.sub(r'<nav class="(?:problem-)?nav".*?</nav>', lambda _: nav_markup, html, flags=re.DOTALL)
     
-    # Problem Bar figures
-    exam_modal = f"""    <div class="exam-actions">
-      <a class="exam-btn" href="../figures/q{n:02d}.png" target="_blank" rel="noopener">Open question crop</a>
-      <a class="exam-btn" href="../figures/a{n:02d}.png" target="_blank" rel="noopener">Open answer crop</a>
-    </div>
-    <div class="exam-frame">
-      <img src="../figures/q{n:02d}.png" alt="AP Physics C Unit {unit_num} Question {n} exam prompt" loading="lazy" />
-    </div>"""
-    html = re.sub(r'<div class="exam-actions">.*?</div>\s*<div class="exam-frame">.*?</div>', exam_modal, html, flags=re.DOTALL)
+    # Problem Bar figures & QR links
+    html = re.sub(r'href="https://sethusrinivasan\.github\.io/ap-physics/[^"]+/q\d+/"', f'href="{canonical_url}"', html)
+    html = re.sub(r'aria-label="QR code to open [^"]+"', f'aria-label="QR code to open Unit {unit_num} Question {n} on a phone"', html)
+    html = re.sub(r'\.\./figures/q\d+\.png', f'../figures/q{n:02d}.png', html)
+    html = re.sub(r'\.\./figures/a\d+\.png', f'../figures/a{n:02d}.png', html)
+    html = re.sub(r'alt="Question \d+ exact exam item', f'alt="Question {n} exact exam item', html)
     
-    # STEPS array in JS
+    # STEPS array in JS (use literal string replacement to avoid regex backslash escape parsing)
     steps_json = json.dumps(steps, indent=2)
-    html = re.sub(r"const STEPS = \[.*?\];\n    const \$ =", f"const STEPS = {steps_json};\n    const $ =", html, flags=re.DOTALL)
+    start_marker = "const STEPS = ["
+    end_marker = "\n    const $ = (id)"
+    start_idx = html.find(start_marker)
+    end_idx = html.find(end_marker, start_idx)
+    if start_idx >= 0 and end_idx >= 0:
+        html = html[:start_idx] + f"const STEPS = {steps_json};" + html[end_idx:]
+    else:
+        html = re.sub(
+            r"const STEPS = \[.*?\];\n    const \$ =",
+            lambda _: f"const STEPS = {steps_json};\n    const $ =",
+            html,
+            flags=re.DOTALL
+        )
     
     return html
 
@@ -313,32 +327,40 @@ def build_toc_html(unit_num: int, title: str, count: int, specs: dict[int, dict]
 </html>"""
 
 
-def update_root_index(repo_root: Path, unit_num: int, title: str, count: int) -> None:
+def update_root_index(repo_root: Path, unit_id: str | int, title: str, count: int) -> None:
     """Add new unit to root index.html list if not already present."""
+    u_str = str(unit_id).strip()
+    unit_slug = u_str.lower() if u_str.lower().startswith("unit") else f"unit{u_str.lower()}"
     index_file = repo_root / "index.html"
+    if not index_file.exists():
+        return
     content = index_file.read_text()
-    link_token = f'href="unit{unit_num}/index.html"'
+    link_token = f'href="{unit_slug}/index.html"'
     if link_token in content:
         return
         
     unit_entry = f"""      <li>
-        <h2><a href="unit{unit_num}/index.html">Unit {unit_num}: {title}</a></h2>
+        <h2><a href="{unit_slug}/index.html">Unit {unit_id}: {title}</a></h2>
         <p>{count} multiple-choice problems with step-by-step interactive player and audio narration.</p>
       </li>"""
     content = re.sub(r"(</ul>)", f"{unit_entry}\n    \\1", content, count=1)
     index_file.write_text(content)
 
 
-def update_sitemap(repo_root: Path, unit_num: int, count: int) -> None:
+def update_sitemap(repo_root: Path, unit_id: str | int, count: int) -> None:
     """Add new unit pages to sitemap.xml."""
+    u_str = str(unit_id).strip()
+    unit_slug = u_str.lower() if u_str.lower().startswith("unit") else f"unit{u_str.lower()}"
     sitemap_file = repo_root / "sitemap.xml"
+    if not sitemap_file.exists():
+        return
     content = sitemap_file.read_text()
-    if f"unit{unit_num}/" in content:
+    if f"{unit_slug}/" in content:
         return
         
-    urls = [f"  <url><loc>https://sethusrinivasan.github.io/ap-physics/unit{unit_num}/</loc></url>"]
+    urls = [f"  <url><loc>https://sethusrinivasan.github.io/ap-physics/{unit_slug}/</loc></url>"]
     for n in range(1, count + 1):
-        urls.append(f"  <url><loc>https://sethusrinivasan.github.io/ap-physics/unit{unit_num}/q{n}/</loc></url>")
+        urls.append(f"  <url><loc>https://sethusrinivasan.github.io/ap-physics/{unit_slug}/q{n}/</loc></url>")
     block = "\n".join(urls)
     content = re.sub(r"(</urlset>)", f"{block}\n\\1", content)
     sitemap_file.write_text(content)
@@ -347,19 +369,22 @@ def update_sitemap(repo_root: Path, unit_num: int, count: int) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build interactive walkthrough pages")
     parser.add_argument("--repo-root", required=True, type=Path, help="AP Physics repository root")
-    parser.add_argument("--unit", required=True, type=int, help="Unit number")
+    parser.add_argument("--unit", required=True, type=str, help="Unit number or identifier")
     parser.add_argument("--title", required=True, type=str, help="Unit title")
     parser.add_argument("--specs", required=True, type=Path, help="Path to unit specs python file")
     parser.add_argument("--parsed", required=True, type=Path, help="Path to unit parsed json")
+    parser.add_argument("--no-root-update", action="store_true", help="Skip updating root index.html and sitemap.xml")
     args = parser.parse_args()
     
-    unit_dir = args.repo_root / f"unit{args.unit}"
+    u_val = str(args.unit).strip()
+    unit_slug = u_val.lower() if u_val.lower().startswith("unit") else f"unit{u_val.lower()}"
+    unit_display = args.unit.replace("unit", "").replace("Unit", "").strip() or args.unit
+    unit_dir = args.repo_root / unit_slug
     unit_dir.mkdir(parents=True, exist_ok=True)
     
     specs = load_specs(args.specs)
     with open(args.parsed) as f:
         parsed_list = json.load(f)
-    parsed_map = {item["n"]: item for item in parsed_list}
     total = len(parsed_list)
     
     # Template extracted from latest complete walkthrough
@@ -374,23 +399,26 @@ def main() -> None:
         q_dir.mkdir(parents=True, exist_ok=True)
         
         steps = make_steps(n, spec, ans)
-        page_html = build_page_html(args.unit, n, total, spec, item, steps, template_html)
+        page_html = build_page_html(unit_display, n, total, spec, item, steps, template_html)
         (q_dir / "index.html").write_text(page_html)
         
-        qr_url = f"https://sethusrinivasan.github.io/ap-physics/unit{args.unit}/q{n}/"
+        qr_url = f"https://sethusrinivasan.github.io/ap-physics/{unit_slug}/q{n}/"
         make_qr_svg(qr_url, q_dir / "qr.svg")
         print(f"Generated Q{n} page and QR code.")
         
     # Build TOC and QR
-    toc_html = build_toc_html(args.unit, args.title, total, specs, parsed_list)
+    toc_html = build_toc_html(unit_display, args.title, total, specs, parsed_list)
     (unit_dir / "index.html").write_text(toc_html)
-    make_qr_svg(f"https://sethusrinivasan.github.io/ap-physics/unit{args.unit}/", unit_dir / "qr.svg")
+    make_qr_svg(f"https://sethusrinivasan.github.io/ap-physics/{unit_slug}/", unit_dir / "qr.svg")
     print(f"Unit {args.unit} TOC created.")
     
     # Update root index & sitemap
-    update_root_index(args.repo_root, args.unit, args.title, total)
-    update_sitemap(args.repo_root, args.unit, total)
-    print("Site index and sitemap updated.")
+    if not args.no_root_update:
+        update_root_index(args.repo_root, args.unit, args.title, total)
+        update_sitemap(args.repo_root, args.unit, total)
+        print("Site index and sitemap updated.")
+    else:
+        print("Skipped root index and sitemap update (--no-root-update requested).")
 
 
 if __name__ == "__main__":

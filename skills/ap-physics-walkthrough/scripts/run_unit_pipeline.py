@@ -68,23 +68,27 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Build complete AP Physics C walkthrough unit from Question and Answer PDFs"
     )
-    parser.add_argument("--unit", required=True, type=int, help="Unit number (e.g., 4 or 5)")
+    parser.add_argument("--unit", required=True, type=str, help="Unit identifier (e.g., 4 or '4_Test')")
     parser.add_argument("--title", required=True, type=str, help="Unit Title (e.g., 'Linear Momentum')")
     parser.add_argument("--questions", required=True, type=Path, help="Path to Question PDF")
     parser.add_argument("--answers", required=True, type=Path, help="Path to Answers/Solutions PDF")
     parser.add_argument("--dpi", type=int, default=250, help="Crop render resolution (default: 250 DPI)")
     parser.add_argument("--skip-audio", action="store_true", help="Skip audio synthesis for rapid preview")
+    parser.add_argument("--limit-audio", type=int, default=None, help="Limit number of audio problems generated (for testing)")
     parser.add_argument("--overwrite-audio", action="store_true", help="Overwrite existing audio MP3 files")
+    parser.add_argument("--no-root-update", action="store_true", help="Skip updating root index.html and sitemap.xml")
     parser.add_argument("--repo-root", type=Path, default=REPO_ROOT, help="Path to repository root")
     args = parser.parse_args()
     check_dependencies()
 
     repo = args.repo_root.resolve()
-    unit_dir = repo / f"unit{args.unit}"
+    u_val = str(args.unit).strip()
+    unit_slug = u_val.lower() if u_val.lower().startswith("unit") else f"unit{u_val.lower()}"
+    unit_dir = repo / unit_slug
     unit_dir.mkdir(parents=True, exist_ok=True)
     
-    parsed_json = repo / "tools" / f"unit{args.unit}_parsed.json"
-    specs_py = repo / "tools" / f"unit{args.unit}_specs.py"
+    parsed_json = repo / "tools" / f"{unit_slug}_parsed.json"
+    specs_py = repo / "tools" / f"{unit_slug}_specs.py"
     
     print(f"\n🚀 STARTING AP PHYSICS C UNIT {args.unit} WALKTHROUGH BUILD")
     print(f"Title:     {args.title}")
@@ -135,6 +139,8 @@ def main() -> None:
         "--specs", str(specs_py),
         "--parsed", str(parsed_json)
     ]
+    if args.no_root_update:
+        build_cmd.append("--no-root-update")
     run_stage(4, "Player, QR Code & Navigation Builder", build_cmd)
 
     # Stage 5: Audio narration synthesis
@@ -146,6 +152,8 @@ def main() -> None:
         ]
         if args.overwrite_audio:
             audio_cmd.append("--overwrite")
+        if args.limit_audio is not None and args.limit_audio > 0:
+            audio_cmd.extend(["--limit", str(args.limit_audio)])
         run_stage(5, "Narration Audio Synthesis", audio_cmd)
     else:
         print("\n⏩ Stage 5 skipped (--skip-audio requested).")
@@ -157,6 +165,10 @@ def main() -> None:
         "--repo-root", str(repo),
         "--unit", str(args.unit)
     ]
+    if args.skip_audio or (args.limit_audio is not None and args.limit_audio > 0):
+        verify_cmd.append("--allow-partial-audio")
+    if args.no_root_update:
+        verify_cmd.append("--no-root-update")
     run_stage(6, "Comprehensive Verification & Regression Suite", verify_cmd)
 
     print(f"\n{'='*70}")

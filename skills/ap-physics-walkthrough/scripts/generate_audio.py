@@ -151,10 +151,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Synthesize narration audio for a unit")
     parser.add_argument("--unit-dir", required=True, type=Path, help="Path to unit directory (e.g. unit4/)")
     parser.add_argument("--overwrite", action="store_true", help="Force overwrite of existing audio files")
+    parser.add_argument("--limit", type=int, default=None, help="Process at most N problems (default: all)")
     parser.add_argument("--workers", type=int, default=4, help="Concurrent worker threads (default: 4)")
     args = parser.parse_args()
     
     q_dirs = sorted([d for d in args.unit_dir.glob("q*") if d.is_dir()], key=lambda p: int(p.name[1:]))
+    if args.limit is not None and args.limit > 0:
+        q_dirs = q_dirs[:args.limit]
     print(f"Synthesizing audio across {len(q_dirs)} problems (overwrite={args.overwrite})...")
     
     with ThreadPoolExecutor(max_workers=args.workers) as executor:

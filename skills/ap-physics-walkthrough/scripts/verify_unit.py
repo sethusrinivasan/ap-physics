@@ -26,10 +26,12 @@ REQUIRED_CSS_SELECTORS = [
 ]
 
 
-def verify_unit(repo_root: Path, unit_num: int) -> list[str]:
+def verify_unit(repo_root: Path, unit_id: str | int, allow_partial_audio: bool = False, no_root_update: bool = False) -> list[str]:
     """Execute complete validation checks on the target unit."""
     errors = []
-    unit_dir = repo_root / f"unit{unit_num}"
+    u_str = str(unit_id).strip()
+    unit_slug = u_str.lower() if u_str.lower().startswith("unit") else f"unit{u_str.lower()}"
+    unit_dir = repo_root / unit_slug
     fig_dir = unit_dir / "figures"
     
     if not unit_dir.exists():
@@ -40,25 +42,26 @@ def verify_unit(repo_root: Path, unit_num: int) -> list[str]:
         return [f"No question directories found in {unit_dir}"]
         
     total_q = len(q_dirs)
-    print(f"Validating Unit {unit_num} with {total_q} problems...")
+    print(f"Validating {unit_slug} with {total_q} problems...")
     
     # 1. TOC & Root index verification
     toc_file = unit_dir / "index.html"
     if not toc_file.exists():
-        errors.append(f"Unit {unit_num} TOC missing: {toc_file}")
+        errors.append(f"Unit {unit_slug} TOC missing: {toc_file}")
     else:
         toc_text = toc_file.read_text()
         for i in range(1, total_q + 1):
             if f'href="q{i}/index.html"' not in toc_text:
-                errors.append(f"Unit {unit_num} TOC missing link to q{i}/index.html")
+                errors.append(f"Unit {unit_slug} TOC missing link to q{i}/index.html")
                 
-    root_index = (repo_root / "index.html").read_text()
-    if f'href="unit{unit_num}/index.html"' not in root_index:
-        errors.append(f"Root index.html missing link to unit{unit_num}/index.html")
-        
-    sitemap = (repo_root / "sitemap.xml").read_text()
-    if f"unit{unit_num}/" not in sitemap:
-        errors.append(f"sitemap.xml missing unit{unit_num}/")
+    if not no_root_update:
+        root_index = (repo_root / "index.html").read_text()
+        if f'href="{unit_slug}/index.html"' not in root_index:
+            errors.append(f"Root index.html missing link to {unit_slug}/index.html")
+            
+        sitemap = (repo_root / "sitemap.xml").read_text()
+        if f"{unit_slug}/" not in sitemap:
+            errors.append(f"sitemap.xml missing {unit_slug}/")
         
     # 2. Per-problem checks
     for i in range(1, total_q + 1):
@@ -108,29 +111,32 @@ def verify_unit(repo_root: Path, unit_num: int) -> list[str]:
         # Audio & Manifest checks
         audio_dir = q_dir / "audio"
         manifest_file = audio_dir / "manifest.json"
-        if not manifest_file.exists():
-            errors.append(f"Q{i} audio manifest missing")
-        else:
-            try:
-                manifest = json.loads(manifest_file.read_text())
-                if len(manifest) != 7:
-                    errors.append(f"Q{i} manifest does not have 7 steps (has {len(manifest)})")
-            except Exception as e:
-                errors.append(f"Q{i} manifest JSON invalid: {e}")
-                
-        for step_idx in range(1, 8):
-            mp3_file = audio_dir / f"step-{step_idx:02d}.mp3"
-            if not mp3_file.exists() or mp3_file.stat().st_size < 2000:
-                errors.append(f"Q{i} step-{step_idx:02d}.mp3 missing or small (<2KB)")
+        if not allow_partial_audio or audio_dir.exists():
+            if not manifest_file.exists():
+                errors.append(f"Q{i} audio manifest missing")
+            else:
+                try:
+                    manifest = json.loads(manifest_file.read_text())
+                    if len(manifest) != 7:
+                        errors.append(f"Q{i} manifest does not have 7 steps (has {len(manifest)})")
+                except Exception as e:
+                    errors.append(f"Q{i} manifest JSON invalid: {e}")
+                    
+            for step_idx in range(1, 8):
+                mp3_file = audio_dir / f"step-{step_idx:02d}.mp3"
+                if not mp3_file.exists() or mp3_file.stat().st_size < 2000:
+                    errors.append(f"Q{i} step-{step_idx:02d}.mp3 missing or small (<2KB)")
                 
     return errors
 
 
-def verify_prior_units_untouched(repo_root: Path, target_unit: int) -> list[str]:
-    """Verify that prior existing units (e.g. unit2) remain completely intact."""
+def verify_prior_units_untouched(repo_root: Path, target_unit: str | int) -> list[str]:
+    """Verify that prior existing units (e.g. unit2, unit4) remain completely intact."""
     errors = []
+    t_str = str(target_unit).strip()
+    target_slug = t_str.lower() if t_str.lower().startswith("unit") else f"unit{t_str.lower()}"
     # Identify all other unit folders
-    other_units = [d for d in repo_root.glob("unit*") if d.is_dir() and d.name != f"unit{target_unit}"]
+    other_units = [d for d in repo_root.glob("unit*") if d.is_dir() and d.name.lower() != target_slug]
     for u in other_units:
         # Check that its index.html exists and problem count is non-zero
         toc = u / "index.html"
@@ -150,10 +156,12 @@ DEFAULT_REPO_ROOT = Path(__file__).resolve().parents[3]
 def main() -> None:
     parser = argparse.ArgumentParser(description="Comprehensive validation and regression testing")
     parser.add_argument("--repo-root", default=DEFAULT_REPO_ROOT, type=Path, help="Repo root")
-    parser.add_argument("--unit", required=True, type=int, help="Target unit number to validate")
+    parser.add_argument("--unit", required=True, type=str, help="Target unit identifier to validate")
+    parser.add_argument("--allow-partial-audio", action="store_true", help="Allow partial audio generation for testing")
+    parser.add_argument("--no-root-update", action="store_true", help="Skip root index and sitemap verification")
     args = parser.parse_args()
     
-    unit_errors = verify_unit(args.repo_root, args.unit)
+    unit_errors = verify_unit(args.repo_root, args.unit, allow_partial_audio=args.allow_partial_audio, no_root_update=args.no_root_update)
     regression_errors = verify_prior_units_untouched(args.repo_root, args.unit)
     
     all_errors = unit_errors + regression_errors
