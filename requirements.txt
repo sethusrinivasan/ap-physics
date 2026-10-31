@@ -1,6 +1,6 @@
 # Core Test & Browser Automation (Python 3.10+)
 playwright>=1.49,<2
-pytest>=8.0.0
+pytest>=9.2.0
 
 # ap-physics-walkthrough Skill Dependencies
 pillow>=12.3.0
